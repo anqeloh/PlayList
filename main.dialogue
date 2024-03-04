@@ -1,0 +1,6 @@
+~ start
+
+if global.given_npc_item == false
+	NPC: [[Hi|Hello|What's up]]... , Adventurer!
+
+=> END
