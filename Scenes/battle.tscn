@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://drccvf1vx46d3"]
+[gd_scene load_steps=20 format=3 uid="uid://drccvf1vx46d3"]
 
 [ext_resource type="Texture2D" uid="uid://crl6uldrkul20" path="res://Assets/battleback1.png" id="1_3ypui"]
 [ext_resource type="Script" path="res://Scripts/battle_screen.gd" id="1_ryj38"]
@@ -32,6 +32,15 @@ border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e6ava"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ag1jj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x32x4"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7yvod"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ribf3"]
@@ -274,6 +283,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ActionsPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -340,6 +350,87 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
 text = "RUN"
 
+[node name="AttackPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ca8th")
+
+[node name="Actions" type="HBoxContainer" parent="AttackPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = 11.0
+offset_right = -19.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="Attack1" type="Button" parent="AttackPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_at7ey")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_11p6t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
+text = "ATTack1"
+
+[node name="Attack2" type="Button" parent="AttackPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_at7ey")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_11p6t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
+text = "ATTACK2"
+
+[node name="Attack3" type="Button" parent="AttackPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_at7ey")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_11p6t")
+theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
+text = "ATTACK3"
+
+[node name="Attack4" type="Button" parent="AttackPanel/Actions"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_at7ey")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_ag1jj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x32x4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7yvod")
+text = "ATTACK4"
+
 [node name="TextBox" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 10
@@ -393,3 +484,7 @@ anchor_mode = 0
 [connection signal="pressed" from="ActionsPanel/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions/Defend" to="." method="_on_defend_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="AttackPanel/Actions/Attack1" to="." method="_on_attack_1_pressed"]
+[connection signal="pressed" from="AttackPanel/Actions/Attack2" to="." method="_on_attack_2_pressed"]
+[connection signal="pressed" from="AttackPanel/Actions/Attack3" to="." method="_on_attack_3_pressed"]
+[connection signal="pressed" from="AttackPanel/Actions/Attack4" to="." method="_on_attack_4_pressed"]

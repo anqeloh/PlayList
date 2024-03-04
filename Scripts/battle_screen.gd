@@ -60,6 +60,20 @@ func _on_run_pressed():
 
 
 func _on_attack_pressed():
+	$ActionsPanel.hide()
+	$AttackPanel.show()
+
+
+func _on_defend_pressed():
+	is_defending = true
+	display_text("You defended. . .")
+	await self.textbox_closed
+	await (get_tree().create_timer(0.25).timeout)
+	enemy_turn()
+
+
+func _on_attack_1_pressed():
+	$AttackPanel.hide()
 	display_text("You attacked. . .")
 	await self.textbox_closed
 	
@@ -82,9 +96,73 @@ func _on_attack_pressed():
 		enemy_turn()
 
 
-func _on_defend_pressed():
-	is_defending = true
-	display_text("You defended. . .")
+func _on_attack_2_pressed():
+	$AttackPanel.hide()
+	display_text("You attacked. . .")
 	await self.textbox_closed
-	await (get_tree().create_timer(0.25).timeout)
-	enemy_turn()
+	
+	current_enemy_health = max(0, current_enemy_health - State.damage)
+	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+	$AnimationPlayer.play("enemy_damaged")
+	await $AnimationPlayer.animation_finished
+	
+	display_text("You delt %d damage!" % State.damage)
+	await self.textbox_closed
+	
+	if current_enemy_health == 0:
+		$AnimationPlayer.play("enemy_died")
+		await $AnimationPlayer.animation_finished
+		display_text("%s was defeated." % enemy.name)
+		await self.textbox_closed
+		await (get_tree().create_timer(0.25).timeout)
+		get_tree().quit()
+	else:
+		enemy_turn()
+
+
+func _on_attack_3_pressed():
+	$AttackPanel.hide()
+	display_text("You attacked. . .")
+	await self.textbox_closed
+	
+	current_enemy_health = max(0, current_enemy_health - State.damage)
+	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+	$AnimationPlayer.play("enemy_damaged")
+	await $AnimationPlayer.animation_finished
+	
+	display_text("You delt %d damage!" % State.damage)
+	await self.textbox_closed
+	
+	if current_enemy_health == 0:
+		$AnimationPlayer.play("enemy_died")
+		await $AnimationPlayer.animation_finished
+		display_text("%s was defeated." % enemy.name)
+		await self.textbox_closed
+		await (get_tree().create_timer(0.25).timeout)
+		get_tree().quit()
+	else:
+		enemy_turn()
+
+
+func _on_attack_4_pressed():
+	$AttackPanel.hide()
+	display_text("You attacked. . .")
+	await self.textbox_closed
+	
+	current_enemy_health = max(0, current_enemy_health - State.damage)
+	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+	$AnimationPlayer.play("enemy_damaged")
+	await $AnimationPlayer.animation_finished
+	
+	display_text("You delt %d damage!" % State.damage)
+	await self.textbox_closed
+	
+	if current_enemy_health == 0:
+		$AnimationPlayer.play("enemy_died")
+		await $AnimationPlayer.animation_finished
+		display_text("%s was defeated." % enemy.name)
+		await self.textbox_closed
+		await (get_tree().create_timer(0.25).timeout)
+		get_tree().quit()
+	else:
+		enemy_turn()
