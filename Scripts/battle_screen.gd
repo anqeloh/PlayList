@@ -49,7 +49,7 @@ func enemy_turn():
 		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, State.max_health)
 		$AnimationPlayer.play("shake")
 		await $AnimationPlayer.animation_finished
-		display_text("%s delt %d damge at you!" % [enemy.name, enemy.damage])
+		display_text("%s delt %d damage at you!" % [enemy.name, enemy.damage])
 		await self.textbox_closed
 	$ActionsPanel.show()
 func _on_run_pressed():
@@ -68,7 +68,7 @@ func _on_attack_pressed():
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You delt %d damge!" % State.damage)
+	display_text("You delt %d damage!" % State.damage)
 	await self.textbox_closed
 	
 	if current_enemy_health == 0:
