@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dewt8tvkuraq8"]
+
+[ext_resource type="Script" path="res://Scripts/base_enemy.gd" id="1_7rcif"]
+[ext_resource type="Texture2D" uid="uid://dkkwyuvpi65ow" path="res://Assets/icon.svg" id="2_ysa6f"]
+
+[resource]
+script = ExtResource("1_7rcif")
+name = "Goodot"
+texture = ExtResource("2_ysa6f")
+health = 45
+damage = 15

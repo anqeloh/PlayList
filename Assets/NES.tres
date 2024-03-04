@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c1m57otrn1nuf"]
+
+[ext_resource type="FontFile" uid="uid://basd8os2ykt3d" path="res://Assets/NESCyrillic.ttf" id="1_aoxfs"]
+
+[resource]
+base_font = ExtResource("1_aoxfs")
+spacing_bottom = 2
