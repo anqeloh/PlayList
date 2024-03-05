@@ -1,6 +1,18 @@
 ~ start
 
 if global.given_npc_item == false
-	NPC: [[Hi|Hello|What's up]]... , Adventurer!
+	NPC: [[Hi|Hello|What's up]]. Adventurer!
+	- goodbye.
+		NPC: Okay man! Don't have to be so rude >:(
+		NPC: I hope everything in your life goes terribly wrong!
+		=> END
+	- Hello.
+		NPC: Welcome to []
+		NPC: In this game, you will be ___
+		- I don't need to know more, goodbye. => END
+		- mhm.
+			NPC: 
+			=> END
+
 
 => END
