@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://drccvf1vx46d3"]
+[gd_scene load_steps=21 format=3 uid="uid://drccvf1vx46d3"]
 
 [ext_resource type="Texture2D" uid="uid://crl6uldrkul20" path="res://Assets/battleback1.png" id="1_3ypui"]
 [ext_resource type="Script" path="res://Scripts/battle_screen.gd" id="1_ryj38"]
 [ext_resource type="FontVariation" uid="uid://c1m57otrn1nuf" path="res://Assets/NES.tres" id="2_at7ey"]
-[ext_resource type="Resource" uid="uid://dewt8tvkuraq8" path="res://Resource/godot_png.tres" id="2_r0wit"]
 [ext_resource type="Texture2D" uid="uid://dkkwyuvpi65ow" path="res://Assets/icon.svg" id="5_f7ukr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmm7b"]
@@ -193,7 +192,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1210, 183), Vector2(700, 183)]
+"values": [Vector2(1000, 185), Vector2(600, 183)]
 }
 
 [sub_resource type="Animation" id="Animation_5t2e8"]
@@ -230,7 +229,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ryj38")
-enemy = ExtResource("2_r0wit")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -286,14 +284,12 @@ vertical_alignment = 1
 [node name="EnemyContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.308
-anchor_top = 0.289
-anchor_right = 0.668
-anchor_bottom = 0.756
-offset_left = 855.184
-offset_top = -4.272
-offset_right = 832.461
-offset_bottom = -108.888
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1210.0
+offset_top = 183.0
+offset_right = 803.0
+offset_bottom = -295.0
 grow_horizontal = 2
 grow_vertical = 2
 

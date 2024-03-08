@@ -2,10 +2,16 @@ extends Control
 
 signal textbox_closed
 
-@export var enemy: Resource = null
+var enemies = [
+	preload("res://Resource/godot_png.tres"), 
+	preload("res://Resource/godot_png2.tres")]
+var random_index = randi_range(0, enemies.size()- 1)
+var enemy = enemies[random_index]
 var current_player_health = 0
 var current_enemy_health = 0
 var is_defending = false
+
+
 
 func _ready():
 	set_health($PlayerPanel/PlayerData/ProgressBar, State.current_health, State.max_health) #Player Global Health
@@ -42,6 +48,7 @@ func enemy_turn():
 		await $AnimationPlayer.animation_finished
 		display_text("No damage was taken")
 		await self.textbox_closed
+		await (get_tree().create_timer(0.5).timeout)
 		$ActionsPanel/Actions1.show()
 		$ActionsPanel/Actions2.show()
 	else:
@@ -51,6 +58,7 @@ func enemy_turn():
 		await $AnimationPlayer.animation_finished
 		display_text("%s delt %d damage at you!" % [enemy.name, enemy.damage])
 		await self.textbox_closed
+		await (get_tree().create_timer(0.5).timeout)
 	$AttackPanel.hide()
 	$AttackPanel/Actions.show()
 	$AttackPanel/Actions2.show()
@@ -77,7 +85,6 @@ func _on_defend_pressed():
 	$ActionsPanel/Actions2.hide()
 	display_text("You defended. . .")
 	await self.textbox_closed
-	await (get_tree().create_timer(0.25).timeout)
 	enemy_turn()
 
 
