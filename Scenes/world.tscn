@@ -10,6 +10,7 @@ script = ExtResource("1_ac8an")
 [node name="Player" parent="." instance=ExtResource("2_w7pd1")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
 
 [node name="PauseMenu" parent="Camera2D" instance=ExtResource("2_jf3sv")]
 visible = false
