@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=5 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
 [ext_resource type="PackedScene" uid="uid://bjgsh85laufmk" path="res://Scenes/player.tscn" id="2_w7pd1"]
+[ext_resource type="PackedScene" uid="uid://b32bft1726qei" path="res://npc.tscn" id="4_aohc8"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ac8an")
@@ -17,3 +18,6 @@ offset_left = -33.0
 offset_top = -31.0
 offset_right = -33.0
 offset_bottom = -31.0
+
+[node name="NPC" parent="." instance=ExtResource("4_aohc8")]
+position = Vector2(31, 6)
