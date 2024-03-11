@@ -289,6 +289,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_0gerq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -298,3 +299,13 @@ sprite_frames = SubResource("SpriteFrames_aywc3")
 animation = &"back_walk"
 frame = 2
 frame_progress = 0.53216
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -192
+limit_top = -159
+limit_right = 176
+limit_bottom = 160
+position_smoothing_speed = 8.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.1
