@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8neuru848ubs"]
+
+[ext_resource type="Texture2D" uid="uid://btyv00qbh1rmo" path="res://Assets/DialogueScreen.png" id="1_5bnk5"]
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchor_left = -0.019
+anchor_top = -0.057
+anchor_right = -0.019
+anchor_bottom = -0.057
+offset_left = 22.888
+offset_top = 37.936
+offset_right = 61.888
+offset_bottom = 76.936
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = -24.0
+offset_top = -40.0
+offset_right = 25.0
+offset_bottom = -9.0
+texture = ExtResource("1_5bnk5")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 33.0
+scale = Vector2(0.2, 0.2)
+text = "Name:"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 13.0
+offset_right = 156.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+text = "Chatting..."
