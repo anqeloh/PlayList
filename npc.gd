@@ -58,7 +58,9 @@ func move(delta):
 		position += dir * speed * delta
 
 
-
+func npc():
+	pass
+	
 
 func _on_chat_detection_area_body_entered(body):
 	if body.has_method("player"):

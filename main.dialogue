@@ -13,5 +13,4 @@ if global.given_npc_item == false
 			NPC: If you need anything else, you can speak to the npc's in the beginning of each level.
 			NPC: Good luck on your adventures!
 			=> END
-
 => END

@@ -1,8 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://b32bft1726qei"]
+[gd_scene load_steps=17 format=3 uid="uid://b32bft1726qei"]
 
 [ext_resource type="Script" path="res://npc.gd" id="1_l00mt"]
 [ext_resource type="Texture2D" uid="uid://bnqi88p066rvr" path="res://Assets/sprites/characters/slime.png" id="1_mbekm"]
-[ext_resource type="PackedScene" uid="uid://b8neuru848ubs" path="res://dialogue/dialogue.tscn" id="3_tna50"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gwne"]
 atlas = ExtResource("1_mbekm")
@@ -116,12 +115,6 @@ shape = SubResource("CircleShape2D_adhig")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_3lcn8")
-
-[node name="Dialogue" parent="chat_detection_area" instance=ExtResource("3_tna50")]
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 39.0
-offset_bottom = 39.0
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
