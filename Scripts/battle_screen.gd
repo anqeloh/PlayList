@@ -27,6 +27,9 @@ func _ready():
 	$ActionsPanel/Actions1.show()
 	$ActionsPanel/Actions2.show()
 
+func _process(delta):
+	pointer_on_focus()
+
 
 func set_health(progress_bar, health, max_health):
 	progress_bar.value = health
@@ -71,7 +74,7 @@ func _on_run_pressed():
 	display_text("You have escaped.")
 	await self.textbox_closed
 	await (get_tree().create_timer(0.25).timeout)
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Scenes/world.tscn")
 
 
 func _on_attack_pressed():
@@ -108,7 +111,7 @@ func _on_attack_1_pressed():
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
 		await (get_tree().create_timer(0.25).timeout)
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	else:
 		enemy_turn()
 
@@ -133,7 +136,7 @@ func _on_attack_2_pressed():
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
 		await (get_tree().create_timer(0.25).timeout)
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	else:
 		enemy_turn()
 
@@ -158,7 +161,7 @@ func _on_attack_3_pressed():
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
 		await (get_tree().create_timer(0.25).timeout)
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	else:
 		enemy_turn()
 
@@ -183,7 +186,16 @@ func _on_attack_4_pressed():
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
 		await (get_tree().create_timer(0.25).timeout)
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	else:
 		enemy_turn()
 	
+func pointer_on_focus():
+	if $AttackPanel/Actions/Attack1.is_hovered():
+		display_text("Attack 1: Attacks the enemy.")
+	if $AttackPanel/Actions/Attack2.is_hovered():
+		display_text("Attack 2: Attacks the enemy!")
+	if $AttackPanel/Actions2/Attack3.is_hovered():
+		display_text("Attack 3: Attacks the enemy?")
+	if $AttackPanel/Actions2/Attack4.is_hovered():
+		display_text("Attack 4: Attacks the enemy...")

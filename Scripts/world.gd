@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var pause_menu = $Player/PauseMenu
+@onready var pause_menu = $Player/Camera2D2/PauseMenu
 @onready var battle_start = $BattleStart
 
 var paused = false
@@ -21,7 +21,7 @@ func pauseMenu():
 	paused = !paused
 
 
-
-
-func _on_battle_start_area_entered(area):
+func _on_battle_start_body_entered(body):
+	print("area has entered, prepare for battle!")
+	await (get_tree().create_timer(1.0).timeout)
 	get_tree().change_scene_to_file("res://Scenes/battle.tscn")

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2kln4cpp3o18" path="res://Scenes/ctrl_level_tile_map.tscn" id="4_4q8ny"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tphwa"]
-size = Vector2(61, 15)
+size = Vector2(143, 21.5)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ac8an")
@@ -17,7 +17,10 @@ layer_0/tile_data = PackedInt32Array(-1, 196608, 2, 65534, 196608, 1, 65535, 196
 
 [node name="Player" parent="." instance=ExtResource("2_w7pd1")]
 
-[node name="PauseMenu" parent="Player" instance=ExtResource("2_jf3sv")]
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+
+[node name="PauseMenu" parent="Player/Camera2D2" instance=ExtResource("2_jf3sv")]
 visible = false
 offset_left = -33.0
 offset_top = -31.0
@@ -25,9 +28,11 @@ offset_right = -33.0
 offset_bottom = -31.0
 
 [node name="BattleStart" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleStart"]
-position = Vector2(0.5, -89.5)
+position = Vector2(0, -91.75)
 shape = SubResource("RectangleShape2D_tphwa")
 
-[connection signal="area_entered" from="BattleStart" to="." method="_on_battle_start_area_entered"]
+[connection signal="body_entered" from="BattleStart" to="." method="_on_battle_start_body_entered"]
