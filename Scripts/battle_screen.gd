@@ -9,6 +9,7 @@ var random_index = randi_range(0, enemies.size()- 1)
 var enemy = enemies[random_index]
 var current_player_health = 0
 var current_enemy_health = 0
+var rng: RandomNumberGenerator
 var is_defending = false
 
 
@@ -26,13 +27,15 @@ func _ready():
 	display_text("What will you do?")
 	$ActionsPanel/Actions1.show()
 	$ActionsPanel/Actions2.show()
+	rng = RandomNumberGenerator.new()
 
 func _process(delta):
 	pointer_on_focus()
 
 
 func set_health(progress_bar, health, max_health):
-	progress_bar.value = health
+	var tween = get_tree().create_tween()
+	tween.tween_property(progress_bar, "value", health, 0.4)
 	progress_bar.max_value = max_health
 	progress_bar.get_node("Label").text = "HP: %d/%d" % [health, max_health]
 func _input(event):
@@ -62,11 +65,19 @@ func enemy_turn():
 		display_text("%s delt %d damage at you!" % [enemy.name, enemy.damage])
 		await self.textbox_closed
 		await (get_tree().create_timer(0.5).timeout)
-	$AttackPanel.hide()
-	$AttackPanel/Actions.show()
-	$AttackPanel/Actions2.show()
-	$ActionsPanel.show()
-	display_text("What will you do?")
+	if current_player_health <= 0:
+		display_text("you died")
+		await self.textbox_closed
+		get_tree().quit()
+	else:
+		$AttackPanel.hide()
+		$AttackPanel/Actions.show()
+		$AttackPanel/Actions2.show()
+		$ActionsPanel/Actions1.show()
+		$ActionsPanel/Actions2.show()
+		$ActionsPanel.show()
+		display_text("What will you do?")
+	
 	
 func _on_run_pressed():
 	$ActionsPanel/Actions1.hide()
@@ -83,12 +94,22 @@ func _on_attack_pressed():
 
 
 func _on_defend_pressed():
-	is_defending = true
-	$ActionsPanel/Actions1.hide()
-	$ActionsPanel/Actions2.hide()
-	display_text("You defended. . .")
-	await self.textbox_closed
-	enemy_turn()
+	rng.randomize()
+	var randomValue = rng.randi_range(1, 2)
+	if not randomValue == 2:
+		is_defending = true
+		$ActionsPanel/Actions1.hide()
+		$ActionsPanel/Actions2.hide()
+		display_text("You defended. . .")
+		await self.textbox_closed
+		enemy_turn()
+	else:
+		$ActionsPanel/Actions1.hide()
+		$ActionsPanel/Actions2.hide()
+		display_text("you failed to defend!")
+		await self.textbox_closed
+		enemy_turn()
+	
 
 
 func _on_attack_1_pressed():
