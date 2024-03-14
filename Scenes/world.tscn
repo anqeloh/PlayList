@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=7 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
 [ext_resource type="PackedScene" uid="uid://bjgsh85laufmk" path="res://Scenes/player.tscn" id="2_w7pd1"]
 [ext_resource type="PackedScene" uid="uid://c2kln4cpp3o18" path="res://Scenes/ctrl_level_tile_map.tscn" id="4_4q8ny"]
+[ext_resource type="PackedScene" uid="uid://b32bft1726qei" path="res://Scenes/npc.tscn" id="5_dnk7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tphwa"]
 size = Vector2(143, 21.5)
@@ -34,5 +35,8 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BattleStart"]
 position = Vector2(0, -91.75)
 shape = SubResource("RectangleShape2D_tphwa")
+
+[node name="NPC" parent="." instance=ExtResource("5_dnk7x")]
+position = Vector2(0, -36)
 
 [connection signal="body_entered" from="BattleStart" to="." method="_on_battle_start_body_entered"]

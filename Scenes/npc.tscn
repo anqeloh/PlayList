@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://b32bft1726qei"]
 
-[ext_resource type="Script" path="res://npc.gd" id="1_l00mt"]
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_l00mt"]
 [ext_resource type="Texture2D" uid="uid://bnqi88p066rvr" path="res://Assets/sprites/characters/slime.png" id="1_mbekm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3gwne"]

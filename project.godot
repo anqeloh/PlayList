@@ -18,7 +18,7 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-global="*res://global.gd"
+global="*res://Scripts/global.gd"
 
 [editor_plugins]
 
