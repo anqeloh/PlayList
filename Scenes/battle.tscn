@@ -1,8 +1,8 @@
 [gd_scene load_steps=21 format=3 uid="uid://drccvf1vx46d3"]
 
-[ext_resource type="Texture2D" uid="uid://crl6uldrkul20" path="res://Assets/battleback1.png" id="1_3ypui"]
 [ext_resource type="Script" path="res://Scripts/battle_screen.gd" id="1_ryj38"]
 [ext_resource type="FontVariation" uid="uid://c1m57otrn1nuf" path="res://Assets/NES.tres" id="2_at7ey"]
+[ext_resource type="Texture2D" uid="uid://yw7n4yjywnn2" path="res://Assets/battleback10.png" id="2_lj4b8"]
 [ext_resource type="Texture2D" uid="uid://dkkwyuvpi65ow" path="res://Assets/icon.svg" id="5_f7ukr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmm7b"]
@@ -241,7 +241,7 @@ offset_right = 54.0
 offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_3ypui")
+texture = ExtResource("2_lj4b8")
 
 [node name="EnemyContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

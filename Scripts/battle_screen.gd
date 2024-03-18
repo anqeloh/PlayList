@@ -4,7 +4,8 @@ signal textbox_closed
 
 var enemies = [
 	preload("res://Resource/godot_png.tres"), 
-	preload("res://Resource/godot_png2.tres")]
+	preload("res://Resource/godot_png2.tres")
+	]
 var random_index = randi_range(0, enemies.size()- 1)
 var enemy = enemies[random_index]
 var current_player_health = 0
@@ -22,7 +23,7 @@ func _ready():
 	current_enemy_health = enemy.health
 	
 	$AnimationPlayer.play("enemy_start")
-	display_text("A Wild %s Appears!" % enemy.name)
+	display_text("%s has appeared!" % enemy.name)
 	await self.textbox_closed
 	display_text("What will you do?")
 	$ActionsPanel/Actions1.show()

@@ -93,11 +93,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_adhig"]
-radius = 7.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hf3nv"]
+size = Vector2(18, 14)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3lcn8"]
-radius = 12.0416
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glh2t"]
+size = Vector2(24, 22)
 
 [node name="NPC" type="CharacterBody2D"]
 script = ExtResource("1_l00mt")
@@ -108,13 +108,15 @@ animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_adhig")
+shape = SubResource("RectangleShape2D_hf3nv")
 
 [node name="chat_detection_area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_3lcn8")
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_glh2t")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

@@ -12,7 +12,7 @@ func _physics_process(delta):
 	
 	if npc_in_range == true:
 		if Input.is_action_just_pressed("ui_accept"):
-			DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "main")
+			DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/test.dialogue"), "start")
 			return
 	
 	player_movement(delta)

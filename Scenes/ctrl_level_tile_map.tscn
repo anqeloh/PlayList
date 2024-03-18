@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c2kln4cpp3o18"]
 
-[ext_resource type="Texture2D" uid="uid://cvjypff42m0kv" path="res://Ctrl Tileset.png" id="1_fcaex"]
+[ext_resource type="Texture2D" uid="uid://cvjypff42m0kv" path="res://Assets/Ctrl Tileset.png" id="1_fcaex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dyvgr"]
 resource_name = "ctrl tiles"
