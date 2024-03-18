@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bxtt8d2wy28jk"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+
+[node name="chat_detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
+
+[node name="Timer" type="Timer" parent="."]

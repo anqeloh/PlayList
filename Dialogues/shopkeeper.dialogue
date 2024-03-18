@@ -1,0 +1,6 @@
+~ start
+
+if global.given_sk_item == false
+	Shop Keeper: Hello! Welcome to my shop!
+
+=> END
