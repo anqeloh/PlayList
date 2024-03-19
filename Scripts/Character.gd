@@ -6,3 +6,5 @@ class_name Character
 @export var experience = 0
 @export var level = 1
 @export var damage = 20
+
+var max_health = 100

@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var player_data: Resource = preload("res://Resource/player.tres")
 const speed = 100
 var current_dir = "none"
 
