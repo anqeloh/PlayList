@@ -22,10 +22,6 @@ zoom = Vector2(4, 4)
 
 [node name="PauseMenu" parent="Player/Camera2D2" instance=ExtResource("2_jf3sv")]
 visible = false
-offset_left = -33.0
-offset_top = -31.0
-offset_right = -33.0
-offset_bottom = -31.0
 
 [node name="NPC" parent="." instance=ExtResource("5_dnk7x")]
 position = Vector2(0, -36)
