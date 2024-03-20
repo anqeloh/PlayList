@@ -20,7 +20,8 @@ config/icon="res://Assets/icon.svg"
 WorldSignals="*res://Scripts/Gsignals.gd"
 State="*res://Scripts/state.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-PLPlayer="*res://Scripts/Character.gd"
+PLPlayer="res://Scripts/Character.gd"
+PLAYER="*res://Resource/player.tres"
 
 [editor_plugins]
 
