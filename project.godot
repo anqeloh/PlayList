@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PlayList"
-run/main_scene="res://Scenes/world.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
@@ -20,6 +20,11 @@ config/icon="res://Assets/icon.svg"
 WorldSignals="*res://Scripts/Gsignals.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 FileSave="*res://Scripts/FileSave.gd"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="viewport"
 
 [editor_plugins]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://drccvf1vx46d3"]
+[gd_scene load_steps=22 format=3 uid="uid://drccvf1vx46d3"]
 
 [ext_resource type="Script" path="res://Scripts/battle_screen.gd" id="1_ryj38"]
 [ext_resource type="FontVariation" uid="uid://c1m57otrn1nuf" path="res://Assets/NES.tres" id="2_at7ey"]
 [ext_resource type="Texture2D" uid="uid://yw7n4yjywnn2" path="res://Assets/battleback10.png" id="2_lj4b8"]
+[ext_resource type="PackedScene" path="res://Scenes/ctrl_bgm.tscn" id="5_8lf12"]
 [ext_resource type="Texture2D" uid="uid://dkkwyuvpi65ow" path="res://Assets/icon.svg" id="5_f7ukr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmm7b"]
@@ -591,6 +592,8 @@ libraries = {
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("5_8lf12")]
 
 [connection signal="pressed" from="ActionsPanel/Actions1/Defend" to="." method="_on_defend_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions1/Run" to="." method="_on_run_pressed"]

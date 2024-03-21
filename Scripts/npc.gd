@@ -39,10 +39,7 @@ func _process(delta):
 		match current_state:
 			IDLE:
 				pass
-			NEW_DIR:
-				dir = choose([Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN])
-			MOVE:
-				move(delta)
+				
 	if Input.is_action_just_pressed("chat"):
 		print("chatting with NPC")
 		is_roaming = false

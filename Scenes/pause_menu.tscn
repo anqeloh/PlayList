@@ -40,10 +40,6 @@ layout_mode = 2
 text = "Resume
 "
 
-[node name="Quit" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-text = "Quit"
-
 [node name="Save" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Save"
@@ -53,7 +49,11 @@ layout_mode = 2
 text = "Load
 "
 
+[node name="MainMenu" type="Button" parent="PauseMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
 [connection signal="pressed" from="PauseMenu/HBoxContainer/VBoxContainer/Resume" to="PauseMenu" method="_on_resume_pressed"]
-[connection signal="pressed" from="PauseMenu/HBoxContainer/VBoxContainer/Quit" to="PauseMenu" method="_on_quit_pressed"]
 [connection signal="pressed" from="PauseMenu/HBoxContainer/VBoxContainer/Save" to="PauseMenu" method="_on_save_pressed"]
 [connection signal="pressed" from="PauseMenu/HBoxContainer/VBoxContainer/Load" to="PauseMenu" method="_on_load_pressed"]
+[connection signal="pressed" from="PauseMenu/HBoxContainer/VBoxContainer/MainMenu" to="PauseMenu" method="_on_main_menu_pressed"]
