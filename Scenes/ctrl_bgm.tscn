@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg7r8fd4m6yb5"]
+
+[ext_resource type="AudioStream" uid="uid://c6inleikt02fv" path="res://Assets/Kiss Me More [8 Bit Tribute to Doja Cat feat. SZA] - 8 Bit Universe.wav" id="1_40s31"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_40s31")
+volume_db = -20.0
+autoplay = true

@@ -134,7 +134,7 @@ func _on_attack_1_pressed():
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
 		await (get_tree().create_timer(0.25).timeout)
-		get_tree().change_scene_to_file("res://Scenes/world.tscn")
+		get_tree().change_scene_to_file("res://Scenes/demo_end.tscn")
 	else:
 		enemy_turn()
 
@@ -159,7 +159,7 @@ func _on_attack_2_pressed():
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
 		await (get_tree().create_timer(0.25).timeout)
-		get_tree().change_scene_to_file("res://Scenes/world.tscn")
+		get_tree().change_scene_to_file("res://Scenes/demo_end.tscn")
 	else:
 		enemy_turn()
 
@@ -184,7 +184,7 @@ func _on_attack_3_pressed():
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
 		await (get_tree().create_timer(0.25).timeout)
-		get_tree().change_scene_to_file("res://Scenes/world.tscn")
+		get_tree().change_scene_to_file("res://Scenes/demo_end.tscn")
 	else:
 		enemy_turn()
 
@@ -209,7 +209,7 @@ func _on_attack_4_pressed():
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
 		await (get_tree().create_timer(0.25).timeout)
-		get_tree().change_scene_to_file("res://Scenes/world.tscn")
+		get_tree().change_scene_to_file("res://Scenes/demo_end.tscn")
 	else:
 		enemy_turn()
 	

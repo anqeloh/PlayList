@@ -22,6 +22,11 @@ State="*res://Scripts/state.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 PLPlayer="*res://Scripts/Character.gd"
 
+[display]
+
+window/size/resizable=false
+window/stretch/mode="viewport"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
