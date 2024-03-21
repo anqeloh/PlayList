@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_4rl17")
-name = "Goodot"
+name = "evil enemy"
 texture = ExtResource("2_twrrw")
 health = 45
 damage = 15

@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_7rcif")
-name = "Goodot (Shiny)"
+name = "Super Evil enemy"
 texture = ExtResource("2_nmnor")
 health = 50
 damage = 20
