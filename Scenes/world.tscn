@@ -12,16 +12,21 @@ script = ExtResource("1_ac8an")
 [node name="CtrlLevelTileMap" parent="." instance=ExtResource("4_4q8ny")]
 
 [node name="Player" parent="." instance=ExtResource("2_w7pd1")]
+position = Vector2(-8, 24)
 collision_layer = 2
 collision_mask = 5
 
-[node name="Camera2D2" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(4, 4)
+limit_left = -155
+limit_top = -440
+limit_right = 140
+limit_bottom = 90
 
-[node name="PauseMenu" parent="Player/Camera2D2" instance=ExtResource("2_jf3sv")]
+[node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("2_jf3sv")]
 visible = false
 
 [node name="NPC" parent="." instance=ExtResource("5_dnk7x")]
-position = Vector2(-9, -155)
+position = Vector2(-8, -357)
 collision_layer = 4
 collision_mask = 2

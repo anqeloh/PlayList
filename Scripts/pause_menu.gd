@@ -49,14 +49,8 @@ func load_data(path: String):
 	else :
 		printerr("Cannot open non-existent file at %s!" % [path])
 
-
-
 func _on_resume_pressed():
 	main.pauseMenu()
-
-func _on_quit_pressed():
-	get_tree().quit()
-
 
 func _on_save_pressed():
 	save_data(SAVE_DIR + SAVE_FILE_NAME)
@@ -64,3 +58,7 @@ func _on_save_pressed():
 
 func _on_load_pressed():
 	load_data(SAVE_DIR + SAVE_FILE_NAME)
+	
+
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
