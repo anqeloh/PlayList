@@ -87,6 +87,8 @@ func _on_detection_area_body_entered(body):
 		npc_in_range = true
 	if body.has_method("sza_npc"):
 		npc_in_range = true
+	if body.has_method("in_dialogue"):
+		npc_in_range = true
 
 
 func _on_detection_area_body_exited(body):
