@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bxtt8d2wy28jk"]
+[gd_scene load_steps=2 format=3 uid="uid://bxtt8d2wy28jk"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[ext_resource type="Script" path="res://Scripts/SK.gd" id="1_gxflv"]
+
+[node name="ShopKeeper" type="CharacterBody2D"]
+script = ExtResource("1_gxflv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 

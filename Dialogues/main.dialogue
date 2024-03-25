@@ -13,5 +13,5 @@ if global.given_npc_item == false
 	- goodbye.
 		NPC: Okay man! You don't have to be so rude about it.
 		=> END
-	
+
 => END

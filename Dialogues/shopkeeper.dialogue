@@ -2,6 +2,11 @@
 
 if global.given_sk_item == false
 	Shop Keeper: Hello! Welcome to my shop!
-	Shop Keeper: In my shop, there are a wide variety of items such as bandages, medkits, r
+	- Goodbye.
+		=> END
+	- Hello!
+		Shop Keeper: In my shop, there are a wide variety of items for health, stamina, and also for both!
+		- ...
+			Shop Keeper: 
 
 => END
