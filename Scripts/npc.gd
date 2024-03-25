@@ -41,7 +41,6 @@ func _process(delta):
 				pass
 				
 	if Input.is_action_just_pressed("chat"):
-		print("chatting with NPC")
 		is_roaming = false
 		is_chatting = true
 		$AnimatedSprite2D.play("idle")

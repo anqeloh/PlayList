@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var pause_menu = $Player/Camera2D2/PauseMenu
+@onready var pause_menu = $Player/Camera2D/PauseMenu
 @onready var player = $Player
 
 var playerData = FileSave.playerData
@@ -50,9 +50,3 @@ func ssave():
 	print(playerData.global_position)
 	print(playerData.health)
 	
-
-
-func _on_chat_area_body_entered(body):
-	if Input.is_action_just_pressed("ui_accept"):
-		DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/test.dialogue"), "start")
-		return

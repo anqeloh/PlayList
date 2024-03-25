@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=9 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://c2kln4cpp3o18" path="res://Scenes/ctrl_level_tile_map.tscn" id="4_4q8ny"]
 [ext_resource type="PackedScene" uid="uid://b32bft1726qei" path="res://Scenes/npc.tscn" id="5_dnk7x"]
 [ext_resource type="Script" path="res://Scripts/in_dialogue.gd" id="6_m74ok"]
+[ext_resource type="Resource" uid="uid://byfsvxrjui5ms" path="res://Dialogues/test2.dialogue" id="7_nwciv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76bss"]
-size = Vector2(45, 36)
+size = Vector2(32, 26)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ac8an")
@@ -37,10 +38,11 @@ collision_mask = 2
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("6_m74ok")
+dialogue_insert = ExtResource("7_nwciv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChatArea"]
-position = Vector2(-9.5, -18)
+position = Vector2(-8, -21)
 shape = SubResource("RectangleShape2D_76bss")
 
 [connection signal="body_entered" from="ChatArea" to="ChatArea" method="_area_entered"]
-[connection signal="body_exited" from="ChatArea" to="ChatArea" method="_area_exited"]
+[connection signal="body_exited" from="ChatArea" to="ChatArea" method="_on_body_exited"]

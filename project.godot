@@ -82,7 +82,7 @@ test_button={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/main.dialogue", "res://Dialogues/test.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/main.dialogue", "res://Dialogues/test.dialogue", "res://Dialogues/test2.dialogue")
 
 [layer_names]
 
