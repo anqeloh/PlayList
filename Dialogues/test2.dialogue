@@ -2,4 +2,5 @@
 I am looking at this thing.
 Confusing.
 Other than that, nothing.
+set WorldSignals.dialogue_finsihed.emit()
 => END
