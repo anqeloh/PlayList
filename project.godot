@@ -21,6 +21,10 @@ WorldSignals="*res://Scripts/Gsignals.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 FileSave="*res://Scripts/FileSave.gd"
 
+[dialogue_manager]
+
+general/balloon_path="res://Dialogues/balloon.tscn"
+
 [display]
 
 window/size/resizable=false
