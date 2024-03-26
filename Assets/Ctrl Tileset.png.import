@@ -2,16 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:Assets/Ctrl Tileset.png.import
 uid="uid://cvjypff42m0kv"
 path="res://.godot/imported/Ctrl Tileset.png-29566e65bb89273fa6082531f62c6d88.ctex"
+========
+uid="uid://bra84ac5e87dd"
+path="res://.godot/imported/CtrlArt.png-9963c93e048992773705c3ac69a5282f.ctex"
+>>>>>>>> GDC-Demo-Level-1:Assets/CtrlArt.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
+<<<<<<<< HEAD:Assets/Ctrl Tileset.png.import
 source_file="res://Assets/Ctrl Tileset.png"
 dest_files=["res://.godot/imported/Ctrl Tileset.png-29566e65bb89273fa6082531f62c6d88.ctex"]
+========
+source_file="res://Assets/CtrlArt.png"
+dest_files=["res://.godot/imported/CtrlArt.png-9963c93e048992773705c3ac69a5282f.ctex"]
+>>>>>>>> GDC-Demo-Level-1:Assets/CtrlArt.png.import
 
 [params]
 

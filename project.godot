@@ -11,16 +11,24 @@ config_version=5
 [application]
 
 config/name="PlayList"
-run/main_scene="res://Scenes/world.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://Assets/icon.svg"
 
 [autoload]
 
 WorldSignals="*res://Scripts/Gsignals.gd"
-State="*res://Scripts/state.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-global="*res://Scripts/global.gd"
+FileSave="*res://Scripts/FileSave.gd"
+
+[dialogue_manager]
+
+general/balloon_path="res://Dialogues/balloon.tscn"
+
+[display]
+
+window/size/resizable=false
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
@@ -70,16 +78,22 @@ chat={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":101,"echo":false,"script":null)
 ]
 }
+test_button={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":92,"key_label":0,"unicode":92,"echo":false,"script":null)
+]
+}
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/main.dialogue", "res://Dialogues/test.dialogue", "res://Dialogues/shopkeeper.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/main.dialogue", "res://Dialogues/test.dialogue", "res://Dialogues/test2.dialogue")
 
 [layer_names]
 
 2d_physics/layer_1="World"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="NPC"
+2d_physics/layer_4="Dialogue"
 
 [rendering]
 

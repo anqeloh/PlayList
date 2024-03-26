@@ -4,15 +4,19 @@ const speed = 100
 var current_dir = "none"
 
 var npc_in_range = false
+var sza_npc_in_range = false
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 
 func _physics_process(delta):
-	
 	if npc_in_range == true:
 		if Input.is_action_just_pressed("chat"):
-			DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/main.dialogue"), "start")
+			DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/test.dialogue"), "start")
+			return
+	if sza_npc_in_range == true:
+		if Input.is_action_just_pressed("chat"):
+			DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/test.dialogue"), "start")
 			return
 	
 	player_movement(delta)
@@ -81,8 +85,14 @@ func play_anim(movement):
 func _on_detection_area_body_entered(body):
 	if body.has_method("npc"):
 		npc_in_range = true
+	if body.has_method("sza_npc"):
+		npc_in_range = true
+	if body.has_method("in_dialogue"):
+		npc_in_range = true
 
 
 func _on_detection_area_body_exited(body):
 	if body.has_method("npc"):
+		npc_in_range = false
+	if body.has_method("sza_npc"):
 		npc_in_range = false

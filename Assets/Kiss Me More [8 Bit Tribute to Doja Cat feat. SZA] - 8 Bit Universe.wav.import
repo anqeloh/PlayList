@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6inleikt02fv"
+path="res://.godot/imported/Kiss Me More [8 Bit Tribute to Doja Cat feat. SZA] - 8 Bit Universe.wav-8ddd60cfb065dd23aa7cb46a0cd65fd9.sample"
+
+[deps]
+
+source_file="res://Assets/Kiss Me More [8 Bit Tribute to Doja Cat feat. SZA] - 8 Bit Universe.wav"
+dest_files=["res://.godot/imported/Kiss Me More [8 Bit Tribute to Doja Cat feat. SZA] - 8 Bit Universe.wav-8ddd60cfb065dd23aa7cb46a0cd65fd9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
