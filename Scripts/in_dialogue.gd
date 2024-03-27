@@ -13,11 +13,12 @@ func _area_entered(body):
 	is_in_area = true
 
 func _process(delta):
-	if is_in_area == true:
+	if is_in_area:
 		if not dialogue_opened:
 			if Input.is_action_just_pressed("chat"):
 				d_balloon()
 				dialogue_opened = true
+				WorldSignals.in_dialogue = true
 				
 func _on_body_exited(body):
 	is_in_area = false
@@ -29,3 +30,4 @@ func d_balloon() -> void:
 
 func dialogue_finished():
 	dialogue_opened = false
+	WorldSignals.in_dialogue = false

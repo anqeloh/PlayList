@@ -7,9 +7,12 @@ Slime: [[Hey|Hello|Hi]] adventureer.
 		Slime: Alright lets go!
 		The game begins.
 		set WorldSignals.battle_start.emit()
+		set WorldSignals.dialogue_finished.emit()
 		=> END! 
 	- Nah
 		Slime: Kay then.
 - Bye.
 Slime: Bye.
+set WorldSignals.dialogue_finished.emit()
+=> END
 

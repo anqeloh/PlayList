@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b32bft1726qei"]
+[gd_scene load_steps=16 format=3 uid="uid://b32bft1726qei"]
 
 [ext_resource type="Script" path="res://Scripts/npc.gd" id="1_l00mt"]
 [ext_resource type="Texture2D" uid="uid://bnqi88p066rvr" path="res://Assets/sprites/characters/slime.png" id="1_mbekm"]
@@ -96,9 +96,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf3nv"]
 size = Vector2(18, 14)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_glh2t"]
-size = Vector2(24, 22)
-
 [node name="NPC" type="CharacterBody2D"]
 script = ExtResource("1_l00mt")
 
@@ -110,17 +107,7 @@ animation = &"walk"
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_hf3nv")
 
-[node name="chat_detection_area" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="chat_detection_area"]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_glh2t")
-
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="body_entered" from="chat_detection_area" to="." method="_on_chat_detection_area_body_entered"]
-[connection signal="body_exited" from="chat_detection_area" to="." method="_on_chat_detection_area_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
