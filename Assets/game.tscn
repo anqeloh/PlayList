@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdya16700nf8c"]
+
+[ext_resource type="Script" path="res://Assets/Game.gd" id="1_bnol8"]
+[ext_resource type="Script" path="res://Assets/Character.gd" id="2_grja8"]
+[ext_resource type="Script" path="res://Assets/Label.gd" id="3_bc5jh"]
+[ext_resource type="PackedScene" uid="uid://b1mddgvejlfs4" path="res://Assets/experience_bar.tscn" id="3_faqem"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_bnol8")
+
+[node name="Character" type="Node" parent="."]
+script = ExtResource("2_grja8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ExperienceBar" parent="Control" instance=ExtResource("3_faqem")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 149.0
+offset_top = 279.0
+offset_right = 1010.0
+offset_bottom = 348.0
+grow_horizontal = 2
+grow_vertical = 0
+step = 2.08165e-12
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("3_bc5jh")
+
+[connection signal="experience_gained" from="Character" to="Control/ExperienceBar" method="_on_character_experience_gained"]

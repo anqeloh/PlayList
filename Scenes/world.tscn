@@ -1,13 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=7 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scenes/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
 [ext_resource type="PackedScene" uid="uid://bjgsh85laufmk" path="res://Scenes/player.tscn" id="2_w7pd1"]
+[ext_resource type="Script" path="res://Scenes/Stat.gd" id="3_jvpbv"]
+[ext_resource type="Script" path="res://Scenes/Label.gd" id="5_fj5wk"]
+[ext_resource type="Script" path="res://Scenes/Node.gd" id="6_1q65q"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ac8an")
 
 [node name="Player" parent="." instance=ExtResource("2_w7pd1")]
+
+[node name="Stat" type="Node" parent="Player"]
+script = ExtResource("3_jvpbv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -17,3 +23,14 @@ offset_left = -33.0
 offset_top = -31.0
 offset_right = -33.0
 offset_bottom = -31.0
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level: %s
+Experience: %s
+Next level: %s"
+script = ExtResource("5_fj5wk")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("6_1q65q")
