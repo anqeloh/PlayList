@@ -12,8 +12,9 @@ var paused = false
 
 
 func _ready():
-	if ( ResourceLoader.exists( save_file_path + save_file_name ) ):
+	if WorldSignals.use_load:
 		lload()
+		WorldSignals.use_load = false
 	WorldSignals.battle_start.connect(battle_begin)
 	WorldSignals.position_load.connect(lload)
 	

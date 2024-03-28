@@ -39,7 +39,11 @@ texture = ExtResource("2_5snve")
 
 [node name="Story" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Story"
+text = "New Game"
+
+[node name="Load" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load Game"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -47,8 +51,9 @@ text = "Options"
 
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Exit Game"
+text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Story" to="." method="_on_story_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -5,3 +5,4 @@ func update_text(level, experience, required_exp):
 			Experience: %s
 			Next level: %s
 			""" % [level, experience, required_exp]
+
