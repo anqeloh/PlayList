@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var pause_menu = $Player/Camera2D/PauseMenu
+@onready var shop_ui = $Player/Camera2D/ShopUI
 @onready var player = $Player
 
 var playerData = FileSave.playerData
@@ -19,6 +20,8 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
+	if Input.is_action_just_pressed("test_button"):
+		shop_ui.show()
 	playerData.UpdatePos(player.position)
 	
 	

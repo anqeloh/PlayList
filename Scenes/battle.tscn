@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/battle_screen.gd" id="1_ryj38"]
 [ext_resource type="FontVariation" uid="uid://c1m57otrn1nuf" path="res://Assets/NES.tres" id="2_at7ey"]
 [ext_resource type="Texture2D" uid="uid://yw7n4yjywnn2" path="res://Assets/battleback10.png" id="2_lj4b8"]
-[ext_resource type="PackedScene" uid="uid://bg7r8fd4m6yb5" path="res://Scenes/ctrl_bgm.tscn" id="5_8lf12"]
+[ext_resource type="PackedScene" path="res://Scenes/ctrl_bgm.tscn" id="5_8lf12"]
 [ext_resource type="Texture2D" uid="uid://dkkwyuvpi65ow" path="res://Assets/icon.svg" id="5_f7ukr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmm7b"]
