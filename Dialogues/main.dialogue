@@ -3,7 +3,7 @@
 if global.given_npc_item == false
 	NPC: [[Hi|Hello|What's up]], Adventurer!
 	- Hello.
-		NPC: Welcome to []
+		NPC: Welcome to Rhythm Realm!
 		NPC: In this game, you will be ___
 		- I don't need to know more, goodbye. => END
 		- mhm.
