@@ -1,0 +1,8 @@
+~ start
+
+Starter NPC 2: [Hello|Hi], welcome to the 2nd level of this game!
+- Hello!
+	Starter NPC 2: 
+- Bye.. => END
+
+=> END
