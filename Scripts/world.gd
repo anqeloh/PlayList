@@ -12,11 +12,11 @@ var paused = false
 
 
 func _ready():
+	WorldSignals.battle_start.connect(battle_begin)
+	WorldSignals.position_load.connect(lload)
 	if WorldSignals.use_load:
 		lload()
 		WorldSignals.use_load = false
-	WorldSignals.battle_start.connect(battle_begin)
-	WorldSignals.position_load.connect(lload)
 	
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):

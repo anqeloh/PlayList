@@ -4,7 +4,9 @@ var save_file_path = "user://save/"
 var save_file_name = "Player.tres"
 
 func _on_story_pressed():
-	get_tree().change_scene_to_file("res://Scenes/world.tscn")
+	if not ( ResourceLoader.exists( save_file_path + save_file_name ) ):
+		get_tree().change_scene_to_file("res://Scenes/world.tscn")
+	else: DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/FileOverrideWarning.dialogue"), "start")
 
 
 func _on_options_pressed():

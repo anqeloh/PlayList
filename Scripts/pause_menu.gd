@@ -11,8 +11,13 @@ func _on_quit_pressed():
 
 
 func _on_save_pressed():
-	main.save_pos()
+	main.ssave()
 
 
 func _on_load_pressed():
-	main.player_pos()
+	main.lload()
+
+
+func _on_main_menu_pressed():
+	Engine.time_scale = 1
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

@@ -195,8 +195,9 @@ func enemy_health_checker():
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
 		playerData.gain_experience(ex_gained)
+		await (get_tree().create_timer(1.75).timeout)
 		display_text("You recieved %s experience." % ex_gained)
-		await  self.textbox_closed
+		await self.textbox_closed
 		ssave()
 		WorldSignals.use_load = true
 		await (get_tree().create_timer(0.25).timeout)
