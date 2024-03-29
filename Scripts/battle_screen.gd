@@ -2,6 +2,7 @@ extends Control
 
 signal textbox_closed
 
+@onready var experience_bar = $ExperienceBar
 var enemies = [
 	preload("res://Resource/godot_png.tres"), 
 	preload("res://Resource/godot_png2.tres")
@@ -17,6 +18,7 @@ var current_player_health = 0
 var current_enemy_health = 0
 var rng: RandomNumberGenerator
 var is_defending = false
+var ex_gained = 40
 
 
 
@@ -28,6 +30,7 @@ func _ready():
 	$EnemyContainer2/Enemy.texture = enemy.texture #Texture Image should be from the Resource
 	current_player_health = playerData.health
 	current_enemy_health = enemy.health
+	experience_bar.initialize(playerData.experience, playerData.experience_rq)
 	
 	$AnimationPlayer.play("enemy_start")
 	display_text("%s has appeared!" % enemy.name)
@@ -191,7 +194,11 @@ func enemy_health_checker():
 		await $AnimationPlayer.animation_finished
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
+		playerData.gain_experience(ex_gained)
+		display_text("You recieved %s experience." % ex_gained)
+		await  self.textbox_closed
 		ssave()
+		WorldSignals.use_load = true
 		await (get_tree().create_timer(0.25).timeout)
 		get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	else:

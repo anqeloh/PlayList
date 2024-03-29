@@ -1,5 +1,8 @@
 extends TextureProgressBar
 
+func _ready():
+	WorldSignals.connect("experience_gained", _on_character_experience_gained)
+	
 
 func initialize(current, maximum):
 	max_value = maximum

@@ -37,5 +37,3 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("3_bc5jh")
-
-[connection signal="experience_gained" from="Character" to="Control/ExperienceBar" method="_on_character_experience_gained"]

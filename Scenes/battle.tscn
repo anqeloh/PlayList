@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://drccvf1vx46d3"]
+[gd_scene load_steps=23 format=3 uid="uid://drccvf1vx46d3"]
 
 [ext_resource type="Script" path="res://Scripts/battle_screen.gd" id="1_ryj38"]
 [ext_resource type="FontVariation" uid="uid://c1m57otrn1nuf" path="res://Assets/NES.tres" id="2_at7ey"]
 [ext_resource type="Texture2D" uid="uid://yw7n4yjywnn2" path="res://Assets/battleback10.png" id="2_lj4b8"]
-[ext_resource type="PackedScene" path="res://Scenes/ctrl_bgm.tscn" id="5_8lf12"]
-[ext_resource type="Texture2D" uid="uid://dkkwyuvpi65ow" path="res://Assets/icon.svg" id="5_f7ukr"]
+[ext_resource type="PackedScene" uid="uid://bg7r8fd4m6yb5" path="res://Scenes/ctrl_bgm.tscn" id="5_8lf12"]
+[ext_resource type="Texture2D" uid="uid://c2838mydeqb0y" path="res://Assets/icon.svg" id="5_f7ukr"]
+[ext_resource type="PackedScene" uid="uid://b1mddgvejlfs4" path="res://Scenes/experience_bar.tscn" id="6_vhdiy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmm7b"]
 bg_color = Color(1, 0.160784, 0, 1)
@@ -289,10 +290,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1210.0
-offset_top = 183.0
-offset_right = 1639.0
-offset_bottom = 344.0
+offset_left = 634.0
+offset_top = -141.0
+offset_right = 1063.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -594,6 +595,13 @@ libraries = {
 anchor_mode = 0
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("5_8lf12")]
+
+[node name="ExperienceBar" parent="." instance=ExtResource("6_vhdiy")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 416.0
+offset_right = 869.0
+offset_bottom = 485.0
 
 [connection signal="pressed" from="ActionsPanel/Actions1/Defend" to="." method="_on_defend_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions1/Run" to="." method="_on_run_pressed"]
