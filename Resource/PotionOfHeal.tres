@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://x3l6ulqkemr7"]
+
+[ext_resource type="Script" path="res://Scripts/Inv_item.gd" id="1_uuasg"]
+[ext_resource type="Texture2D" uid="uid://xfqj623bsc64" path="res://Assets/text_experience.png" id="2_vaytq"]
+
+[resource]
+script = ExtResource("1_uuasg")
+name = "Potion Of Heal"
+texture = ExtResource("2_vaytq")
