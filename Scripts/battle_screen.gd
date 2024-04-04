@@ -75,7 +75,7 @@ func enemy_turn():
 		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, playerData.max_health)
 		$AnimationPlayer.play("shake")
 		await $AnimationPlayer.animation_finished
-		display_text("%s delt %d damage at you!" % [enemy.name, enemy.damage])
+		display_text("%s dealt %d damage to you!" % [enemy.name, enemy.damage])
 		await self.textbox_closed
 		await (get_tree().create_timer(0.5).timeout)
 	if current_player_health <= 0:
@@ -136,7 +136,7 @@ func _on_attack_1_pressed():
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You delt %d damage!" % playerData.damage)
+	display_text("You dealt %d damage!" % playerData.damage)
 	await self.textbox_closed
 	enemy_health_checker()
 
@@ -152,7 +152,7 @@ func _on_attack_2_pressed():
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You delt %d damage!" % playerData.damage)
+	display_text("You dealt %d damage!" % playerData.damage)
 	await self.textbox_closed
 	enemy_health_checker()
 
@@ -168,7 +168,7 @@ func _on_attack_3_pressed():
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You delt %d damage!" % playerData.damage)
+	display_text("You dealt %d damage!" % playerData.damage)
 	await self.textbox_closed
 	enemy_health_checker()
 
@@ -184,7 +184,7 @@ func _on_attack_4_pressed():
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You delt %d damage!" % playerData.damage)
+	display_text("You dealt %d damage!" % playerData.damage)
 	await self.textbox_closed
 	enemy_health_checker()
 	
