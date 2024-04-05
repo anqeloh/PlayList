@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1mddgvejlfs4"]
 
 [ext_resource type="Texture2D" uid="uid://ccjw1b2m2ue6m" path="res://Assets/bar_background.png" id="1_fgwnx"]
-[ext_resource type="Script" path="res://Assets/ExperienceBar.gd" id="1_ute8d"]
+[ext_resource type="Script" path="res://Scripts/ExperienceBar.gd" id="1_ute8d"]
 [ext_resource type="Texture2D" uid="uid://ccpv6axcdidr8" path="res://Assets/bar_fill.png" id="2_u46um"]
 [ext_resource type="Texture2D" uid="uid://xfqj623bsc64" path="res://Assets/text_experience.png" id="4_ribew"]
 
