@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcfynswobgp2e"]
+
+[ext_resource type="Texture2D" uid="uid://bkpbgry1vv3sm" path="res://Assets/stuff.png" id="1_sbpie"]
+
+[node name="InvUI_slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = -1
+anchor_right = 0.138889
+anchor_bottom = 0.246914
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(80, 80)
+scale = Vector2(10, 10)
+texture = ExtResource("1_sbpie")

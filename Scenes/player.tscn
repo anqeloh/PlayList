@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://bjgsh85laufmk"]
+[gd_scene load_steps=42 format=3 uid="uid://bjgsh85laufmk"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_0gerq"]
+[ext_resource type="Resource" uid="uid://fsgjfby50t8c" path="res://Resource/PlayerInv.tres" id="2_bcq0s"]
 [ext_resource type="Texture2D" uid="uid://bufjodbj3egqw" path="res://Assets/sprites/characters/player.png" id="2_eotvx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hgst1"]
@@ -295,6 +296,7 @@ animations = [{
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_0gerq")
+inv = ExtResource("2_bcq0s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)

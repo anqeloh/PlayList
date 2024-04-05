@@ -7,6 +7,8 @@ var current_dir = "none"
 var npc_in_range = false
 var sza_npc_in_range = false
 
+@export var inv = INV
+
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
 

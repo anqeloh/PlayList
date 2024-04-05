@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="INV" load_steps=3 format=3 uid="uid://fsgjfby50t8c"]
+
+[ext_resource type="Resource" uid="uid://x3l6ulqkemr7" path="res://Resource/Inventory/PotionOfHeal.tres" id="1_r4pvb"]
+[ext_resource type="Script" path="res://Scripts/Inventory.gd" id="2_rebvk"]
+
+[resource]
+script = ExtResource("2_rebvk")
+items = Array[Resource("res://Scripts/Inv_item.gd")]([ExtResource("1_r4pvb"), null, null, null, null, ExtResource("1_r4pvb"), null, null, ExtResource("1_r4pvb"), null, null, null])
