@@ -6,6 +6,7 @@ signal experience_gained(growth_data)
 @export var max_hp = 12
 @export var strength = 8
 @export var magic = 8
+@export var defense = 5
 
 # LEVELING SYSTEM
 @export var level = 1
@@ -32,6 +33,7 @@ func level_up():
 	level += 1
 	experience_required = get_required_experience(level + 1)
 
-	var stats = ['max_hp', 'strength', 'magic']
-	var random_stat = stats[randi() % stats.size()]
-	set(random_stat, get(random_stat) + randi() % 4)
+	max_hp += 20
+	strength += 5
+	magic += 5
+	defense += 2
