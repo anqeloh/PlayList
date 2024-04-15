@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=14 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
@@ -9,9 +9,14 @@
 [ext_resource type="Script" path="res://Scripts/in_dialogue.gd" id="6_m74ok"]
 [ext_resource type="Resource" uid="uid://dlqk1qyj437sy" path="res://Dialogues/test.dialogue" id="7_jr8po"]
 [ext_resource type="Resource" uid="uid://byfsvxrjui5ms" path="res://Dialogues/test2.dialogue" id="7_nwciv"]
+[ext_resource type="Resource" uid="uid://x3l6ulqkemr7" path="res://Resource/Inventory/PotionOfHeal.tres" id="10_2onb3"]
+[ext_resource type="Script" path="res://Scripts/ItemArea.gd" id="11_wx2no"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76bss"]
 size = Vector2(28, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rdtp"]
+size = Vector2(28, 24)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ac8an")
@@ -32,6 +37,11 @@ limit_bottom = 90
 visible = false
 
 [node name="InventoryUI" parent="Player/Camera2D" instance=ExtResource("5_oi2mi")]
+visible = false
+offset = Vector2(150, 50)
+scale = Vector2(9, 8)
+transform = Transform2D(9, 0, 0, 8, 150, 50)
+follow_viewport_scale = 0.001
 
 [node name="NPC" parent="." instance=ExtResource("5_dnk7x")]
 position = Vector2(-8, -357)
@@ -58,7 +68,17 @@ dialogue_insert = ExtResource("7_nwciv")
 position = Vector2(-8, -21)
 shape = SubResource("RectangleShape2D_76bss")
 
+[node name="ItemArea" type="Area2D" parent="."]
+script = ExtResource("11_wx2no")
+item = ExtResource("10_2onb3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
+position = Vector2(-8, -21)
+shape = SubResource("RectangleShape2D_3rdtp")
+
 [connection signal="body_entered" from="NPC/ChatArea" to="NPC/ChatArea" method="_area_entered"]
 [connection signal="body_exited" from="NPC/ChatArea" to="NPC/ChatArea" method="_on_body_exited"]
 [connection signal="body_entered" from="ChatArea" to="ChatArea" method="_area_entered"]
 [connection signal="body_exited" from="ChatArea" to="ChatArea" method="_on_body_exited"]
+[connection signal="body_entered" from="ItemArea" to="ItemArea" method="_on_body_entered"]
+[connection signal="body_exited" from="ItemArea" to="ItemArea" method="_on_body_exited"]

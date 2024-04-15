@@ -1,51 +1,85 @@
 [gd_scene load_steps=4 format=3 uid="uid://b8y0kyw0mshpb"]
 
-[ext_resource type="Script" path="res://Scenes/InvUI.gd" id="1_otmel"]
-
-[sub_resource type="Gradient" id="Gradient_00fos"]
-offsets = PackedFloat32Array(0, 0.411765, 1)
-colors = PackedColorArray(0, 0, 0, 1, 0.278431, 0.133333, 0.0156863, 0.407843, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qmpqj"]
-gradient = SubResource("Gradient_00fos")
-fill_from = Vector2(0.5, 0.1)
-fill_to = Vector2(0.5, 1)
-metadata/_snap_enabled = true
-metadata/_snap_count = 12
+[ext_resource type="Script" path="res://Scripts/InvUI.gd" id="1_otmel"]
+[ext_resource type="Texture2D" uid="uid://dckrnj3uunfab" path="res://Assets/square1.png" id="2_w4clk"]
+[ext_resource type="PackedScene" uid="uid://bcfynswobgp2e" path="res://Scenes/inv_ui_slot.tscn" id="3_fknvj"]
 
 [node name="InventoryUI" type="CanvasLayer"]
 script = ExtResource("1_otmel")
 
 [node name="InvUI" type="Control" parent="."]
+custom_minimum_size = Vector2(88, 68)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1064.0
+offset_bottom = -580.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="InvUI"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 19.0
-offset_top = 17.0
-offset_right = -11.0
-offset_bottom = -20.0
+anchors_preset = -1
+anchor_right = 0.692
+anchor_bottom = 0.711
+offset_right = 26.876
+offset_bottom = 19.097
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_qmpqj")
-patch_margin_left = 6
-patch_margin_top = 6
-patch_margin_right = 6
-patch_margin_bottom = 6
+texture = ExtResource("2_w4clk")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
 [node name="GridContainer" type="GridContainer" parent="InvUI/NinePatchRect"]
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.789
-anchor_bottom = 0.84
-offset_right = -0.258039
-offset_bottom = -0.24002
-columns = 20
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -28.0
+offset_right = 38.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="InvUI_slot" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot2" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot3" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot4" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot5" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot6" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot7" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot8" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot9" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot10" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot11" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2
+
+[node name="InvUI_slot12" parent="InvUI/NinePatchRect/GridContainer" instance=ExtResource("3_fknvj")]
+layout_mode = 2

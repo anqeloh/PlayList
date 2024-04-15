@@ -7,7 +7,7 @@ var current_dir = "none"
 var npc_in_range = false
 var sza_npc_in_range = false
 
-@export var inv = INV
+@export var inv: INV
 
 func _ready():
 	$AnimatedSprite2D.play("front_idle")
@@ -73,3 +73,6 @@ func play_anim(movement):
 			anim.play("back_walk")
 		elif movement == 0:
 			anim.play("back_idle")
+			
+func collect(item):
+	inv.insert(item)

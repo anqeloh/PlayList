@@ -2,4 +2,7 @@ extends Resource
 
 class_name INV
 
-@export var items: Array[InvItem]
+@export var slots: Array[InvSlot]
+
+func insert(item: InvItem):
+	pass

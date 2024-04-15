@@ -1,8 +1,60 @@
-[gd_resource type="Resource" script_class="INV" load_steps=3 format=3 uid="uid://fsgjfby50t8c"]
+[gd_resource type="Resource" script_class="INV" load_steps=16 format=3 uid="uid://fsgjfby50t8c"]
 
 [ext_resource type="Resource" uid="uid://x3l6ulqkemr7" path="res://Resource/Inventory/PotionOfHeal.tres" id="1_r4pvb"]
 [ext_resource type="Script" path="res://Scripts/Inventory.gd" id="2_rebvk"]
+[ext_resource type="Script" path="res://Scripts/Inv_slot.gd" id="2_vc62t"]
+
+[sub_resource type="Resource" id="Resource_bgjoc"]
+script = ExtResource("2_vc62t")
+item = ExtResource("1_r4pvb")
+amount = 12
+
+[sub_resource type="Resource" id="Resource_jj41c"]
+script = ExtResource("2_vc62t")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_nslpn"]
+script = ExtResource("2_vc62t")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_o5nv7"]
+script = ExtResource("2_vc62t")
+item = ExtResource("1_r4pvb")
+amount = 32
+
+[sub_resource type="Resource" id="Resource_kjs1r"]
+script = ExtResource("2_vc62t")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_7vkqv"]
+script = ExtResource("2_vc62t")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_vehb0"]
+script = ExtResource("2_vc62t")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_2yy02"]
+script = ExtResource("2_vc62t")
+item = ExtResource("1_r4pvb")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_2v7f0"]
+script = ExtResource("2_vc62t")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_3sa4n"]
+script = ExtResource("2_vc62t")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_xvjrr"]
+script = ExtResource("2_vc62t")
+amount = 0
+
+[sub_resource type="Resource" id="Resource_g74u5"]
+script = ExtResource("2_vc62t")
+amount = 0
 
 [resource]
 script = ExtResource("2_rebvk")
-items = Array[Resource("res://Scripts/Inv_item.gd")]([ExtResource("1_r4pvb"), null, null, null, null, ExtResource("1_r4pvb"), null, null, ExtResource("1_r4pvb"), null, null, null])
+slots = Array[ExtResource("2_vc62t")]([SubResource("Resource_bgjoc"), SubResource("Resource_jj41c"), SubResource("Resource_nslpn"), SubResource("Resource_o5nv7"), SubResource("Resource_kjs1r"), SubResource("Resource_7vkqv"), SubResource("Resource_vehb0"), SubResource("Resource_2yy02"), SubResource("Resource_2v7f0"), SubResource("Resource_3sa4n"), SubResource("Resource_xvjrr"), SubResource("Resource_g74u5")])

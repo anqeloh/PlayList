@@ -1,6 +1,10 @@
 extends Resource
 class_name PlayerData
 
+@export var slots: Array[Resource] = [
+	InvSlot, InvSlot, InvSlot, InvSlot,
+	 InvSlot, InvSlot, InvSlot, InvSlot,
+	 InvSlot, InvSlot, InvSlot, InvSlot]
 
 @export var health = 100
 @export var global_position: Vector2
