@@ -1,0 +1,13 @@
+{
+	"0" : {
+		"texture": "INVheart.png",
+		"slot_type": 2,
+		"ATK": 450
+	},
+	
+	"1" : {
+		"texture": "text_experience.png",
+		"slot_type": 3,
+		"ATK": 902
+	}
+}
