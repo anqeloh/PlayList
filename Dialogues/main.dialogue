@@ -5,6 +5,7 @@ if global.given_npc_item == false
 	- Hello.
 		NPC: Welcome to Rhythm Realm!
 		NPC: In this game, you will be ___
+		NPC: ___
 		- I don't need to know more, goodbye. => END
 		- mhm.
 			NPC: If you need anything else, you can speak to the npc's in the beginning of each level.
