@@ -1,8 +1,10 @@
 ~ start
 
-Enemy 1: Words
+Enemy 1: ___
 Enemy 1: ___ fight?!
 - Yes
+	Enemy 1: Alright! Get ready to ___!
+	set WorldSignals.battle_start.emit()
 - No, I'm out. => END
 
 => END

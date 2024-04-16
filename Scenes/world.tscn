@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=11 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b32bft1726qei" path="res://Scenes/npc.tscn" id="5_dnk7x"]
 [ext_resource type="Script" path="res://Scripts/in_dialogue.gd" id="6_m74ok"]
 [ext_resource type="Resource" uid="uid://cb6ft8bcya7d3" path="res://Dialogues/main.dialogue" id="7_m3lt5"]
+[ext_resource type="Resource" uid="uid://dgm6h7n6lmtnu" path="res://Dialogues/enemy1.dialogue" id="7_m832s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0w88x"]
+radius = 13.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76bss"]
 size = Vector2(44, 30)
@@ -34,6 +38,16 @@ position = Vector2(-8, -357)
 collision_layer = 4
 collision_mask = 2
 
+[node name="ChatArea" type="Area2D" parent="NPC"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_m74ok")
+dialogue_insert = ExtResource("7_m832s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/ChatArea"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_0w88x")
+
 [node name="ChatArea" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
@@ -44,5 +58,7 @@ dialogue_insert = ExtResource("7_m3lt5")
 position = Vector2(-9, -19)
 shape = SubResource("RectangleShape2D_76bss")
 
+[connection signal="body_entered" from="NPC/ChatArea" to="NPC/ChatArea" method="_area_entered"]
+[connection signal="body_exited" from="NPC/ChatArea" to="NPC/ChatArea" method="_on_body_exited"]
 [connection signal="body_entered" from="ChatArea" to="ChatArea" method="_area_entered"]
 [connection signal="body_exited" from="ChatArea" to="ChatArea" method="_on_body_exited"]
