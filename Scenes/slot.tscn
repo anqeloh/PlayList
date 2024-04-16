@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://xgu3sp3xy8e0"]
 
-[ext_resource type="Script" path="res://Scripts/Slot.gd" id="1_m73mk"]
-[ext_resource type="Script" path="res://Scripts/TextureSTATS.gd" id="2_8tfti"]
+[ext_resource type="Script" path="res://Scripts/InventoryScripts/Slot.gd" id="1_m73mk"]
+[ext_resource type="Script" path="res://Scripts/InventoryScripts/TextureSTATS.gd" id="2_8tfti"]
 
 [node name="Slot" type="PanelContainer"]
 offset_right = 40.0

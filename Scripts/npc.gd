@@ -20,7 +20,7 @@ func _ready():
 	randomize()
 	start_pos = position
 
-func _process(delta):
+func _process(_delta) -> void:
 	if current_state == 0 or current_state == 1:
 		$AnimatedSprite2D.play("idle")
 	elif current_state == 2 and !is_chatting:

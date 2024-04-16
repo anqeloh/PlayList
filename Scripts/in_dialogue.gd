@@ -9,10 +9,10 @@ var dialogue_opened = false
 
 func _ready():
 	WorldSignals.dialogue_finished.connect(dialogue_finished)
-func _area_entered(body):
+func _area_entered(_body):
 	is_in_area = true
 
-func _process(delta):
+func _process(_delta) -> void:
 	if is_in_area:
 		if not dialogue_opened:
 			if Input.is_action_just_pressed("chat"):
@@ -20,7 +20,7 @@ func _process(delta):
 				dialogue_opened = true
 				WorldSignals.in_dialogue = true
 				
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	is_in_area = false
 
 func d_balloon() -> void:

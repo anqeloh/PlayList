@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://x3l6ulqkemr7"]
-
-[ext_resource type="Script" path="res://Scripts/Inv_item.gd" id="1_uuasg"]
-[ext_resource type="Texture2D" uid="uid://col47ganypih2" path="res://Assets/INVheart.png" id="2_o6gub"]
-
-[resource]
-script = ExtResource("1_uuasg")
-name = "Inverted Heart"
-texture = ExtResource("2_o6gub")

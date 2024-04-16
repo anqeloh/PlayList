@@ -1,18 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=16 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
 [ext_resource type="PackedScene" uid="uid://bjgsh85laufmk" path="res://Scenes/player.tscn" id="2_w7pd1"]
 [ext_resource type="PackedScene" uid="uid://c2kln4cpp3o18" path="res://Scenes/ctrl_level_tile_map.tscn" id="4_4q8ny"]
 [ext_resource type="PackedScene" uid="uid://b32bft1726qei" path="res://Scenes/npc.tscn" id="5_dnk7x"]
-[ext_resource type="PackedScene" uid="uid://b8y0kyw0mshpb" path="res://Scenes/InvUI.tscn" id="5_oi2mi"]
 [ext_resource type="Script" path="res://Scripts/in_dialogue.gd" id="6_m74ok"]
 [ext_resource type="Resource" uid="uid://dlqk1qyj437sy" path="res://Dialogues/test.dialogue" id="7_jr8po"]
 [ext_resource type="Resource" uid="uid://byfsvxrjui5ms" path="res://Dialogues/test2.dialogue" id="7_nwciv"]
-[ext_resource type="Script" path="res://Scripts/testUI.gd" id="12_ale1l"]
-[ext_resource type="Script" path="res://Scripts/INVENTORY_yes.gd" id="13_mcibm"]
+[ext_resource type="Script" path="res://Scripts/InventoryScripts/testUI.gd" id="12_ale1l"]
+[ext_resource type="Script" path="res://Scripts/InventoryScripts/INVENTORY_yes.gd" id="13_mcibm"]
 [ext_resource type="PackedScene" uid="uid://xgu3sp3xy8e0" path="res://Scenes/slot.tscn" id="14_titl8"]
-[ext_resource type="Script" path="res://Scripts/characterAAA.gd" id="15_n7jl0"]
+[ext_resource type="Script" path="res://Scripts/InventoryScripts/characterAAA.gd" id="15_n7jl0"]
 [ext_resource type="PackedScene" uid="uid://bljewcvvrbav1" path="res://Scenes/passive_slot.tscn" id="16_teqox"]
 [ext_resource type="PackedScene" uid="uid://bkki0sq1u7xru" path="res://Scenes/abstract_item.tscn" id="17_p6xss"]
 
@@ -36,13 +35,6 @@ limit_bottom = 90
 
 [node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("2_jf3sv")]
 visible = false
-
-[node name="InventoryUI" parent="Player/Camera2D" instance=ExtResource("5_oi2mi")]
-visible = false
-offset = Vector2(150, 50)
-scale = Vector2(9, 8)
-transform = Transform2D(9, 0, 0, 8, 150, 50)
-follow_viewport_scale = 0.001
 
 [node name="NPC" parent="." instance=ExtResource("5_dnk7x")]
 position = Vector2(-8, -357)
@@ -83,8 +75,10 @@ script = ExtResource("12_ale1l")
 
 [node name="INVENTORY" type="GridContainer" parent="InvCanvas/UI"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = 192.0
+offset_bottom = 143.0
 columns = 4
 script = ExtResource("13_mcibm")
 
@@ -127,9 +121,9 @@ layout_mode = 2
 [node name="Character" type="Control" parent="InvCanvas/UI"]
 anchors_preset = 0
 offset_left = 288.0
-offset_top = -16.0
+offset_top = -2.0
 offset_right = 328.0
-offset_bottom = 24.0
+offset_bottom = 38.0
 script = ExtResource("15_n7jl0")
 
 [node name="PassiveSlot" parent="InvCanvas/UI/Character" instance=ExtResource("16_teqox")]

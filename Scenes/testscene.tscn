@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bsrcyo8wm1hfp"]
 
 [ext_resource type="PackedScene" uid="uid://xgu3sp3xy8e0" path="res://Scenes/slot.tscn" id="1_lkl4f"]
-[ext_resource type="Script" path="res://Scripts/testUI.gd" id="1_ndcna"]
-[ext_resource type="Script" path="res://Scripts/INVENTORY_yes.gd" id="1_p2lht"]
+[ext_resource type="Script" path="res://Scripts/InventoryScripts/testUI.gd" id="1_ndcna"]
+[ext_resource type="Script" path="res://Scripts/InventoryScripts/INVENTORY_yes.gd" id="1_p2lht"]
 [ext_resource type="PackedScene" uid="uid://bljewcvvrbav1" path="res://Scenes/passive_slot.tscn" id="2_6njao"]
-[ext_resource type="Script" path="res://Scripts/characterAAA.gd" id="2_wqdjs"]
+[ext_resource type="Script" path="res://Scripts/InventoryScripts/characterAAA.gd" id="2_wqdjs"]
 [ext_resource type="PackedScene" uid="uid://bjgsh85laufmk" path="res://Scenes/player.tscn" id="5_kyl71"]
 [ext_resource type="PackedScene" uid="uid://bkki0sq1u7xru" path="res://Scenes/abstract_item.tscn" id="6_h53bm"]
 
