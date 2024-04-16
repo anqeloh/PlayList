@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkki0sq1u7xru"]
+
+[ext_resource type="Script" path="res://Scripts/abstract_item.gd" id="1_axu33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjaof"]
+
+[node name="abstractItem" type="Sprite2D"]
+script = ExtResource("1_axu33")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_xjaof")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

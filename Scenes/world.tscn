@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=17 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
@@ -9,14 +9,15 @@
 [ext_resource type="Script" path="res://Scripts/in_dialogue.gd" id="6_m74ok"]
 [ext_resource type="Resource" uid="uid://dlqk1qyj437sy" path="res://Dialogues/test.dialogue" id="7_jr8po"]
 [ext_resource type="Resource" uid="uid://byfsvxrjui5ms" path="res://Dialogues/test2.dialogue" id="7_nwciv"]
-[ext_resource type="Resource" uid="uid://x3l6ulqkemr7" path="res://Resource/Inventory/PotionOfHeal.tres" id="10_2onb3"]
-[ext_resource type="Script" path="res://Scripts/ItemArea.gd" id="11_wx2no"]
+[ext_resource type="Script" path="res://Scripts/testUI.gd" id="12_ale1l"]
+[ext_resource type="Script" path="res://Scripts/INVENTORY_yes.gd" id="13_mcibm"]
+[ext_resource type="PackedScene" uid="uid://xgu3sp3xy8e0" path="res://Scenes/slot.tscn" id="14_titl8"]
+[ext_resource type="Script" path="res://Scripts/characterAAA.gd" id="15_n7jl0"]
+[ext_resource type="PackedScene" uid="uid://bljewcvvrbav1" path="res://Scenes/passive_slot.tscn" id="16_teqox"]
+[ext_resource type="PackedScene" uid="uid://bkki0sq1u7xru" path="res://Scenes/abstract_item.tscn" id="17_p6xss"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76bss"]
 size = Vector2(28, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3rdtp"]
-size = Vector2(28, 24)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ac8an")
@@ -68,17 +69,103 @@ dialogue_insert = ExtResource("7_nwciv")
 position = Vector2(-8, -21)
 shape = SubResource("RectangleShape2D_76bss")
 
-[node name="ItemArea" type="Area2D" parent="."]
-script = ExtResource("11_wx2no")
-item = ExtResource("10_2onb3")
+[node name="InvCanvas" type="CanvasLayer" parent="."]
+scale = Vector2(4, 4)
+transform = Transform2D(4, 0, 0, 4, 0, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemArea"]
-position = Vector2(-8, -21)
-shape = SubResource("RectangleShape2D_3rdtp")
+[node name="UI" type="Control" parent="InvCanvas"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("12_ale1l")
+
+[node name="INVENTORY" type="GridContainer" parent="InvCanvas/UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 4
+script = ExtResource("13_mcibm")
+
+[node name="Slot" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot2" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot3" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot4" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot5" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot6" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot7" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot8" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot9" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot10" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot11" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Slot12" parent="InvCanvas/UI/INVENTORY" instance=ExtResource("14_titl8")]
+layout_mode = 2
+
+[node name="Character" type="Control" parent="InvCanvas/UI"]
+anchors_preset = 0
+offset_left = 288.0
+offset_top = -16.0
+offset_right = 328.0
+offset_bottom = 24.0
+script = ExtResource("15_n7jl0")
+
+[node name="PassiveSlot" parent="InvCanvas/UI/Character" instance=ExtResource("16_teqox")]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 16.0
+offset_right = -24.0
+offset_bottom = 56.0
+slot_type = 1
+
+[node name="PassiveSlot2" parent="InvCanvas/UI/Character" instance=ExtResource("16_teqox")]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 60.0
+offset_right = -24.0
+offset_bottom = 100.0
+slot_type = 2
+
+[node name="PassiveSlot3" parent="InvCanvas/UI/Character" instance=ExtResource("16_teqox")]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 104.0
+offset_right = -24.0
+offset_bottom = 144.0
+slot_type = 3
+
+[node name="ATK" type="Label" parent="InvCanvas/UI"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="abstractItem" parent="." instance=ExtResource("17_p6xss")]
+position = Vector2(71, -4)
 
 [connection signal="body_entered" from="NPC/ChatArea" to="NPC/ChatArea" method="_area_entered"]
 [connection signal="body_exited" from="NPC/ChatArea" to="NPC/ChatArea" method="_on_body_exited"]
 [connection signal="body_entered" from="ChatArea" to="ChatArea" method="_area_entered"]
 [connection signal="body_exited" from="ChatArea" to="ChatArea" method="_on_body_exited"]
-[connection signal="body_entered" from="ItemArea" to="ItemArea" method="_on_body_entered"]
-[connection signal="body_exited" from="ItemArea" to="ItemArea" method="_on_body_exited"]

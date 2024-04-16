@@ -3,6 +3,7 @@ extends Node2D
 @onready var pause_menu = $Player/Camera2D/PauseMenu
 @onready var inventory_ui = $Player/Camera2D/InventoryUI
 @onready var player = $Player
+@onready var ui = $InvCanvas/UI
 
 var playerData = FileSave.playerData
 var save_file_path = "user://save/"
@@ -48,6 +49,7 @@ func lload():
 	
 func ssave():
 	ResourceSaver.save(playerData, save_file_path + save_file_name)
+	
 	print("saved:")
 	print(playerData.global_position)
 	print(playerData.health)
