@@ -7,6 +7,7 @@ if global.given_sk_item == false
 		- Oh no! I can't afford anything! I'll be back with coins. => END
 		- . . .
 			Shop Keeper: Feel free to look around!
+			# opens shop interaction menu
 	- Goodbye.
 		=> END
 

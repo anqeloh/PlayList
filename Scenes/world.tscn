@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c2kln4cpp3o18" path="res://Scenes/ctrl_level_tile_map.tscn" id="4_4q8ny"]
 [ext_resource type="PackedScene" uid="uid://b32bft1726qei" path="res://Scenes/npc.tscn" id="5_dnk7x"]
 [ext_resource type="Script" path="res://Scripts/in_dialogue.gd" id="6_m74ok"]
-[ext_resource type="Resource" uid="uid://cqkffaeditcpm" path="res://Dialogues/shopkeeper.dialogue" id="7_4ejuc"]
+[ext_resource type="Resource" uid="uid://cb6ft8bcya7d3" path="res://Dialogues/main.dialogue" id="7_m3lt5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76bss"]
 size = Vector2(44, 30)
@@ -38,7 +38,7 @@ collision_mask = 2
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("6_m74ok")
-dialogue_insert = ExtResource("7_4ejuc")
+dialogue_insert = ExtResource("7_m3lt5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChatArea"]
 position = Vector2(-9, -19)

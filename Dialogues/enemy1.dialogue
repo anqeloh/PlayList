@@ -1,0 +1,8 @@
+~ start
+
+Enemy 1: Words
+Enemy 1: ___ fight?!
+- Yes
+- No, I'm out. => END
+
+=> END
