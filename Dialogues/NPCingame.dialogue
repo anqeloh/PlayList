@@ -1,5 +1,19 @@
 ~ start
 
+NPC002: [Hello|Good to see you|Hi|Greetings], I see you have made it in one piece!
+NPC002: Knowing that there are invaders in our world at the moment.
+- Hello!
+	NPC002: If you have the time, I'd like to ask for you to do something for our sake.
+	- I'll gladly help! Tell me what you need.
+		NPC002: Perfect! First, I'll need you to defeat all the enemies to gain experience, coins, and items.
+		NPC002: Once you defeat them all, you need to go fight the boss and restore peace to our world.
+	- I'm busy. I will not help you.
+		NPC002: Well..
+		NPC002: If you do, please help.
+		NPC002: I'll be here, I won't go anywhere, Just here.. => END
+- Who.. are you?
+	NPC002: 
+- Bye.. => END
 
 
 => END
