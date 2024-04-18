@@ -1,18 +1,25 @@
 ~ start
 
 if global.given_npc_item == false
+# start dialogue with NPC
 	NPC: [[Hi|Hello|What's up]], Adventurer!
 	- Hello.
+	# continue
 		NPC: Welcome to Rhythm Realm!
-		NPC: In this game, you will be ___
+		NPC: In this game, you will be ___ 
 		NPC: ___
 		- I don't need to know more, goodbye. => END
+		# end dialogue
 		- mhm.
+		# continue
 			NPC: If you need anything else, you can speak to the the npc in front of the ___.
 			NPC: Good luck on your adventures!
 			=> END
+			# dialogue finished
 	- goodbye.
+	# start "goodbye" conversation
 		NPC: Okay man! You don't have to be so rude about it.
 		=> END
+		# dialogue finished
 
 => END
