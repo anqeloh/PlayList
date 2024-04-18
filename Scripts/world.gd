@@ -1,7 +1,6 @@
 extends Node2D
 
 @onready var pause_menu = $Player/Camera2D/PauseMenu
-@onready var inventory_ui = $Player/Camera2D/InventoryUI
 @onready var player = $Player
 @onready var ui = $InvCanvas/UI
 

@@ -1,11 +1,9 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dewt8tvkuraq8"]
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dewt8tvkuraq8"]
 
 [ext_resource type="Script" path="res://Scripts/base_enemy.gd" id="1_7rcif"]
-[ext_resource type="Texture2D" uid="uid://rf1fnwodes21" path="res://Assets/icon2.svg" id="2_nmnor"]
 
 [resource]
 script = ExtResource("1_7rcif")
 name = "Super Evil enemy"
-texture = ExtResource("2_nmnor")
-health = 50
-damage = 20
+health = 25
+damage = 4

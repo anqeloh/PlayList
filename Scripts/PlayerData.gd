@@ -2,11 +2,11 @@ extends Resource
 class_name PlayerData
 
 
-@export var health = 100
+@export var health = 25
 @export var global_position: Vector2
-@export var damage = 20
+@export var damage = 5
 @export var level: int = 1
-@export var max_health = 100
+@export var max_health = 25
 
 
 @export var experience = 0

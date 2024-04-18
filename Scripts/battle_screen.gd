@@ -4,7 +4,6 @@ signal textbox_closed
 
 @onready var experience_bar = $ExperienceBar
 var enemies = [
-	preload("res://Resource/godot_png.tres"), 
 	preload("res://Resource/godot_png2.tres")
 	]
 
