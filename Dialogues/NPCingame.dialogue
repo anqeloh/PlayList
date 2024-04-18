@@ -1,9 +1,8 @@
 ~ start
 # start dialogue with main world npc
 NPC002: Hello, I see you have made it in one piece!
-% NPC002: Greetings adventurer! I see you've made here!
-% NPC002: Good to see you! Surprising to see that you've made it here in one shape!
-NPC002: ...I mean like, there are invaders in our world at the moment.
+NPC002: You know..
+NPC002: There are invaders in our world at the moment.
 - Hello!
 # continue conversation
 	NPC002: If you have the time, I'd like to ask for you to do something for our sake.
@@ -11,6 +10,7 @@ NPC002: ...I mean like, there are invaders in our world at the moment.
 	# continue conversation
 		NPC002: Perfect! First, I'll need you to defeat all the enemies to gain experience, coins, and items.
 		NPC002: Once you defeat them all, you need to go fight the boss and restore peace to our world.
+		NPC002: Also, there are shops where you can purchase items from to 
 	- I'm busy. I will not help you.
 	# ending conversation
 		NPC002: Well..
