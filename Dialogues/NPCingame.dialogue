@@ -21,12 +21,12 @@ NPC002: There are invaders in our world at the moment.
 # transition to (who are you) conversation
 	NPC002: Me? How do you not know me?
 	NPC002: I am the person everyone looks for when they are stuck!
-	NPC002: I am ___.
+	NPC002: I am Bob.
 	NPC002: Need any more information??
 	- Yes! Tell me more!
 	# continue (who are you) conversation
 		NPC002: Alrighty!!
-		NPC002: ___
+		NPC002: In this game, I am the 
 	- No.. no more. =>< different
 	# go to "different" dialogue
 - Bye.. => END
