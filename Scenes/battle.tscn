@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/battle_screen.gd" id="1_ryj38"]
 [ext_resource type="FontVariation" uid="uid://c1m57otrn1nuf" path="res://Assets/NES.tres" id="2_at7ey"]
-[ext_resource type="Texture2D" uid="uid://yw7n4yjywnn2" path="res://Assets/battleback10.png" id="2_lj4b8"]
+[ext_resource type="Texture2D" uid="uid://crl6uldrkul20" path="res://Assets/battleback1.png" id="2_qlljl"]
 [ext_resource type="PackedScene" uid="uid://bg7r8fd4m6yb5" path="res://Scenes/ctrl_bgm.tscn" id="5_8lf12"]
 [ext_resource type="Texture2D" uid="uid://b4je5d0tlvtc" path="res://Assets/icon3.png" id="5_x82fe"]
 [ext_resource type="PackedScene" uid="uid://b1mddgvejlfs4" path="res://Scenes/experience_bar.tscn" id="6_vhdiy"]
@@ -230,7 +230,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-500, 240), Vector2(100, 240)]
+"values": [Vector2(-500, 240), Vector2(150, 200)]
 }
 
 [sub_resource type="Animation" id="Animation_5t2e8"]
@@ -291,7 +291,7 @@ offset_right = 54.0
 offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_lj4b8")
+texture = ExtResource("2_qlljl")
 
 [node name="EnemyContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -338,16 +338,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 634.0
-offset_top = -141.0
-offset_right = 1063.0
-offset_bottom = 20.0
+offset_left = 1210.0
+offset_top = 183.0
+offset_right = 1639.0
+offset_bottom = 344.001
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Enemy" type="AnimatedSprite2D" parent="EnemyContainer2"]
-scale = Vector2(3, 3)
-animation = &"Attack1"
+position = Vector2(-32, 81)
+scale = Vector2(3.5, 3.5)
+animation = &""
 
 [node name="PlayerPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -535,7 +536,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
 text = "ATTACK"
 
-[node name="Nothing" type="Button" parent="ActionsPanel/Actions2"]
+[node name="Heal" type="Button" parent="ActionsPanel/Actions2"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -548,7 +549,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_11p6t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
-text = "idk"
+text = "HEAL"
 
 [node name="AttackPanel" type="Panel" parent="."]
 visible = false
@@ -667,6 +668,7 @@ scale = Vector2(0.5, 0.5)
 [connection signal="pressed" from="ActionsPanel/Actions1/Defend" to="." method="_on_defend_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions1/Run" to="." method="_on_run_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions2/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions2/Heal" to="." method="_on_heal_pressed"]
 [connection signal="pressed" from="AttackPanel/Actions/Attack1" to="." method="_on_attack_1_pressed"]
 [connection signal="pressed" from="AttackPanel/Actions/Attack2" to="." method="_on_attack_2_pressed"]
 [connection signal="pressed" from="AttackPanel/Actions2/Attack3" to="." method="_on_attack_3_pressed"]

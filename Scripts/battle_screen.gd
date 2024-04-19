@@ -72,7 +72,7 @@ func enemy_turn():
 	else:
 		current_player_health = max(0, current_player_health - enemy.damage)
 		enemy_sprite.play()
-		await enemy_sprite.animation_finished
+		await (get_tree().create_timer(0.8).timeout)
 		enemy_sprite.stop()
 		playerData.change_health(-(enemy.damage))
 		print(playerData.health)
@@ -127,7 +127,27 @@ func _on_defend_pressed():
 		await self.textbox_closed
 		enemy_turn()
 	
-
+func _on_heal_pressed():
+	$ActionsPanel/Actions1.hide()
+	$ActionsPanel/Actions2.hide()
+	rng.randomize()
+	var randomValue = rng.randi_range(1, 10)
+	if not randomValue == 8:
+		current_player_health = max(0, current_player_health + enemy.damage)
+		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, playerData.max_health)
+		playerData.change_health(+(enemy.damage))
+		print(playerData.health)
+		display_text("You Have Healed")
+		await self.textbox_closed
+		enemy_turn()
+	else:
+		current_player_health = max(0, current_player_health - (enemy.damage * 2))
+		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, playerData.max_health)
+		playerData.change_health(+(enemy.damage))
+		print(playerData.health)
+		display_text("You Failed to Heal")
+		await self.textbox_closed
+		enemy_turn()
 
 func _on_attack_1_pressed():
 	$AttackPanel/Actions.hide()

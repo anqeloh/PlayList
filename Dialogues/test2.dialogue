@@ -2,6 +2,5 @@
 I am looking at this thing.
 Confusing.
 Other than that, nothing.
-#set WorldSignals.item_collect.emit()
 set WorldSignals.dialogue_finished.emit()
 => END
