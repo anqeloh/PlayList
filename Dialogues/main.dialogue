@@ -8,14 +8,12 @@ if global.given_npc_item == false
 		Rob: Welcome to Rhythm Realm!
 		Rob: In this game, your goal is to be FAMOUS!
 		- Okay?
-		- No thanks, bye..
 			Rob: Hear me out.
 			Rob: You have to get yourself out there.
 			Rob: Show these big artists your music and prove to them that YOU CAN DO IT TOO!
 			Rob: They might fight it, but they WILL know your name.. Player.
 			- Got it. => END
+		- No thanks, bye..
 			# dialogue finished
-		=> END
-		# dialogue finished
 
 => END
