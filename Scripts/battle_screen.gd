@@ -24,6 +24,7 @@ var ex_gained = 40
 
 
 func _ready():
+	LevelTransition.hide()
 	if ( ResourceLoader.exists( save_file_path + save_file_name ) ):
 		lload()
 	set_health($PlayerPanel/PlayerData/ProgressBar, playerData.health, playerData.max_health) #Player Global Health

@@ -8,8 +8,7 @@ func _on_story_pressed():
 		LevelTransition.show()
 		await LevelTransition.fade_in()
 		get_tree().change_scene_to_file("res://Scenes/world.tscn")
-		await LevelTransition.fade_out()
-		LevelTransition.hide()
+		
 	else: 
 		DialogueManager.show_example_dialogue_balloon(load("res://Dialogues/FileOverrideWarning.dialogue"), "start")
 

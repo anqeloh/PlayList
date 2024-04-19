@@ -12,6 +12,8 @@ var paused = false
 
 
 func _ready():
+	await LevelTransition.fade_out()
+	LevelTransition.hide()
 	WorldSignals.battle_start.connect(battle_begin)
 	WorldSignals.position_load.connect(lload)
 	if WorldSignals.use_load:
