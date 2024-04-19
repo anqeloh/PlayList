@@ -1,14 +1,13 @@
 ~ start
 
-if global.given_sk_item == false
-	Shop Keeper: Hello! Welcome to my shop!
-	- Hello!
-		Shop Keeper: In my shop, there are a wide variety of items for health, stamina, and also for both!
-		- Oh no! I can't afford anything! I'll be back with coins. => END
-		- . . .
-			Shop Keeper: Feel free to look around!
-			# opens shop ui
-	- Goodbye.
-		=> END
+Shop Keeper: Hello! Welcome to my shop!
+- Hello!
+	Shop Keeper: In my shop, there are a wide variety of items for health, stamina, and also for both!
+	- Oh no! I can't afford anything! I'll be back with coins. => END
+	- ...
+		Shop Keeper: Feel free to look around!
+		# opens shop ui
+- Goodbye.
+	=> END
 
 => END

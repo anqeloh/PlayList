@@ -13,8 +13,8 @@ if global.given_npc_item == false
 		- mhm.
 		# continue
 			NPC: If you need anything else, you can speak to the the npc in front of the ___.
-			NPC: Good luck on your adventures!
-			=> END
+			NPC: But beware! there will be many enemies as you enter the world!
+			- hm, alright. I'll watch out for them. => END
 			# dialogue finished
 	- goodbye.
 	# start "goodbye" conversation
