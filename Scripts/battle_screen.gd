@@ -3,6 +3,8 @@ extends Control
 signal textbox_closed
 
 @onready var experience_bar = $ExperienceBar
+@onready var enemy_sprite = $EnemyContainer2/Enemy
+
 var enemies = [
 	preload("res://Resource/godot_png2.tres")
 	]
@@ -26,7 +28,7 @@ func _ready():
 		lload()
 	set_health($PlayerPanel/PlayerData/ProgressBar, playerData.health, playerData.max_health) #Player Global Health
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health) #Enemy Health from Resource
-	$EnemyContainer2/Enemy.texture = enemy.texture #Texture Image should be from the Resource
+	enemy_sprite.sprite_frames = enemy.texture #Texture Image should be from the Resource
 	current_player_health = playerData.health
 	current_enemy_health = enemy.health
 	experience_bar.initialize(playerData.experience, playerData.experience_rq)
@@ -69,6 +71,9 @@ func enemy_turn():
 		$ActionsPanel/Actions2.show()
 	else:
 		current_player_health = max(0, current_player_health - enemy.damage)
+		enemy_sprite.play()
+		await enemy_sprite.animation_finished
+		enemy_sprite.stop()
 		playerData.change_health(-(enemy.damage))
 		print(playerData.health)
 		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, playerData.max_health)

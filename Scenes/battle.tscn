@@ -346,6 +346,8 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Enemy" type="AnimatedSprite2D" parent="EnemyContainer2"]
+scale = Vector2(3, 3)
+animation = &"Attack1"
 
 [node name="PlayerPanel" type="Panel" parent="."]
 layout_mode = 1
