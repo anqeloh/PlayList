@@ -4,5 +4,5 @@ WARNING, PLAYING A NEW GAME WILL OVERRIDE THE PREVIOUS SAVE FILE. WILL YOU PROCE
 	set get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	=> END
 - NO
-
+	set get_tree().reload_current_scene()
 => END

@@ -24,7 +24,6 @@ var ex_gained = 40
 
 
 func _ready():
-	LevelTransition.hide()
 	if ( ResourceLoader.exists( save_file_path + save_file_name ) ):
 		lload()
 	set_health($PlayerPanel/PlayerData/ProgressBar, playerData.health, playerData.max_health) #Player Global Health
@@ -103,6 +102,10 @@ func _on_run_pressed():
 	display_text("You have escaped.")
 	await self.textbox_closed
 	await (get_tree().create_timer(0.25).timeout)
+	ssave()
+	WorldSignals.use_load = true
+	LevelTransition.show()
+	await LevelTransition.fade_in()
 	get_tree().change_scene_to_file("res://Scenes/world.tscn")
 
 
@@ -226,6 +229,8 @@ func enemy_health_checker():
 		ssave()
 		WorldSignals.use_load = true
 		await (get_tree().create_timer(0.25).timeout)
+		LevelTransition.show()
+		await LevelTransition.fade_in()
 		get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	else:
 		enemy_turn()
