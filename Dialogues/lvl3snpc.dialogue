@@ -1,0 +1,10 @@
+# unused dialogue
+~ start
+
+Starter NPC 3: [Welcome|Hello|Hi], adventurer! I see that you've reached the third level!
+Starter NPC 3: You have reached ___'s level.
+- Yes, I have!
+	Starter NPC 3: In this level, you will be ___.
+- Goodbye. => END
+
+=> END
