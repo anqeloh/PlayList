@@ -61,14 +61,14 @@ func enemy_turn():
 	display_text("%s attacks you back!" % enemy.name)
 	await self.textbox_closed
 	if is_defending:
-		is_defending = false
 		$AnimationPlayer.play("defend")
 		await $AnimationPlayer.animation_finished
-		display_text("No damage was taken")
+		current_enemy_health = max(0, current_enemy_health - (playerData.damage * 2))
+		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		display_text("No damage was taken, Enemy has taken recoil!")
 		await self.textbox_closed
-		await (get_tree().create_timer(0.5).timeout)
-		$ActionsPanel/Actions1.show()
-		$ActionsPanel/Actions2.show()
+		await enemy_health_checker()
+		
 	else:
 		current_player_health = max(0, current_player_health - enemy.damage)
 		enemy_sprite.play()
@@ -115,8 +115,8 @@ func _on_attack_pressed():
 
 
 func _on_defend_pressed():
+	var randomValue = rng.randi_range(0, 5)
 	rng.randomize()
-	var randomValue = rng.randi_range(1, 2)
 	if not randomValue == 2:
 		is_defending = true
 		$ActionsPanel/Actions1.hide()
@@ -134,12 +134,12 @@ func _on_defend_pressed():
 func _on_heal_pressed():
 	$ActionsPanel/Actions1.hide()
 	$ActionsPanel/Actions2.hide()
-	rng.randomize()
 	var randomValue = rng.randi_range(1, 10)
+	rng.randomize()
 	if not randomValue == 8:
-		current_player_health = max(0, current_player_health + enemy.damage)
+		current_player_health = max(0, current_player_health + (enemy.damage * 2))
 		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, playerData.max_health)
-		playerData.change_health(+(enemy.damage))
+		playerData.change_health((enemy.damage * 2))
 		print(playerData.health)
 		display_text("You Have Healed")
 		await self.textbox_closed
@@ -147,7 +147,7 @@ func _on_heal_pressed():
 	else:
 		current_player_health = max(0, current_player_health - (enemy.damage * 2))
 		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, playerData.max_health)
-		playerData.change_health(+(enemy.damage))
+		playerData.change_health(-(enemy.damage * 2))
 		print(playerData.health)
 		display_text("You Failed to Heal")
 		await self.textbox_closed
@@ -233,7 +233,14 @@ func enemy_health_checker():
 		await LevelTransition.fade_in()
 		get_tree().change_scene_to_file("res://Scenes/world.tscn")
 	else:
-		enemy_turn()
+		if is_defending:
+			is_defending = false
+			await (get_tree().create_timer(0.5).timeout)
+			$ActionsPanel/Actions1.show()
+			$ActionsPanel/Actions2.show()
+			
+		else:
+			enemy_turn()
 func pointer_on_focus():
 	if $AttackPanel/Actions/Attack1.is_hovered():
 		display_text("Attack 1: Attacks the enemy.")
