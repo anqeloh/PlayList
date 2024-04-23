@@ -1,10 +1,13 @@
 ~ start
-
+# start shop dialogue
 Shop Keeper: Hello! Welcome to my shop!
 - Hello!
-	Shop Keeper: In my shop, there are a wide variety of items for health, stamina, and also for both!
+# continue
+	Shop Keeper: In my shop, there are a wide variety of items like clothing, hats, and et cetera.
 	- Oh no! I can't afford anything! I'll be back with coins. => END
+	# end dialogue
 	- ...
+	# continue
 		Shop Keeper: Feel free to look around!
 		# opens shop ui
 - Goodbye.

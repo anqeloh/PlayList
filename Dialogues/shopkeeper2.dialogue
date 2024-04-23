@@ -1,12 +1,22 @@
 ~ start
-
+# start dialogue
 Shop Keeper: Welcome! Welcome!\nCome in!
 - ...
+# continue
 	Shop Keeper: Look around! All you need!
 	Shop Keeper: Cheap! Really cheap!
-	Shop Keeper: There are items for health and stamina.
+	Shop Keeper: I am selling attire and cosmetics!
 	- Perfect! Is there anything else?
-		Shop Keeper: Yes, actually!\nThere is ONE! and I mean ONE!! item remaining.
-		Shop Keeper: There 
+	# continue
+		Shop Keeper: Sadly, no.
+		Shop Keeper: But!\nThe attire and cosmetics are new and high quality!
+		- Alright
+		# continue
+			Shop Keeper: Anyways! Feel free to look around for what you want!
+			# opens shop2 ui
+- Sorry, wrong place.
+# start ending dialogue
+	Shop Keeper: All good!\nCome back when you need something! => END
+	# end dialogue
 
 => END
