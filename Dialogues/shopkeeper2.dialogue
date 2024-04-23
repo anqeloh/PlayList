@@ -1,0 +1,12 @@
+~ start
+
+Shop Keeper: Welcome! Welcome!\nCome in!
+- ...
+	Shop Keeper: Look around! All you need!
+	Shop Keeper: Cheap! Really cheap!
+	Shop Keeper: There are items for health and stamina.
+	- Perfect! Is there anything else?
+		Shop Keeper: Yes, actually!\nThere is ONE! and I mean ONE!! item remaining.
+		Shop Keeper: There 
+
+=> END
