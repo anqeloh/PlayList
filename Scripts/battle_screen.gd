@@ -138,8 +138,13 @@ func _on_heal_pressed():
 	rng.randomize()
 	if not randomValue == 8:
 		current_player_health = max(0, current_player_health + (enemy.damage * 2))
-		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, playerData.max_health)
-		playerData.change_health((enemy.damage * 2))
+		if current_player_health >= playerData.max_health:
+			current_player_health = playerData.max_health
+			playerData.health = playerData.max_health
+			set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, playerData.max_health)
+		else:
+			set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, playerData.max_health)
+			playerData.change_health((enemy.damage * 2))
 		print(playerData.health)
 		display_text("You Have Healed")
 		await self.textbox_closed
