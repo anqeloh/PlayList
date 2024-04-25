@@ -7,7 +7,7 @@ Enemy 1: ___ fight?!
 	Enemy 1: Alright! Get ready to ___!
 	# start battle
 	set WorldSignals.battle_start.emit()
-- No, I'm out. => END
-# end dialogue
-
+	set WorldSignals.dialogue_finished.emit()
+- No, I'm out. 
+set WorldSignals.dialogue_finished.emit()
 => END

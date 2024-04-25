@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var pause_menu = $Player/Camera2D/PauseMenu
 @onready var player = $Player
+@onready var ui = $InvCanvas/UI
 
 var playerData = FileSave.playerData
 var save_file_path = "user://save/"
@@ -11,10 +12,13 @@ var paused = false
 
 
 func _ready():
-	if ( ResourceLoader.exists( save_file_path + save_file_name ) ):
-		lload()
 	WorldSignals.battle_start.connect(battle_begin)
 	WorldSignals.position_load.connect(lload)
+	if WorldSignals.use_load:
+		lload()
+		WorldSignals.use_load = false
+	await LevelTransition.fade_out()
+	LevelTransition.hide()
 	
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
@@ -46,6 +50,7 @@ func lload():
 	
 func ssave():
 	ResourceSaver.save(playerData, save_file_path + save_file_name)
+	
 	print("saved:")
 	print(playerData.global_position)
 	print(playerData.health)

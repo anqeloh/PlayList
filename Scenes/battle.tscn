@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://drccvf1vx46d3"]
+[gd_scene load_steps=23 format=3 uid="uid://drccvf1vx46d3"]
 
 [ext_resource type="Script" path="res://Scripts/battle_screen.gd" id="1_ryj38"]
 [ext_resource type="FontVariation" uid="uid://c1m57otrn1nuf" path="res://Assets/NES.tres" id="2_at7ey"]
-[ext_resource type="Texture2D" uid="uid://yw7n4yjywnn2" path="res://Assets/battleback10.png" id="2_lj4b8"]
-[ext_resource type="PackedScene" path="res://Scenes/ctrl_bgm.tscn" id="5_8lf12"]
-[ext_resource type="Texture2D" uid="uid://dkkwyuvpi65ow" path="res://Assets/icon.svg" id="5_f7ukr"]
+[ext_resource type="Texture2D" uid="uid://crl6uldrkul20" path="res://Assets/battleback1.png" id="2_qlljl"]
+[ext_resource type="PackedScene" uid="uid://bg7r8fd4m6yb5" path="res://Scenes/ctrl_bgm.tscn" id="5_8lf12"]
+[ext_resource type="Texture2D" uid="uid://b4je5d0tlvtc" path="res://Assets/icon3.png" id="5_x82fe"]
+[ext_resource type="PackedScene" uid="uid://b1mddgvejlfs4" path="res://Scenes/experience_bar.tscn" id="6_vhdiy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmm7b"]
 bg_color = Color(1, 0.160784, 0, 1)
@@ -119,6 +120,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerContainer:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-500, 240)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PlayerContainer/TextureRect:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_3a4mr"]
 resource_name = "defend"
@@ -195,10 +220,22 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(1000, 185), Vector2(600, 183)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-500, 240), Vector2(150, 200)]
+}
 
 [sub_resource type="Animation" id="Animation_5t2e8"]
 resource_name = "shake"
-length = 0.5
+length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -210,6 +247,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-10, -11), Vector2(-6, 10), Vector2(28, 11), Vector2(7, -3), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PlayerContainer/TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5r8xf"]
@@ -242,7 +291,7 @@ offset_right = 54.0
 offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_lj4b8")
+texture = ExtResource("2_qlljl")
 
 [node name="EnemyContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -251,10 +300,10 @@ anchor_left = 0.308
 anchor_top = 0.289
 anchor_right = 0.668
 anchor_bottom = 0.756
-offset_left = -329.816
-offset_top = -81.272
-offset_right = -352.536
-offset_bottom = -185.888
+offset_left = 397.184
+offset_top = -155.272
+offset_right = 374.464
+offset_bottom = -259.888
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -292,20 +341,22 @@ anchor_bottom = 0.5
 offset_left = 1210.0
 offset_top = 183.0
 offset_right = 1639.0
-offset_bottom = 344.0
+offset_bottom = 344.001
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Enemy" type="TextureRect" parent="EnemyContainer2"]
-layout_mode = 2
-texture = ExtResource("5_f7ukr")
-stretch_mode = 3
+[node name="Enemy" type="AnimatedSprite2D" parent="EnemyContainer2"]
+position = Vector2(-32, 81)
+scale = Vector2(3.5, 3.5)
+animation = &""
 
 [node name="PlayerPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 90.0
+offset_top = 400.0
+offset_right = -576.0
+offset_bottom = 490.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ca8th")
 
@@ -338,7 +389,7 @@ size_flags_vertical = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_rmm7b")
 theme_override_styles/fill = SubResource("StyleBoxFlat_e0igx")
 step = 1.0
-value = 50.0
+value = 25.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="PlayerPanel/PlayerData/ProgressBar"]
@@ -354,6 +405,17 @@ theme_override_font_sizes/font_size = 40
 text = "HP: 25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="PlayerContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = -500.0
+offset_top = 240.0
+offset_right = -372.0
+offset_bottom = 368.0
+
+[node name="TextureRect" type="TextureRect" parent="PlayerContainer"]
+layout_mode = 2
+texture = ExtResource("5_x82fe")
 
 [node name="TextBox" type="Panel" parent="."]
 top_level = true
@@ -474,7 +536,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
 text = "ATTACK"
 
-[node name="Nothing" type="Button" parent="ActionsPanel/Actions2"]
+[node name="Heal" type="Button" parent="ActionsPanel/Actions2"]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -487,7 +549,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_11p6t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
-text = "idk"
+text = "HEAL"
 
 [node name="AttackPanel" type="Panel" parent="."]
 visible = false
@@ -595,9 +657,18 @@ anchor_mode = 0
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("5_8lf12")]
 
+[node name="ExperienceBar" parent="." instance=ExtResource("6_vhdiy")]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 368.0
+offset_right = 861.0
+offset_bottom = 437.0
+scale = Vector2(0.5, 0.5)
+
 [connection signal="pressed" from="ActionsPanel/Actions1/Defend" to="." method="_on_defend_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions1/Run" to="." method="_on_run_pressed"]
 [connection signal="pressed" from="ActionsPanel/Actions2/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="ActionsPanel/Actions2/Heal" to="." method="_on_heal_pressed"]
 [connection signal="pressed" from="AttackPanel/Actions/Attack1" to="." method="_on_attack_1_pressed"]
 [connection signal="pressed" from="AttackPanel/Actions/Attack2" to="." method="_on_attack_2_pressed"]
 [connection signal="pressed" from="AttackPanel/Actions2/Attack3" to="." method="_on_attack_3_pressed"]

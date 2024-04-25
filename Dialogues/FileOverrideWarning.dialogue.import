@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cghek3qddgw33"
+path="res://.godot/imported/FileOverrideWarning.dialogue-d35e5192b2ca88d84e84fdd121ebdcd6.tres"
+
+[deps]
+
+source_file="res://Dialogues/FileOverrideWarning.dialogue"
+dest_files=["res://.godot/imported/FileOverrideWarning.dialogue-d35e5192b2ca88d84e84fdd121ebdcd6.tres"]
+
+[params]
+
+defaults=true
