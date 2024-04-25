@@ -27,7 +27,7 @@ npc: There are invaders in our world at the moment.
 	# continue (who are you) conversation
 		Bob: Alrighty!!
 		Bob: In this game, I am the ___
-	- No.. no more. =>< different
+	- No.. no more. => different
 	# go to "different" dialogue
 - Bye.. => END
 # finish dialogue
