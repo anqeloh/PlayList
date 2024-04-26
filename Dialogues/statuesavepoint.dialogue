@@ -4,6 +4,7 @@ Statue: Hello. Would you like to save?
 - Yes
 	Statue: Perfect!
 	# save
+	set WorldSignals.dialogue_finished.emit()
 - No
 	Statue: Are you sure?
 	- Yes
@@ -13,5 +14,6 @@ Statue: Hello. Would you like to save?
 			- No.. I'll save.
 				Statue: Perfect!
 				# save
+				set WorldSignals.dialogue_finished.emit()
 
 => END
