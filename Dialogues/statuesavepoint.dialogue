@@ -1,0 +1,17 @@
+~ start
+
+Statue: Hello. Would you like to save?
+- Yes
+	Statue: Perfect!
+	# save
+- No
+	Statue: Are you sure?
+	- Yes
+		Statue: Are you really sure??
+		- Yes
+			Statue: Are you 100% sure???
+			- No.. I'll save.
+				Statue: Perfect!
+				# save
+
+=> END
