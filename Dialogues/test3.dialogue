@@ -1,5 +1,5 @@
 ~ start
 
 JDF: Hello\nHow are you?\nWelcome!
-
+set WorldSignals.dialogue_finished.emit()
 => END
