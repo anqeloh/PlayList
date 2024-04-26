@@ -1,0 +1,7 @@
+~ start
+
+Invisible Wall: YOU CAN NOT PASS THIS POINT
+Invisible Wall: FINISH ALL TASKS BEFORE COMING BACK
+set WorldSignals.dialogue_finished.emit()
+
+=> END

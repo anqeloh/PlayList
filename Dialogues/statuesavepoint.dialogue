@@ -11,9 +11,17 @@ Statue: Hello. Would you like to save?
 		Statue: Are you really sure??
 		- Yes
 			Statue: Are you 100% sure???
-			- No.. I'll save.
-				Statue: Perfect!
-				# save
-				set WorldSignals.dialogue_finished.emit()
+			- Yes
+				Statue: REALLY??
+				- Yes
+					Statue: Really really sure??
+					- Yes
+						Statue: 1000%?
+						- Yes
+							Statue: ARE YOU SUREEEE?!
+							- Noo, I'll save.
+								Statue: Perfect!
+								# save
+								set WorldSignals.dialogue_finished.emit()
 
 => END
