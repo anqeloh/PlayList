@@ -19,7 +19,7 @@ func _ready():
 		WorldSignals.use_load = false
 	await LevelTransition.fade_out()
 	LevelTransition.hide()
-	
+
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()

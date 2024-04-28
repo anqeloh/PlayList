@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=26 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
 [ext_resource type="PackedScene" uid="uid://bjgsh85laufmk" path="res://Scenes/player.tscn" id="2_w7pd1"]
 [ext_resource type="PackedScene" uid="uid://c2kln4cpp3o18" path="res://Scenes/ctrl_level_tile_map.tscn" id="4_4q8ny"]
 [ext_resource type="PackedScene" uid="uid://b32bft1726qei" path="res://Scenes/npc.tscn" id="5_dnk7x"]
+[ext_resource type="Script" path="res://Scripts/StatueSave.gd" id="5_wv5fh"]
 [ext_resource type="Script" path="res://Scripts/in_dialogue.gd" id="6_m74ok"]
 [ext_resource type="Resource" uid="uid://dgm6h7n6lmtnu" path="res://Dialogues/enemy1.dialogue" id="7_p0dty"]
 [ext_resource type="PackedScene" uid="uid://c27mg23q4c8qa" path="res://Scenes/chat_area.tscn" id="8_35d7q"]
@@ -13,15 +14,50 @@
 [ext_resource type="PackedScene" uid="uid://xgu3sp3xy8e0" path="res://Scenes/slot.tscn" id="14_titl8"]
 [ext_resource type="Resource" uid="uid://dey43uodkmifc" path="res://Dialogues/test3.dialogue" id="15_6tq3b"]
 [ext_resource type="Script" path="res://Scripts/InventoryScripts/characterAAA.gd" id="15_n7jl0"]
-[ext_resource type="Script" path="res://Scripts/areaBLOCKED.gd" id="16_8xo1y"]
 [ext_resource type="PackedScene" uid="uid://bljewcvvrbav1" path="res://Scenes/passive_slot.tscn" id="16_teqox"]
+[ext_resource type="FontVariation" uid="uid://c1m57otrn1nuf" path="res://Assets/NES.tres" id="16_wjapi"]
 [ext_resource type="PackedScene" uid="uid://bkki0sq1u7xru" path="res://Scenes/abstract_item.tscn" id="17_p6xss"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y246"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0u4ck"]
+line_spacing = 0.2
+font = ExtResource("16_wjapi")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6he1j"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2j8g2"]
+line_spacing = 2.0
+font = ExtResource("16_wjapi")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ev2gl"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cysvi"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hryft"]
+bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76bss"]
 size = Vector2(28, 23)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcbi2"]
-size = Vector2(80, 32)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_ac8an")
@@ -40,6 +76,71 @@ zoom = Vector2(4, 4)
 
 [node name="PauseMenu" parent="Player/Camera2D" instance=ExtResource("2_jf3sv")]
 visible = false
+
+[node name="StatueSave" type="Control" parent="Player"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_wv5fh")
+
+[node name="TopSave" type="Panel" parent="Player/StatueSave"]
+layout_mode = 0
+offset_left = -144.0
+offset_top = -71.0
+offset_right = -64.0
+offset_bottom = 36.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8y246")
+
+[node name="PlayerInfoLabel" type="Label" parent="Player/StatueSave/TopSave"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 80.0
+offset_bottom = 107.0
+text = "Stats:
+HTH: 00
+ATK: 00
+LVL: 00
+"
+label_settings = SubResource("LabelSettings_0u4ck")
+
+[node name="BottomSave" type="Panel" parent="Player/StatueSave"]
+layout_mode = 0
+offset_left = -144.0
+offset_top = 42.0
+offset_right = 144.0
+offset_bottom = 81.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6he1j")
+
+[node name="Textbox" type="Label" parent="Player/StatueSave/BottomSave"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -18.5
+offset_right = 156.0
+offset_bottom = 18.5
+grow_vertical = 2
+text = "Testing if it works.."
+label_settings = SubResource("LabelSettings_2j8g2")
+horizontal_alignment = 1
+
+[node name="SaveButton" type="Button" parent="Player/StatueSave/BottomSave"]
+layout_mode = 0
+offset_left = 196.0
+offset_top = 4.0
+offset_right = 273.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("16_wjapi")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_ev2gl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cysvi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hryft")
+text = "SAVE"
 
 [node name="NPC" parent="." instance=ExtResource("5_dnk7x")]
 position = Vector2(-8, -357)
@@ -160,24 +261,6 @@ position = Vector2(71, -4)
 position = Vector2(16, -688)
 dialogue_insert = ExtResource("15_6tq3b")
 
-[node name="DUh" type="StaticBody2D" parent="."]
-position = Vector2(-8, -416)
-collision_layer = 16
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DUh"]
-shape = SubResource("RectangleShape2D_qcbi2")
-
-[node name="Area2D" type="Area2D" parent="DUh"]
-script = ExtResource("16_8xo1y")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="DUh/Area2D"]
-position = Vector2(0, 8)
-shape = SubResource("RectangleShape2D_qcbi2")
-
-[node name="ChatArea" parent="DUh/Area2D" instance=ExtResource("8_35d7q")]
-position = Vector2(8, 40)
-
+[connection signal="pressed" from="Player/StatueSave/BottomSave/SaveButton" to="Player/StatueSave" method="_on_save_button_pressed"]
 [connection signal="body_entered" from="NPC/ChatArea" to="NPC/ChatArea" method="_area_entered"]
 [connection signal="body_exited" from="NPC/ChatArea" to="NPC/ChatArea" method="_on_body_exited"]
-[connection signal="body_entered" from="DUh/Area2D" to="DUh/Area2D" method="_on_body_entered"]
