@@ -58,6 +58,7 @@ func ssave_or_lload():
 func reload_child_scene():
 	var child_scene_path = "res://Scenes/battle.tscn"
 	var child_scene_resource = load(child_scene_path)
+	change_stats()
 	if child_scene_resource:
 		var old_child_scene = battle
 		var new_child_scene = child_scene_resource.instantiate()
@@ -67,7 +68,15 @@ func reload_child_scene():
 		battle = new_child_scene
 	else:
 		OS.alert("Failed to load the child scene resource.")
-		
+		return
+func change_stats():
+	FileData.playerData.health = battle._FileData.playerData.health
+	FileData.playerData.damage = battle._FileData.playerData.damage
+	FileData.playerData.level = battle._FileData.playerData.level
+	FileData.playerData.max_health = battle._FileData.playerData.max_health
+	FileData.playerData.experience = battle._FileData.playerData.experience
+	FileData.playerData.experience_rq = battle._FileData.playerData.experience_rq
+
 func lload():
 	FileData = FileSave.lload()
 	player.position = FileData.global_position

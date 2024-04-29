@@ -230,14 +230,7 @@ func enemy_health_checker():
 		await (get_tree().create_timer(1.75).timeout)
 		display_text("You recieved %s experience." % ex_gained)
 		await self.textbox_closed
-		WorldSignals.use_load = true
-		await (get_tree().create_timer(0.25).timeout)
-		LevelTransition.show()
-		await LevelTransition.fade_in()
-		self.hide()
-		await LevelTransition.fade_out()
-		LevelTransition.hide()
-		WorldSignals.battle_end.emit()
+		round_end()
 	else:
 		if is_defending:
 			is_defending = false
@@ -247,6 +240,17 @@ func enemy_health_checker():
 			
 		else:
 			enemy_turn()
+			
+func round_end():
+	#WorldSignals.use_load = true
+	await (get_tree().create_timer(0.25).timeout)
+	LevelTransition.show()
+	await LevelTransition.fade_in()
+	self.hide()
+	await LevelTransition.fade_out()
+	LevelTransition.hide()
+	WorldSignals.battle_end.emit()
+	
 func pointer_on_focus():
 	if $AttackPanel/Actions/Attack1.is_hovered():
 		display_text("Attack 1: Attacks the enemy.")
