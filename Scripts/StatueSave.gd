@@ -6,7 +6,7 @@ signal textbox_closed
 @onready var player_info_label = $TopSave/PlayerInfoLabel
 @onready var save_button = $BottomSave/SaveButton
 
-var playerData = FileSave.playerData
+var _fileDT 
 
 var pH
 var pA
@@ -14,10 +14,9 @@ var pL
 
 func _ready() -> void:
 	WorldSignals.save.connect(open_save)
-	
+	_fileDT = world.FileData
 
 func open_save():
-	up_stats()
 	await (get_tree().create_timer(0.15).timeout)
 	save_button.show()
 	self.visible = true
@@ -38,17 +37,14 @@ func _on_save_button_pressed():
 	await self.textbox_closed
 	await (get_tree().create_timer(0.15).timeout)
 	self.visible = false
-	
+	OS.alert("09483v934hnh9t54t5454h8tfg54h78rujhfguyjhwefgwe")
 func ssave():
 	world.ssave()
-	print("saved:")
-	print(playerData.global_position)
-	print(playerData.health)
 
 func up_stats():
-	pH = playerData.health
-	pA = playerData.damage
-	pL = playerData.level
+	pH = _fileDT.playerData.health
+	pA = _fileDT.playerData.damage
+	pL = _fileDT.playerData.level
 	player_info_label.text = "Stats:
 	HTH: %d
 	ATK: %d

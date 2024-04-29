@@ -1,6 +1,7 @@
 extends Node
 
 signal battle_start
+signal battle_end
 signal position_load
 signal dialogue_finished
 signal experience_gained(growth_data)

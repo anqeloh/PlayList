@@ -656,6 +656,7 @@ libraries = {
 anchor_mode = 0
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("5_8lf12")]
+autoplay = false
 
 [node name="ExperienceBar" parent="." instance=ExtResource("6_vhdiy")]
 layout_mode = 0

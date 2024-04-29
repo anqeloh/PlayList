@@ -3,11 +3,9 @@ class_name PlayerData
 
 
 @export var health = 25
-@export var global_position: Vector2
 @export var damage = 5
 @export var level: int = 1
 @export var max_health = 25
-
 
 @export var experience = 0
 @export var experience_rq = 0
@@ -17,9 +15,7 @@ var experience_total = 0
 func change_health(value :int):
 	health += value
 	
-func UpdatePos(value: Vector2):
-	global_position = value
-	
+
 func level_up():
 	level += 1
 	experience_rq = get_required_experience(level + 1)
