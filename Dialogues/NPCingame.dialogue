@@ -1,33 +1,33 @@
 ~ start
 # start dialogue with main world npc
-NPC002: Hello, I see you have made it in one piece!
-NPC002: You know..
-NPC002: There are invaders in our world at the moment.
+npc: Hello, I see you have made it in one piece!
+npc: You know..
+npc: There are invaders in our world at the moment.
 - Hello!
 # continue conversation
-	NPC002: If you have the time,\nI'd like to ask for you to do something for our sake.
+	npc: If you have the time,\nI'd like to ask for you to do something for our sake.
 	- I'll gladly help! Tell me what you need.
 	# continue conversation
-		NPC002: Perfect!\nFirst,\nI'll need you to defeat all the enemies to gain experience, coins, and items.
-		NPC002: Once you defeat them all,\nyou need to go fight the boss and restore peace to our world.
-		NPC002: Also, there are shops where you can purchase items from in different locations.
+		npc: Perfect!\nFirst,\nI'll need you to defeat all the enemies to gain experience, coins, and items.
+		npc: Once you defeat them all,\nyou need to go fight the boss and restore peace to our world.
+		npc: Also, there are shops where you can purchase items from throughout the world.
 	- I'm busy. I will not help you.
 	# ending conversation
-		NPC002: Well..
-		NPC002: If you do, please help.
-		NPC002: I'll be here, I won't go anywhere,\nJust here.. => END
+		npc: Well..
+		npc: If you do, please help.
+		npc: I'll be here, I won't go anywhere,\nJust here.. => END
 		# finish conversation
 - Who.. are you?
 # transition to (who are you) conversation
-	NPC002: Me? How do you not know me?
-	NPC002: I am the person everyone looks for when they are stuck!
-	NPC002: I am Bob.
+	npc: Me? How do you not know me?
+	npc: I am the person everyone looks for when they are stuck!
+	npc: I am Bob.
 	Bob: Need any more information??
 	- Yes! Tell me more!
 	# continue (who are you) conversation
 		Bob: Alrighty!!
 		Bob: In this game, I am the ___
-	- No.. no more. =>< different
+	- No.. no more. => different
 	# go to "different" dialogue
 - Bye.. => END
 # finish dialogue

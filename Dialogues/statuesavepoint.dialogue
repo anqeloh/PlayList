@@ -1,0 +1,36 @@
+~ start
+# start save dialogue
+Statue: Hello. Would you like to save?
+- Yes
+# continue
+	Statue: Perfect!
+	# save
+	set WorldSignals.dialogue_finished.emit()
+- No
+# start end dialogue
+	Statue: Are you sure?
+	- Yes
+	# continue
+		Statue: Are you really sure??
+		- Yes
+		# continue
+			Statue: Are you 100% sure???
+			- Yes
+			# continue
+				Statue: REALLY??
+				- Yes
+				# continue
+					Statue: Really really sure??
+					- Yes
+					# continue
+						Statue: 1000%?
+						- Yes
+						# continue
+							Statue: A! R! E! Y! O! U! S! U! R! E! E! E! E?!
+							- Noo, I'll save.
+							# start save dialogue
+								Statue: Perfect!
+								# save
+								set WorldSignals.dialogue_finished.emit()
+
+=> END

@@ -1,6 +1,6 @@
 ~ start
 
-JDF: Hello\nHow are you?\nWelcome.
-set WorldSignals.dialogue_finished.emit()
-set WorldSignals.save.emit()
+JDF: THIS IS A TEST
+JDF: Hello\nHow are you?\nWelcome!
+
 => END

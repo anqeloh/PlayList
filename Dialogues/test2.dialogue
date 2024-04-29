@@ -1,5 +1,5 @@
 ~ start
-This is a test.
+This is a TEST.
 test #2
 Other then that, nothing.
 set WorldSignals.dialogue_finished.emit()
