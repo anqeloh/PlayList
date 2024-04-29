@@ -6,6 +6,7 @@ Statue: Hello. Would you like to save?
 	Statue: Perfect!
 	# save
 	set WorldSignals.dialogue_finished.emit()
+	set WorldSignals.save.emit()
 - No
 # start end dialogue
 	Statue: Are you sure?
@@ -32,5 +33,6 @@ Statue: Hello. Would you like to save?
 								Statue: Perfect!
 								# save
 								set WorldSignals.dialogue_finished.emit()
+								set WorldSignals.save.emit()
 
 => END
