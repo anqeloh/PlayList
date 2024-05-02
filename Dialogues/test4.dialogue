@@ -1,7 +1,6 @@
 ~ start
 
-This is a test
+Test number 4
 Test: This is a test
-set WorldSignals.dialogue_finished.emit()
 
 => END
