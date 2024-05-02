@@ -17,6 +17,7 @@ Shop Keeper: Welcome! Welcome!\nCome in!
 - Sorry, wrong place.
 # start ending dialogue
 	Shop Keeper: All good!\nCome back when you need something! => END
+	set WorldSignals.dialogue_finished.emit()
 	# end dialogue
 
 => END

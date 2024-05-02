@@ -1,7 +1,7 @@
 ~ start
 # Enemy Dialogue Start
+Enemy 1: You there!
 Enemy 1: ___
-Enemy 1: ___ fight?!
 - Yes
 # initiate fight dialogue
 	Enemy 1: Alright! Get ready to ___!

@@ -16,6 +16,7 @@ npc: There are invaders in our world at the moment.
 		npc: Well..
 		npc: If you do, please help.
 		npc: I'll be here, I won't go anywhere,\nJust here.. => END
+		set WorldSignals.dialogue_finished.emit()
 		# finish conversation
 - Who.. are you?
 # transition to (who are you) conversation
@@ -30,6 +31,7 @@ npc: There are invaders in our world at the moment.
 	- No.. no more. => different
 	# go to "different" dialogue
 - Bye.. => END
+set WorldSignals.dialogue_finished.emit()
 # finish dialogue
 
 
@@ -54,6 +56,7 @@ Bob: Would you like to continue our conversation?
 		Bob: I'll be here, I won't go anywhere, Just here.. => END
 		# finish conversation
 - No, I'm leaving. => END
+set WorldSignals.dialogue_finished.emit()
 # finish dialogue
 
 => END
