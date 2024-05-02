@@ -1,0 +1,7 @@
+~ start
+
+This is a test
+Test: This is a test
+set WorldSignals.dialogue_finished.emit()
+
+=> END
