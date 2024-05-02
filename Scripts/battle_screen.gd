@@ -9,8 +9,6 @@ signal textbox_closed
 var enemies = [
 	preload("res://Resource/godot_png2.tres")
 	]
-
-var _FileData = FileSave
 var save_file_path = "user://save/"
 var save_file_name = "Player.tres"
 
@@ -24,13 +22,12 @@ var ex_gained = 240
 
 
 func start():
-	lload()
-	set_health($PlayerPanel/PlayerData/ProgressBar, _FileData.playerData.health, _FileData.playerData.max_health) #Player Global Health
+	set_health($PlayerPanel/PlayerData/ProgressBar, PlayerFile.health, PlayerFile.max_health) #Player Global Health
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health) #Enemy Health from Resource
 	enemy_sprite.sprite_frames = enemy.texture #Texture Image should be from the Resource
-	current_player_health = _FileData.playerData.health
+	current_player_health = PlayerFile.health
 	current_enemy_health = enemy.health
-	experience_bar.initialize(_FileData.playerData.experience, _FileData.playerData.experience_rq)
+	experience_bar.initialize(PlayerFile.experience, PlayerFile.experience_rq)
 	$AudioStreamPlayer.play()
 	$AnimationPlayer.play("enemy_start")
 	display_text("%s has appeared!" % enemy.name)
@@ -63,7 +60,7 @@ func enemy_turn():
 	if is_defending:
 		$AnimationPlayer.play("defend")
 		await $AnimationPlayer.animation_finished
-		current_enemy_health = max(0, current_enemy_health - (_FileData.playerData.damage * 2))
+		current_enemy_health = max(0, current_enemy_health - (PlayerFile.damage * 2))
 		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
 		display_text("No damage was taken, Enemy has taken recoil!")
 		await self.textbox_closed
@@ -74,9 +71,9 @@ func enemy_turn():
 		enemy_sprite.play()
 		await (get_tree().create_timer(0.8).timeout)
 		enemy_sprite.stop()
-		_FileData.playerData.change_health(-(enemy.damage))
-		print(_FileData.playerData.health)
-		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, _FileData.playerData.max_health)
+		PlayerFile.change_health(-(enemy.damage))
+		print(PlayerFile.health)
+		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health,PlayerFile.max_health)
 		$AnimationPlayer.play("shake")
 		await $AnimationPlayer.animation_finished
 		display_text("%s dealt %d damage to you!" % [enemy.name, enemy.damage])
@@ -137,22 +134,22 @@ func _on_heal_pressed():
 	rng.randomize()
 	if not randomValue == 8:
 		current_player_health = max(0, current_player_health + (enemy.damage * 2))
-		if current_player_health >= _FileData.playerData.max_health:
-			current_player_health = _FileData.playerData.max_health
-			_FileData.playerData.health = _FileData.playerData.max_health
-			set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, _FileData.playerData.max_health)
+		if current_player_health >= PlayerFile.max_health:
+			current_player_health = PlayerFile.max_health
+			PlayerFile.health = PlayerFile.max_health
+			set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, PlayerFile.max_health)
 		else:
-			set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, _FileData.playerData.max_health)
-			_FileData.playerData.change_health((enemy.damage * 2))
-		print(_FileData.playerData.health)
+			set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, PlayerFile.max_health)
+			PlayerFile.change_health((enemy.damage * 2))
+		print(PlayerFile.health)
 		display_text("You Have Healed")
 		await self.textbox_closed
 		enemy_turn()
 	else:
 		current_player_health = max(0, current_player_health - (enemy.damage * 2))
-		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, _FileData.playerData.max_health)
-		_FileData.playerData.change_health(-(enemy.damage * 2))
-		print(_FileData.playerData.health)
+		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, PlayerFile.max_health)
+		PlayerFile.change_health(-(enemy.damage * 2))
+		print(PlayerFile.health)
 		display_text("You Failed to Heal")
 		await self.textbox_closed
 		enemy_turn()
@@ -163,12 +160,12 @@ func _on_attack_1_pressed():
 	display_text("You attacked. . .")
 	await self.textbox_closed
 	
-	current_enemy_health = max(0, current_enemy_health - _FileData.playerData.damage)
+	current_enemy_health = max(0, current_enemy_health - PlayerFile.damage)
 	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You dealt %d damage!" % _FileData.playerData.damage)
+	display_text("You dealt %d damage!" % PlayerFile.damage)
 	await self.textbox_closed
 	enemy_health_checker()
 
@@ -179,12 +176,12 @@ func _on_attack_2_pressed():
 	display_text("You attacked. . .")
 	await self.textbox_closed
 	
-	current_enemy_health = max(0, current_enemy_health - _FileData.playerData.damage)
+	current_enemy_health = max(0, current_enemy_health - PlayerFile.damage)
 	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You dealt %d damage!" % _FileData.playerData.damage)
+	display_text("You dealt %d damage!" % PlayerFile.damage)
 	await self.textbox_closed
 	enemy_health_checker()
 
@@ -195,12 +192,12 @@ func _on_attack_3_pressed():
 	display_text("You attacked. . .")
 	await self.textbox_closed
 	
-	current_enemy_health = max(0, current_enemy_health - _FileData.playerData.damage)
+	current_enemy_health = max(0, current_enemy_health - PlayerFile.damage)
 	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You dealt %d damage!" % _FileData.playerData.damage)
+	display_text("You dealt %d damage!" % PlayerFile.damage)
 	await self.textbox_closed
 	enemy_health_checker()
 
@@ -211,12 +208,12 @@ func _on_attack_4_pressed():
 	display_text("You attacked. . .")
 	await self.textbox_closed
 	
-	current_enemy_health = max(0, current_enemy_health - _FileData.playerData.damage)
+	current_enemy_health = max(0, current_enemy_health - PlayerFile.damage)
 	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
 	$AnimationPlayer.play("enemy_damaged")
 	await $AnimationPlayer.animation_finished
 	
-	display_text("You dealt %d damage!" % _FileData.playerData.damage)
+	display_text("You dealt %d damage!" % PlayerFile.damage)
 	await self.textbox_closed
 	enemy_health_checker()
 	
@@ -226,7 +223,7 @@ func enemy_health_checker():
 		await $AnimationPlayer.animation_finished
 		display_text("%s was defeated." % enemy.name)
 		await self.textbox_closed
-		_FileData.playerData.gain_experience(ex_gained)
+		PlayerFile.gain_experience(ex_gained)
 		await (get_tree().create_timer(1.75).timeout)
 		display_text("You recieved %s experience." % ex_gained)
 		await self.textbox_closed
@@ -261,6 +258,3 @@ func pointer_on_focus():
 	if $AttackPanel/Actions2/Attack4.is_hovered():
 		display_text("Attack 4: Attacks the enemy...")
 	
-func lload():
-	_FileData = FileSave.lload()
-	print(_FileData)

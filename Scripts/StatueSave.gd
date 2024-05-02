@@ -7,7 +7,6 @@ signal textbox_closed
 @onready var save_button = $BottomSave/SaveButton
 @onready var battle = $"../../BattleCanvas/Battle"
 
-var fileData
 
 func _ready() -> void:
 	WorldSignals.save.connect(open_save)
@@ -39,12 +38,11 @@ func ssave():
 	world.ssave()
 
 func up_stats():
-	fileData = FileSave.lload()
-	var pH = fileData.playerData.health
-	var pA = fileData.playerData.damage
-	var pL = fileData.playerData.level
+	var pH = PlayerFile.health
+	var pA = PlayerFile.damage
+	var pL = PlayerFile.level
 	player_info_label.text = "Stats:
-	HTH: %d
+	HP: %d
 	ATK: %d
 	LVL: %d" % [pH, pA, pL]
 	

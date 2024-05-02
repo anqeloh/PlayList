@@ -4,7 +4,6 @@ extends Node2D
 @onready var ui = $InvCanvas/UI
 @onready var battle = $BattleCanvas/Battle
 
-var FileData: FileSave
 var save_file_path = "user://save/"
 var save_file_name = "Player.tres"
 var paused = false
@@ -46,19 +45,18 @@ func battle_ends():
 	
 func ssave_or_lload():
 	if WorldSignals.use_load:
-		FileData = FileSave.lload()
+		PlayerFile.lload()
 		WorldSignals.use_load = false
 	else:
-		FileData = FileSave.new()
-		FileData.global_position = player.global_position
-		ssave()
+		PlayerFile.global_position = player.position
+		PlayerFile.ssave()
 		
-	player.position = FileData.global_position
+	player.position = PlayerFile.global_position
 	
 func reload_child_scene():
 	var child_scene_path = "res://Scenes/battle.tscn"
 	var child_scene_resource = load(child_scene_path)
-	change_stats()
+	#change_stats()
 	if child_scene_resource:
 		var old_child_scene = battle
 		var new_child_scene = child_scene_resource.instantiate()
@@ -69,22 +67,22 @@ func reload_child_scene():
 	else:
 		OS.alert("Failed to load the child scene resource.")
 		return
-func change_stats():
-	FileData.playerData.health = battle._FileData.playerData.health
-	FileData.playerData.damage = battle._FileData.playerData.damage
-	FileData.playerData.level = battle._FileData.playerData.level
-	FileData.playerData.max_health = battle._FileData.playerData.max_health
-	FileData.playerData.experience = battle._FileData.playerData.experience
-	FileData.playerData.experience_rq = battle._FileData.playerData.experience_rq
+#func change_stats():
+	#FileData.playerData.health = battle._FileData.playerData.health
+	#FileData.playerData.damage = battle._FileData.playerData.damage
+	#FileData.playerData.level = battle._FileData.playerData.level
+	#FileData.playerData.max_health = battle._FileData.playerData.max_health
+	#FileData.playerData.experience = battle._FileData.playerData.experience
+	#FileData.playerData.experience_rq = battle._FileData.playerData.experience_rq
 
 func lload():
-	FileData = FileSave.lload()
-	player.position = FileData.global_position
+	PlayerFile.lload()
+	player.position = PlayerFile.global_position
 	
 func ssave():
-	FileData.global_position = player.position
-	FileData.ssave()
+	PlayerFile.global_position = player.position
+	PlayerFile.ssave()
 	
 	print("saved:")
-	print(FileData.global_position)
-	print(FileData.playerData.health)
+	print(PlayerFile.global_position)
+	print(PlayerFile.health)
