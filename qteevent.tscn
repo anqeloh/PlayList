@@ -13,7 +13,7 @@ scale = Vector2(1.01478, 1)
 texture = ExtResource("2_gxaeo")
 
 [node name="QTEarrow" type="Sprite2D" parent="."]
-position = Vector2(576, 488)
+position = Vector2(408, 488)
 rotation = -1.57079
 scale = Vector2(2.94554, 2.28529)
 texture = ExtResource("3_umndj")
