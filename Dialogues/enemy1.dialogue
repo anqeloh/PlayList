@@ -1,13 +1,16 @@
 ~ start
 # Enemy Dialogue Start
-Enemy 1: You there!
-Enemy 1: ___
-- Yes
+Raccoon: Hiss! You there!
+Raccoon: Stop playing that music of yours, purr!
+- No!
 # initiate fight dialogue
-	Enemy 1: Alright! Get ready to ___!
+	Raccoon: How dare you!
+	Raccoon: I don't like this.\nIf I win, you can not play anymore music!
+	- Deal!\nAnd if I win, you have to leave me alone and stop annoying me!
 	# start battle
 	set WorldSignals.battle_start.emit()
 	set WorldSignals.dialogue_finished.emit()
 - No, I'm out. 
 set WorldSignals.dialogue_finished.emit()
+
 => END
