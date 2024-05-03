@@ -11,6 +11,9 @@ npc: There are invaders in our world at the moment.
 		npc: Perfect!\nFirst,\nI'll need you to defeat all the enemies to gain experience, coins, and items.
 		npc: Once you defeat them all,\nyou need to go fight the boss and restore peace to our world.
 		npc: Also, there are shops where you can purchase items from throughout the world.
+		npc: Good luck!
+		- Thanks! => END
+		set WorldSignals.dialogue_finished.emit()
 	- I'm busy. I will not help you.
 	# ending conversation
 		npc: Well..
@@ -49,6 +52,9 @@ Bob: Would you like to continue our conversation?
 	# continue conversation
 		Bob: Perfect!\nFirst, I'll need you to defeat all the enemies to gain experience, coins, and items.
 		Bob: Once you defeat them all, you need to go fight the boss and restore peace to our world.
+		Bob: You got this!
+		- Thanks! => END
+		set WorldSignals.dialogue_finished.emit()
 	- I'm busy. I will not help you.
 	# ending conversation
 		Bob: Well..
