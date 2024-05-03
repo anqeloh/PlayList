@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 
 const speed = 100
+var velocity := Vector2(0, 0)
 var current_dir = "none"
 
 var npc_in_range = false
@@ -14,6 +15,12 @@ func _ready():
 func _physics_process(delta):
 	if not WorldSignals.in_dialogue:
 		player_movement(delta)
+
+func _process(delta: float) -> void:
+	var direction := Vector2(0, 0)
+	direction.x = Input.get_axis("ui_left", "ui_right")
+	direction.y = Input.get_axis("ui_up", "ui_down")
+	
 
 func player_sell_method():
 	pass
