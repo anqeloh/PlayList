@@ -121,19 +121,18 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 3.0
 offset_top = -18.5
-offset_right = 168.0
+offset_right = 280.0
 offset_bottom = 18.5
 grow_vertical = 2
 text = "Testing if it works.."
 label_settings = SubResource("LabelSettings_2j8g2")
-horizontal_alignment = 1
 
 [node name="SaveButton" type="Button" parent="Player/StatueSave/BottomSave"]
 layout_mode = 0
-offset_left = 196.0
-offset_top = 4.0
-offset_right = 273.0
-offset_bottom = 19.0
+offset_left = 192.0
+offset_top = 22.0
+offset_right = 269.0
+offset_bottom = 37.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)

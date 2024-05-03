@@ -17,7 +17,7 @@ func open_save():
 	save_button.show()
 	up_stats()
 	self.visible = true
-	display_text("Would You Like to Save?")
+	display_text("Would You like to save your point?")
 	
 func display_text(text):
 	textbox.text = text

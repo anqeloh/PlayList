@@ -16,10 +16,6 @@ func verify_save_directory(path: String):
 	DirAccess.make_dir_absolute(path)
 	
 
-func UpdatePos(value: Vector2):
-	global_position = value
-
-
 func save_exists():
 	if not ( ResourceLoader.exists( SAVE_FILE_PATH + SAVE_FILE_NAME ) ):
 		fileExists = false
