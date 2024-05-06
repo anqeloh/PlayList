@@ -19,9 +19,9 @@ config/icon="res://Assets/icon.svg"
 
 WorldSignals="*res://Scripts/Gsignals.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
-FileSave="*res://Scripts/FileSave.gd"
 ItemData="*res://Autoload/database.gd"
 LevelTransition="*res://Scenes/level_transition.tscn"
+global="*res://Scripts/global.gd"
 
 [dialogue_manager]
 
@@ -93,7 +93,7 @@ InvButton={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/main.dialogue", "res://Dialogues/test.dialogue", "res://Dialogues/test2.dialogue", "res://Dialogues/FileOverrideWarning.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/main.dialogue", "res://Dialogues/test.dialogue", "res://Dialogues/test2.dialogue", "res://Dialogues/FileOverrideWarning.dialogue", "res://Dialogues/lvl1snpc.dialogue", "res://Dialogues/NPCingame.dialogue", "res://Dialogues/eastereggdialogue.dialogue", "res://Dialogues/enemy1.dialogue", "res://Dialogues/test3.dialogue", "res://Dialogues/shopkeeper.dialogue", "res://Dialogues/lvl2snpc.dialogue", "res://Dialogues/lvl3snpc.dialogue", "res://Dialogues/shopkeeper2.dialogue", "res://Dialogues/statuesavepoint.dialogue", "res://Dialogues/unabletopassthispoint.dialogue")
 
 [layer_names]
 
@@ -101,6 +101,7 @@ locale/translations_pot_files=PackedStringArray("res://Dialogues/main.dialogue",
 2d_physics/layer_2="Player"
 2d_physics/layer_3="NPC"
 2d_physics/layer_4="Dialogue"
+2d_physics/layer_5="Wall"
 
 [rendering]
 

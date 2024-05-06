@@ -1,0 +1,11 @@
+# unused dialogue
+~ start
+
+Starter NPC 1: [Hello|Hi], Welcome to Level 1!
+- Hello!
+	Starter NPC 1: In this level, you will be ___.
+	Starter NPC 1: ___
+	- Thanks for the information! => END
+- Goodbye. => END
+
+=> END

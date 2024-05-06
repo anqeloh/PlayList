@@ -1,17 +1,21 @@
 ~ start
 
 if global.given_npc_item == false
-	NPC: [[Hi|Hello|What's up]], Adventurer!
+# start dialogue with NPC
+	Rob: [[Hi|Hello|What's up]], Adventurer!
 	- Hello.
-		NPC: Welcome to []
-		NPC: In this game, you will be ___
-		- I don't need to know more, goodbye. => END
-		- mhm.
-			NPC: If you need anything else, you can speak to the npc's in the beginning of each level.
-			NPC: Good luck on your adventures!
+	# continue
+		Rob: Welcome to Rhythm Realm!
+		Rob: In this game, your goal is to be FAMOUS!
+		- Okay?
+			Rob: Hear me out.
+			Rob: You have to get yourself out there.
+			Rob: Show these big artists your music and prove to them that YOU CAN DO IT TOO!
+			Rob: They might fight it, but they WILL know your name.. Player.
+			- Got it. 
+			set WorldSignals.dialogue_finished.emit()
 			=> END
-	- goodbye.
-		NPC: Okay man! You don't have to be so rude about it.
-		=> END
-	
+		- No thanks, bye..
+			# dialogue finished
+	set WorldSignals.dialogue_finished.emit()
 => END

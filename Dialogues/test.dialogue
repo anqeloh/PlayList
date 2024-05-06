@@ -1,5 +1,6 @@
 ~ start
 
+Slime: This is a TEST battle dialogue scene!
 Slime: [[Hey|Hello|Hi]] adventurer.
 - Hello.
 	Slime: Nice to meet you. Do you want to battle?
@@ -15,4 +16,5 @@ Slime: [[Hey|Hello|Hi]] adventurer.
 Slime: Bye.
 set WorldSignals.dialogue_finished.emit()
 => END
+
 

@@ -1,0 +1,13 @@
+~ start
+# Enemy Dialogue Start
+Enemy 1: ___
+Enemy 1: ___ fight?!
+- Yes
+# initiate fight dialogue
+	Enemy 1: Alright! Get ready to ___!
+	# start battle
+	set WorldSignals.battle_start.emit()
+	set WorldSignals.dialogue_finished.emit()
+- No, I'm out. 
+set WorldSignals.dialogue_finished.emit()
+=> END

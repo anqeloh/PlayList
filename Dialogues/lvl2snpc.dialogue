@@ -1,0 +1,19 @@
+# unused dialogue
+~ start
+
+Starter NPC 2: [Hello|Hi], welcome to the 2nd level of the game!
+- Hello!
+	Starter NPC 2: Throughout this level, you will be facing ___.
+	Starter NPC 2: ___.
+	- Thanks for the information! I'll come back if I need more help. => END
+		Starter NPC 2: Your welcome!
+		Starter NPC 2: Come again if you need assistance! => END
+- Who are you?
+	Starter NPC 2: I am the person you find at the start of each level!
+	- Ah, I see.
+		Starter NPC 2: As I'm guessing you've met the npc from the first level
+		Starter NPC 2: I am technically their sibling or relative. => END
+	- I don't need to know more, goodbye. => END
+- Bye.. => END
+
+=> END

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://cps8yjwsynunm"
+path="res://.godot/imported/eastereggdialogue.dialogue-99a08acebd8ba53ce7e0d1b3ec287450.tres"
+
+[deps]
+
+source_file="res://Dialogues/eastereggdialogue.dialogue"
+dest_files=["res://.godot/imported/eastereggdialogue.dialogue-99a08acebd8ba53ce7e0d1b3ec287450.tres"]
+
+[params]
+
+defaults=true
