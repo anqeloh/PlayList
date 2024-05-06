@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 
 const speed = 100
-var velocity := Vector2(0, 0)
 var current_dir = "none"
 
 var npc_in_range = false
