@@ -14,8 +14,6 @@ func _ready():
 func _physics_process(delta):
 	if not WorldSignals.in_dialogue:
 		player_movement(delta)
-	
-	var input_vector = Vector2.ZERO
 
 func player_sell_method():
 	pass
@@ -24,6 +22,8 @@ func player_shop_method():
 	pass
 
 func player_movement(delta):
+	
+	var input_vector = Vector2.ZERO
 	
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
@@ -52,7 +52,10 @@ func player_movement(delta):
 		
 	move_and_slide()
 	
+	if input_vector.length_squared() > 0:
+		input_vector = input_vector.normalized()
 	
+	var motion = input_vector * speed * delta
 	
 func play_anim(movement):
 	var dir = current_dir
