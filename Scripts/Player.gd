@@ -14,6 +14,8 @@ func _ready():
 func _physics_process(delta):
 	if not WorldSignals.in_dialogue:
 		player_movement(delta)
+	
+	var input_vector = Vector2.ZERO
 
 func player_sell_method():
 	pass
@@ -49,6 +51,8 @@ func player_movement(delta):
 		velocity.y = 0
 		
 	move_and_slide()
+	
+	
 	
 func play_anim(movement):
 	var dir = current_dir
