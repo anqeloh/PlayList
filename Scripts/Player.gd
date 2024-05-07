@@ -23,8 +23,6 @@ func player_shop_method():
 
 func player_movement(delta):
 	
-	var input_vector = Vector2.ZERO
-	
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
 		play_anim(1)
@@ -51,11 +49,6 @@ func player_movement(delta):
 		velocity.y = 0
 		
 	move_and_slide()
-	
-	if input_vector.length_squared() > 0:
-		input_vector = input_vector.normalized()
-	
-	var motion = input_vector * speed * delta
 	
 func play_anim(movement):
 	var dir = current_dir
