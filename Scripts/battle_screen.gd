@@ -45,6 +45,8 @@ func start():
 	pMagic = _FileData.playerData.magic
 	pExperience = _FileData.playerData.experience
 	pExperience_rq = _FileData.playerData.experience_rq
+	starting_player_str = pStrength
+	starting_player_mag = pMagic
 	
 	set_health($PlayerPanel/PlayerData/ProgressBar, pHealth, pMax_health) #Player Global Health
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health) #Enemy Health from Resource
@@ -74,6 +76,9 @@ func set_health(progress_bar, health, max_health):
 func _input(event):
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $TextBox.visible:
 		textbox_closed.emit()
+	# BELOW THIS VVV IS JUST TESTING THE GAME MORE FASTER
+	if Input.is_action_just_pressed("test_button"):
+		start()
 
 func display_text(text):
 	$TextBox/Label.text = text
@@ -185,15 +190,15 @@ func _on_attack_1_pressed():
 	$AttackPanel/Actions2.hide()
 	display_text("You attacked. . .")
 	await self.textbox_closed
-	rng.randomize()
 	var randomValue = rng.randi_range(1,5)
+	rng.randomize()
 	if not randomValue == 1:
-		current_enemy_health = max(0, current_enemy_health - round(pDamage * (1+(pStrength * 0.05))))
+		current_enemy_health = max(0, current_enemy_health - round(pDamage * (1 + (pStrength * 0.05))))
 		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 		
-		display_text("You dealt %d damage!" % pDamage)
+		display_text("You dealt %d damage!" % round(pDamage * (1 + (pStrength * 0.05))))
 		await self.textbox_closed
 		enemy_health_checker()
 	else:
@@ -211,24 +216,24 @@ func _on_attack_2_pressed():
 	$AttackPanel/Actions2.hide()
 	display_text("You attacked. . .")
 	await self.textbox_closed
-	rng.randomize()
 	var randomValue = rng.randi_range(1,5)
+	rng.randomize()
 	if not randomValue == 1 or randomValue == 2:
-		current_enemy_health = max(0, current_enemy_health - round(pDamage * ((pMagic * 0.03)+1)))
+		current_enemy_health = max(0, current_enemy_health - round(pDamage * ((pMagic * 0.03) +1 )))
 		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
 		
-		display_text("You dealt %d damage!" % pDamage)
+		display_text("You dealt %d damage!" % round(pDamage * ((pMagic * 0.03) + 1)))
 		await self.textbox_closed
 		enemy_health_checker()
 	else:
-			current_enemy_health = max(0, current_enemy_health - round(pDamage * ((pMagic * 0.03)+1)))
+			current_enemy_health = max(0, current_enemy_health - round(pDamage * ((pMagic * 0.03) + 1)))
 			set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
 			$AnimationPlayer.play("enemy_damaged")
 			await $AnimationPlayer.animation_finished
 			if current_enemy_health == 0:
-				display_text("You dealt %d damage!" % round(pDamage * ((pMagic * 0.03)+1)))
+				display_text("You dealt %d damage!" % round(pDamage * ((pMagic * 0.03) + 1)))
 			else:
 				display_text("You dealt %d damage and can follow up!" % round(pDamage * ((pMagic * 0.03)+1)))
 			await self.textbox_closed
@@ -321,6 +326,7 @@ func magic_enemy_health_checker():
 		$ActionsPanel/Actions2.show()
 		$ActionsPanel.show()
 		display_text("What will you do?")
+		
 func player_strength_increase():
 	pStrength *= 2
 
