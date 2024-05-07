@@ -12,10 +12,10 @@
 [ext_resource type="Script" path="res://Scripts/InventoryScripts/testUI.gd" id="12_ale1l"]
 [ext_resource type="Script" path="res://Scripts/InventoryScripts/INVENTORY_yes.gd" id="13_mcibm"]
 [ext_resource type="PackedScene" uid="uid://xgu3sp3xy8e0" path="res://Scenes/slot.tscn" id="14_titl8"]
+[ext_resource type="Resource" uid="uid://dey43uodkmifc" path="res://Dialogues/test3.dialogue" id="15_6tq3b"]
 [ext_resource type="Script" path="res://Scripts/InventoryScripts/characterAAA.gd" id="15_n7jl0"]
 [ext_resource type="PackedScene" uid="uid://bljewcvvrbav1" path="res://Scenes/passive_slot.tscn" id="16_teqox"]
 [ext_resource type="FontVariation" uid="uid://c1m57otrn1nuf" path="res://Assets/NES.tres" id="16_wjapi"]
-[ext_resource type="Resource" uid="uid://dlijx8qdb4df1" path="res://Dialogues/statuesavepoint.dialogue" id="17_g2rub"]
 [ext_resource type="PackedScene" uid="uid://bkki0sq1u7xru" path="res://Scenes/abstract_item.tscn" id="17_p6xss"]
 [ext_resource type="PackedScene" uid="uid://drccvf1vx46d3" path="res://Scenes/battle.tscn" id="18_obthu"]
 
@@ -119,20 +119,20 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 3.0
 offset_top = -18.5
-offset_right = 280.0
+offset_right = 156.0
 offset_bottom = 18.5
 grow_vertical = 2
 text = "Testing if it works.."
 label_settings = SubResource("LabelSettings_2j8g2")
+horizontal_alignment = 1
 
 [node name="SaveButton" type="Button" parent="Player/StatueSave/BottomSave"]
 layout_mode = 0
-offset_left = 192.0
-offset_top = 22.0
-offset_right = 269.0
-offset_bottom = 37.0
+offset_left = 196.0
+offset_top = 4.0
+offset_right = 273.0
+offset_bottom = 19.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
@@ -260,7 +260,7 @@ position = Vector2(71, -4)
 
 [node name="ChatArea2" parent="." instance=ExtResource("8_35d7q")]
 position = Vector2(16, -688)
-dialogue_insert = ExtResource("17_g2rub")
+dialogue_insert = ExtResource("15_6tq3b")
 
 [node name="BattleCanvas" type="CanvasLayer" parent="."]
 

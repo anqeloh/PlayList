@@ -1,31 +1,28 @@
 extends Node2D
-
 @onready var pause_menu = $Player/Camera2D/PauseMenu
 @onready var player = $Player
 @onready var ui = $InvCanvas/UI
+@onready var battle = $BattleCanvas/Battle
 
-var playerData = FileSave.playerData
+var FileData: FileSave
 var save_file_path = "user://save/"
 var save_file_name = "Player.tres"
-
 var paused = false
 
 
-func _ready():
+func _ready() -> void:
 	WorldSignals.battle_start.connect(battle_begin)
 	WorldSignals.position_load.connect(lload)
-	if WorldSignals.use_load:
-		lload()
-		WorldSignals.use_load = false
+	WorldSignals.battle_end.connect(battle_ends)
+	ssave_or_lload()
 	await LevelTransition.fade_out()
 	LevelTransition.hide()
-	
+
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
-	playerData.UpdatePos(player.position)
 	
-	
+
 func pauseMenu():
 	if paused:
 		pause_menu.hide()
@@ -38,20 +35,56 @@ func pauseMenu():
 
 func battle_begin():
 	print("area has entered, prepare for battle!")
-	ssave()
 	await (get_tree().create_timer(1.0).timeout)
-	get_tree().change_scene_to_file("res://Scenes/battle.tscn")
+	battle.start()
+	battle.show()
 	
+func battle_ends():
+	reload_child_scene()
+	
+
+	
+func ssave_or_lload():
+	if WorldSignals.use_load:
+		FileData = FileSave.lload()
+		WorldSignals.use_load = false
+	else:
+		FileData = FileSave.new()
+		FileData.global_position = player.global_position
+		ssave()
+		
+	player.position = FileData.global_position
+	
+func reload_child_scene():
+	var child_scene_path = "res://Scenes/battle.tscn"
+	var child_scene_resource = load(child_scene_path)
+	change_stats()
+	if child_scene_resource:
+		var old_child_scene = battle
+		var new_child_scene = child_scene_resource.instantiate()
+		old_child_scene.get_parent().add_child(new_child_scene)
+		old_child_scene.queue_free()
+		new_child_scene.hide()
+		battle = new_child_scene
+	else:
+		OS.alert("Failed to load the child scene resource.")
+		return
+func change_stats():
+	FileData.playerData.health = battle._FileData.playerData.health
+	FileData.playerData.damage = battle._FileData.playerData.damage
+	FileData.playerData.level = battle._FileData.playerData.level
+	FileData.playerData.max_health = battle._FileData.playerData.max_health
+	FileData.playerData.experience = battle._FileData.playerData.experience
+	FileData.playerData.experience_rq = battle._FileData.playerData.experience_rq
+
 func lload():
-	playerData = ResourceLoader.load(save_file_path + save_file_name).duplicate(true)
-	player.position = playerData.global_position
-	print("loaded:")
-	print(playerData.global_position)
+	FileData = FileSave.lload()
+	player.position = FileData.global_position
 	
 func ssave():
-	ResourceSaver.save(playerData, save_file_path + save_file_name)
+	FileData.global_position = player.position
+	FileData.ssave()
 	
 	print("saved:")
-	print(playerData.global_position)
-	print(playerData.health)
-	
+	print(FileData.global_position)
+	print(FileData.playerData.health)

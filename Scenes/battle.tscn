@@ -338,10 +338,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1210.0
-offset_top = 183.0
-offset_right = 1639.0
-offset_bottom = 344.001
+offset_left = 634.0
+offset_top = -141.0
+offset_right = 1063.0
+offset_bottom = 20.001
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -656,6 +656,7 @@ libraries = {
 anchor_mode = 0
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("5_8lf12")]
+autoplay = false
 
 [node name="ExperienceBar" parent="." instance=ExtResource("6_vhdiy")]
 layout_mode = 0

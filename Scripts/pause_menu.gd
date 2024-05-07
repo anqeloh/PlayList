@@ -10,9 +10,6 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 
-func _on_save_pressed():
-	main.ssave()
-
 
 func _on_load_pressed():
 	main.lload()

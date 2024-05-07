@@ -116,7 +116,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hf3nv"]
-size = Vector2(18, 14)
+size = Vector2(14, 17)
 
 [node name="NPC" type="CharacterBody2D"]
 script = ExtResource("1_l00mt")
@@ -127,7 +127,7 @@ animation = &"idle"
 frame_progress = 0.47783
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_hf3nv")
 
 [node name="Timer" type="Timer" parent="."]
