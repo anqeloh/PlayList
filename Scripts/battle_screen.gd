@@ -24,16 +24,25 @@ var is_defending = false
 var ex_gained = 240
 
 var pHealth
+var pDefense
 var pMax_health
 var pDamage
+var pStrength
+var pMagic
 var pExperience
 var pExperience_rq
+
+var starting_player_str
+var starting_player_mag
 
 
 func start():
 	pHealth = _FileData.playerData.health
+	pDefense = _FileData.playerData.defense
 	pMax_health = _FileData.playerData.max_health
 	pDamage = _FileData.playerData.damage
+	pStrength = _FileData.playerData.strength
+	pMagic = _FileData.playerData.magic
 	pExperience = _FileData.playerData.experience
 	pExperience_rq = _FileData.playerData.experience_rq
 	
@@ -82,7 +91,7 @@ func enemy_turn():
 		await enemy_health_checker()
 		
 	else:
-		current_player_health = max(0, current_player_health - enemy.damage)
+		current_player_health = max(0, current_player_health - round(enemy.damage * (1-(pDefense * 0.02))))
 		enemy_sprite.play()
 		await (get_tree().create_timer(0.8).timeout)
 		enemy_sprite.stop()
@@ -149,7 +158,7 @@ func _on_heal_pressed():
 	var randomValue = rng.randi_range(1, 10)
 	rng.randomize()
 	if not randomValue == 8:
-		current_player_health = max(0, current_player_health + (enemy.damage * 2))
+		current_player_health = max(0, current_player_health + round(enemy.damage * (1 + (pMagic * 0.05))))
 		if current_player_health >= pMax_health:
 			current_player_health = pMax_health
 			pHealth = pMax_health
@@ -176,15 +185,25 @@ func _on_attack_1_pressed():
 	$AttackPanel/Actions2.hide()
 	display_text("You attacked. . .")
 	await self.textbox_closed
-	
-	current_enemy_health = max(0, current_enemy_health - pDamage)
-	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
-	$AnimationPlayer.play("enemy_damaged")
-	await $AnimationPlayer.animation_finished
-	
-	display_text("You dealt %d damage!" % pDamage)
-	await self.textbox_closed
-	enemy_health_checker()
+	rng.randomize()
+	var randomValue = rng.randi_range(1,5)
+	if not randomValue == 1:
+		current_enemy_health = max(0, current_enemy_health - round(pDamage * (1+(pStrength * 0.05))))
+		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		$AnimationPlayer.play("enemy_damaged")
+		await $AnimationPlayer.animation_finished
+		
+		display_text("You dealt %d damage!" % pDamage)
+		await self.textbox_closed
+		enemy_health_checker()
+	else:
+		current_enemy_health = max(0, current_enemy_health - (2 * (round(pDamage * (1+(pStrength * 0.05))))))
+		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		$AnimationPlayer.play("enemy_damaged")
+		await $AnimationPlayer.animation_finished
+		display_text("Critical hit! You dealt %d damage!" % (2 * round(pDamage * ((pStrength * 0.05) + 1))))
+		await self.textbox_closed
+		enemy_health_checker()
 
 
 func _on_attack_2_pressed():
@@ -192,29 +211,37 @@ func _on_attack_2_pressed():
 	$AttackPanel/Actions2.hide()
 	display_text("You attacked. . .")
 	await self.textbox_closed
-	
-	current_enemy_health = max(0, current_enemy_health - pDamage)
-	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
-	$AnimationPlayer.play("enemy_damaged")
-	await $AnimationPlayer.animation_finished
-	
-	display_text("You dealt %d damage!" % pDamage)
-	await self.textbox_closed
-	enemy_health_checker()
-
+	rng.randomize()
+	var randomValue = rng.randi_range(1,5)
+	if not randomValue == 1 or randomValue == 2:
+		current_enemy_health = max(0, current_enemy_health - round(pDamage * ((pMagic * 0.03)+1)))
+		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		$AnimationPlayer.play("enemy_damaged")
+		await $AnimationPlayer.animation_finished
+		
+		display_text("You dealt %d damage!" % pDamage)
+		await self.textbox_closed
+		enemy_health_checker()
+	else:
+			current_enemy_health = max(0, current_enemy_health - round(pDamage * ((pMagic * 0.03)+1)))
+			set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+			$AnimationPlayer.play("enemy_damaged")
+			await $AnimationPlayer.animation_finished
+			if current_enemy_health == 0:
+				display_text("You dealt %d damage!" % round(pDamage * ((pMagic * 0.03)+1)))
+			else:
+				display_text("You dealt %d damage and can follow up!" % round(pDamage * ((pMagic * 0.03)+1)))
+			await self.textbox_closed
+			magic_enemy_health_checker()
 
 func _on_attack_3_pressed():
 	$AttackPanel/Actions.hide()
 	$AttackPanel/Actions2.hide()
-	display_text("You attacked. . .")
+	display_text("You powered up. . .")
 	await self.textbox_closed
+	player_magic_increase()
 	
-	current_enemy_health = max(0, current_enemy_health - pDamage)
-	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
-	$AnimationPlayer.play("enemy_damaged")
-	await $AnimationPlayer.animation_finished
-	
-	display_text("You dealt %d damage!" % pDamage)
+	display_text("Your magic increased to %d!" % pMagic)
 	await self.textbox_closed
 	enemy_health_checker()
 
@@ -222,20 +249,18 @@ func _on_attack_3_pressed():
 func _on_attack_4_pressed():
 	$AttackPanel/Actions.hide()
 	$AttackPanel/Actions2.hide()
-	display_text("You attacked. . .")
+	display_text("You powered up. . .")
 	await self.textbox_closed
+	player_strength_increase()
 	
-	current_enemy_health = max(0, current_enemy_health - pDamage)
-	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
-	$AnimationPlayer.play("enemy_damaged")
-	await $AnimationPlayer.animation_finished
-	
-	display_text("You dealt %d damage!" % pDamage)
+	display_text("Your strength increased to %d!" % pStrength)
 	await self.textbox_closed
 	enemy_health_checker()
 	
 func enemy_health_checker():
 	if current_enemy_health == 0:
+		pStrength = starting_player_str
+		pMagic = starting_player_mag
 		$AnimationPlayer.play("enemy_died")
 		await $AnimationPlayer.animation_finished
 		display_text("%s was defeated." % enemy.name)
@@ -274,4 +299,31 @@ func pointer_on_focus():
 		display_text("Attack 3: Attacks the enemy?")
 	if $AttackPanel/Actions2/Attack4.is_hovered():
 		display_text("Attack 4: Attacks the enemy...")
-	
+		
+func magic_enemy_health_checker():
+	if current_enemy_health == 0:
+		pStrength = starting_player_str
+		pMagic = starting_player_mag
+		$AnimationPlayer.play("enemy_died")
+		await $AnimationPlayer.animation_finished
+		display_text("%s was defeated." % enemy.name)
+		await self.textbox_closed
+		_FileData.playerData.gain_experience(ex_gained)
+		await (get_tree().create_timer(1.75).timeout)
+		display_text("You recieved %s experience." % ex_gained)
+		await self.textbox_closed
+		round_end()
+	else:
+		$AttackPanel.hide()
+		$AttackPanel/Actions.show()
+		$AttackPanel/Actions2.show()
+		$ActionsPanel/Actions1.show()
+		$ActionsPanel/Actions2.show()
+		$ActionsPanel.show()
+		display_text("What will you do?")
+func player_strength_increase():
+	pStrength *= 2
+
+func player_magic_increase():
+	pMagic *= 2
+

@@ -4,12 +4,12 @@ class_name PlayerData
 
 @export var health = 25
 @export var damage = 5
-@export var AbilityPower = 10
 @export var level: int = 1
 @export var max_health = 25
 @export var strength = 8
 @export var magic = 8
 @export var defense = 5
+
 var player_strength_INC
 
 @export var experience = 0
