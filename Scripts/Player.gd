@@ -29,22 +29,22 @@ func player_movement(delta):
 		current_dir = "right"
 		play_anim(1)
 		velocity.x = speed
-		velocity.y = 0
-	elif Input.is_action_pressed("ui_left"):
+		#velocity.y = speed
+	if Input.is_action_pressed("ui_left"):
 		current_dir = "left"
 		play_anim(1)
 		velocity.x = -speed
-		velocity.y = 0
-	elif Input.is_action_pressed("ui_down"):
+		#velocity.y = -speed
+	if Input.is_action_pressed("ui_down"):
 		current_dir = "down"
 		play_anim(1)
 		velocity.y = speed
-		velocity.x = 0
-	elif Input.is_action_pressed("ui_up"):
+		#velocity.x = speed
+	if Input.is_action_pressed("ui_up"):
 		current_dir = "up"
 		play_anim(1)
 		velocity.y = -speed
-		velocity.x = 0
+		#velocity.x = -speed
 	else:
 		play_anim(0)
 		velocity.x = 0

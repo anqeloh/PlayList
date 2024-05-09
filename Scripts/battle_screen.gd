@@ -21,6 +21,7 @@ var current_player_health = 0
 var current_enemy_health = 0
 var rng: RandomNumberGenerator
 var is_defending = false
+var magic_checker = false
 var ex_gained = 240
 
 var pHealth
@@ -37,17 +38,7 @@ var starting_player_mag
 
 
 func start():
-	pHealth = _FileData.playerData.health
-	pDefense = _FileData.playerData.defense
-	pMax_health = _FileData.playerData.max_health
-	pDamage = _FileData.playerData.damage
-	pStrength = _FileData.playerData.strength
-	pMagic = _FileData.playerData.magic
-	pExperience = _FileData.playerData.experience
-	pExperience_rq = _FileData.playerData.experience_rq
-	starting_player_str = pStrength
-	starting_player_mag = pMagic
-	
+	await up_stats()
 	set_health($PlayerPanel/PlayerData/ProgressBar, pHealth, pMax_health) #Player Global Health
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health) #Enemy Health from Resource
 	enemy_sprite.sprite_frames = enemy.texture #Texture Image should be from the Resource
@@ -62,11 +53,20 @@ func start():
 	$ActionsPanel/Actions1.show()
 	$ActionsPanel/Actions2.show()
 	rng = RandomNumberGenerator.new()
-
+func up_stats():
+	pHealth = _FileData.playerData.health
+	pDefense = _FileData.playerData.defense
+	pMax_health = _FileData.playerData.max_health
+	pDamage = _FileData.playerData.damage
+	pStrength = _FileData.playerData.strength
+	pMagic = _FileData.playerData.magic
+	pExperience = _FileData.playerData.experience
+	pExperience_rq = _FileData.playerData.experience_rq
+	starting_player_str = pStrength
+	starting_player_mag = pMagic
 
 func _process(delta):
 	pointer_on_focus()
-
 
 func set_health(progress_bar, health, max_health):
 	var tween = get_tree().create_tween()
@@ -218,26 +218,27 @@ func _on_attack_2_pressed():
 	await self.textbox_closed
 	var randomValue = rng.randi_range(1,5)
 	rng.randomize()
-	if not randomValue == 1 or randomValue == 2:
+	if not randomValue == 1 or not randomValue == 2:
 		current_enemy_health = max(0, current_enemy_health - round(pDamage * ((pMagic * 0.03) +1 )))
 		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
-		
 		display_text("You dealt %d damage!" % round(pDamage * ((pMagic * 0.03) + 1)))
 		await self.textbox_closed
 		enemy_health_checker()
 	else:
-			current_enemy_health = max(0, current_enemy_health - round(pDamage * ((pMagic * 0.03) + 1)))
-			set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
-			$AnimationPlayer.play("enemy_damaged")
-			await $AnimationPlayer.animation_finished
-			if current_enemy_health == 0:
-				display_text("You dealt %d damage!" % round(pDamage * ((pMagic * 0.03) + 1)))
-			else:
-				display_text("You dealt %d damage and can follow up!" % round(pDamage * ((pMagic * 0.03)+1)))
-			await self.textbox_closed
-			magic_enemy_health_checker()
+		current_enemy_health = max(0, current_enemy_health - round(pDamage * ((pMagic * 0.03) + 1)))
+		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		$AnimationPlayer.play("enemy_damaged")
+		await $AnimationPlayer.animation_finished
+		#if current_enemy_health == 0:
+			#display_text("You dealt %d damage!" % round(pDamage * ((pMagic * 0.03) + 1)))
+		#else:
+			#display_text("You dealt %d damage and can follow up!" % round(pDamage * ((pMagic * 0.03)+1)))
+			#await self.textbox_closed
+		magic_checker = true
+		enemy_health_checker()
+		
 
 func _on_attack_3_pressed():
 	$AttackPanel/Actions.hide()
@@ -282,18 +283,13 @@ func enemy_health_checker():
 			$ActionsPanel/Actions1.show()
 			$ActionsPanel/Actions2.show()
 			
+		elif magic_checker:
+			magic_enemy_health_checker()
+			magic_checker = false
 		else:
 			enemy_turn()
 			
-func round_end():
-	await (get_tree().create_timer(0.25).timeout)
-	LevelTransition.show()
-	await LevelTransition.fade_in()
-	self.hide()
-	_FileData.ssave()
-	await LevelTransition.fade_out()
-	LevelTransition.hide()
-	WorldSignals.battle_end.emit()
+
 	
 func pointer_on_focus():
 	if $AttackPanel/Actions/Attack1.is_hovered():
@@ -333,3 +329,12 @@ func player_strength_increase():
 func player_magic_increase():
 	pMagic *= 2
 
+func round_end():
+	await (get_tree().create_timer(0.25).timeout)
+	LevelTransition.show()
+	await LevelTransition.fade_in()
+	self.hide()
+	_FileData.ssave()
+	await LevelTransition.fade_out()
+	LevelTransition.hide()
+	WorldSignals.battle_end.emit()

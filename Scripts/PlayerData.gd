@@ -20,6 +20,11 @@ var experience_total = 0
 func change_health(value :int):
 	health += value
 	
+func temp_health(value: int):
+	damage *= value
+func return_health(value:int):
+	damage /= value
+
 
 func level_up():
 	level += 1
