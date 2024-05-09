@@ -1,11 +1,11 @@
 ~ start
 # Enemy Dialogue Start
 Raccoon: Hiss! You there!
-Raccoon: Stop playing that music of yours, purr!
+Raccoon: Stop [[singing|playing]] that music of yours, purr!
 - No!
 # initiate fight dialogue
 	Raccoon: How dare you!
-	Raccoon: I don't like this.\nIf I win, you can not play anymore music!
+	Raccoon: I don't like this.\nIf I win, you can not [[sing|play]] anymore!
 	- Deal!\nAnd if I win, you have to leave me alone and stop annoying me!
 	# start battle
 	set WorldSignals.battle_start.emit()
