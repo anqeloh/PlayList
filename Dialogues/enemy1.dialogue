@@ -10,7 +10,7 @@ Raccoon: Stop [[singing|playing]] that music of yours, purr!
 	# start battle
 	set WorldSignals.battle_start.emit()
 	set WorldSignals.dialogue_finished.emit()
-- No, I'm out. 
+- Ew, get away from me. I don't even know you stranger! 
 set WorldSignals.dialogue_finished.emit()
 
 => END
