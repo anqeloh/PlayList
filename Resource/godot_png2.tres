@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://ugn5rotsiee5"]
 
 [ext_resource type="Script" path="res://Scripts/base_enemy.gd" id="1_4rl17"]
-[ext_resource type="SpriteFrames" uid="uid://c5vd3bbe40hom" path="res://Resource/ONEBATTTLE.tres" id="2_krvga"]
+[ext_resource type="SpriteFrames" uid="uid://dfmp67pt1vmue" path="res://Resource/ONEBATTTLE.tres" id="2_krvga"]
 
 [resource]
 script = ExtResource("1_4rl17")
