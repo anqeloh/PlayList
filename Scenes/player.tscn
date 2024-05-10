@@ -303,6 +303,4 @@ shape = SubResource("RectangleShape2D_hgst1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_aywc3")
-animation = &"back_walk"
-frame = 2
-frame_progress = 0.53216
+animation = &"side_walk"
