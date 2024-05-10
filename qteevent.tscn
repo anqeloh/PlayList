@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbhtp11q8l1fw"]
+
+[ext_resource type="Script" path="res://QTEevent.gd" id="1_qkrmo"]
+[ext_resource type="Texture2D" uid="uid://byxjfsloigbqj" path="res://Assets/sprites/QTEAssests/background.png" id="2_gxaeo"]
+[ext_resource type="Texture2D" uid="uid://cth4env0xvtag" path="res://Assets/sprites/QTEAssests/pointer.png" id="3_umndj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mufk0"]
+size = Vector2(78.835, 48)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_w1imt"]
+a = Vector2(-8.57988, -0.25087)
+b = Vector2(10.4319, -0.251022)
+
+[node name="QTEevent" type="Node2D"]
+script = ExtResource("1_qkrmo")
+
+[node name="QTEbar" type="Sprite2D" parent="."]
+position = Vector2(584, 376)
+scale = Vector2(1.01478, 1)
+texture = ExtResource("2_gxaeo")
+
+[node name="QTEredarea" type="Area2D" parent="QTEbar"]
+
+[node name="QTEredareacon" type="CollisionShape2D" parent="QTEbar/QTEredarea"]
+position = Vector2(-7.88348, 0)
+shape = SubResource("RectangleShape2D_mufk0")
+
+[node name="QTEarrow" type="Sprite2D" parent="."]
+position = Vector2(576, 400)
+rotation = -1.57079
+scale = Vector2(2.94554, 2.28529)
+texture = ExtResource("3_umndj")
+metadata/_edit_group_ = true
+
+[node name="QTEaa2d" type="CharacterBody2D" parent="QTEarrow"]
+
+[node name="QTEac" type="CollisionShape2D" parent="QTEarrow/QTEaa2d"]
+position = Vector2(0.431961, 0.250931)
+scale = Vector2(1, 1)
+shape = SubResource("SegmentShape2D_w1imt")
+
+[connection signal="body_entered" from="QTEbar/QTEredarea" to="." method="_on_qt_eredarea_body_entered"]
+[connection signal="body_exited" from="QTEbar/QTEredarea" to="." method="_on_qt_eredarea_body_exited"]
