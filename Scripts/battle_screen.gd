@@ -5,6 +5,7 @@ signal textbox_closed
 @onready var experience_bar = $ExperienceBar
 @onready var enemy_sprite = $EnemyContainer2/Enemy
 @onready var world = $"../.."
+@onready var qt_eevent = $QTEevent
 
 var _FileData = FileSave.lload()
 var enemies = [
@@ -39,6 +40,7 @@ var starting_player_mag
 
 func start():
 	await up_stats()
+	#qt_eevent.paused = true
 	set_health($PlayerPanel/PlayerData/ProgressBar, pHealth, pMax_health) #Player Global Health
 	set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health) #Enemy Health from Resource
 	enemy_sprite.sprite_frames = enemy.texture #Texture Image should be from the Resource
@@ -52,6 +54,7 @@ func start():
 	display_text("What will you do?")
 	$ActionsPanel/Actions1.show()
 	$ActionsPanel/Actions2.show()
+	WorldSignals.QTE.connect(OPdamage)
 	rng = RandomNumberGenerator.new()
 func up_stats():
 	pHealth = _FileData.playerData.health
@@ -245,13 +248,14 @@ func _on_attack_2_pressed():
 func _on_attack_3_pressed():
 	$AttackPanel/Actions.hide()
 	$AttackPanel/Actions2.hide()
-	display_text("You powered up. . .")
+	display_text("Quicktime Event")
 	await self.textbox_closed
-	player_magic_increase()
+	$TextBox.hide()
+	#qt_eevent.paused = false
+	qt_eevent.show()
 	
-	display_text("Your magic increased to %d!" % pMagic)
-	await self.textbox_closed
-	enemy_health_checker()
+	
+	
 
 
 func _on_attack_4_pressed():
@@ -291,8 +295,17 @@ func enemy_health_checker():
 		else:
 			enemy_turn()
 			
-
-	
+func OPdamage():
+	current_enemy_health = max(0, current_enemy_health - round(pDamage * (1 + (pStrength * 3))))
+	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+	$AnimationPlayer.play("enemy_damaged")
+	await $AnimationPlayer.animation_finished
+	qt_eevent.hide()
+	#qt_eevent.paused = true
+	$TextBox.show()
+	display_text("You are overpowered!")
+	await self.textbox_closed
+	enemy_health_checker()
 func pointer_on_focus():
 	if $AttackPanel/Actions/Attack1.is_hovered():
 		display_text("Attack 1: Attacks the enemy.")
