@@ -128,6 +128,8 @@ func _on_run_pressed():
 	$ActionsPanel/Actions2.hide()
 	display_text("You have escaped.")
 	await self.textbox_closed
+	pStrength = starting_player_str
+	pMagic = starting_player_mag
 	await (get_tree().create_timer(0.25).timeout)
 	WorldSignals.use_load = true
 	LevelTransition.show()

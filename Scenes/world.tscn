@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/StatueSave.gd" id="5_wv5fh"]
 [ext_resource type="Script" path="res://Scripts/in_dialogue.gd" id="6_m74ok"]
 [ext_resource type="Resource" uid="uid://dgm6h7n6lmtnu" path="res://Dialogues/enemy1.dialogue" id="7_p0dty"]
-[ext_resource type="PackedScene" uid="uid://c27mg23q4c8qa" path="res://Scenes/chat_area.tscn" id="8_35d7q"]
+[ext_resource type="PackedScene" path="res://Scenes/chat_area.tscn" id="8_35d7q"]
 [ext_resource type="Script" path="res://Scripts/InventoryScripts/testUI.gd" id="12_ale1l"]
 [ext_resource type="Script" path="res://Scripts/InventoryScripts/INVENTORY_yes.gd" id="13_mcibm"]
 [ext_resource type="PackedScene" uid="uid://xgu3sp3xy8e0" path="res://Scenes/slot.tscn" id="14_titl8"]
