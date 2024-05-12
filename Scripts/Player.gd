@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const speed = 100
+const speed = 75
 var current_dir = "none"
 
 var npc_in_range = false
@@ -79,3 +79,14 @@ func play_anim(movement):
 		elif movement == 0:
 			anim.play("back_idle")
 			
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Portal"):
+		position.x = 104
+		position.y = -2990
+	if area.is_in_group("Portal2"):
+		position.x = -8
+		position.y = -1557
+		
+		

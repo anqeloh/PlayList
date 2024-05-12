@@ -88,3 +88,5 @@ func ssave():
 	print("saved:")
 	print(FileData.global_position)
 	print(FileData.playerData.health)
+	
+
