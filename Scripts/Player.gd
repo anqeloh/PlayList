@@ -1,10 +1,8 @@
 extends CharacterBody2D
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
 
-const SPEED = 100
+const speed = 75
 var current_dir = "none"
-
 
 var npc_in_range = false
 var sza_npc_in_range = false
@@ -24,32 +22,32 @@ func player_shop_method():
 	pass
 
 func player_movement(delta):
-	var input_vector = Vector2.ZERO
+	
 	if Input.is_action_pressed("ui_right"):
-		input_vector.x += 1
 		current_dir = "right"
-		animated_sprite_2d.play("side_walk")
-	if Input.is_action_pressed("ui_left"):
-		input_vector.x -= 1
+		play_anim(1)
+		velocity.x = speed
+		velocity.y = 0
+	elif Input.is_action_pressed("ui_left"):
 		current_dir = "left"
-		animated_sprite_2d.play("side_walk")
-	if Input.is_action_pressed("ui_down"):
-		input_vector.y += 1
+		play_anim(1)
+		velocity.x = -speed
+		velocity.y = 0
+	elif Input.is_action_pressed("ui_down"):
 		current_dir = "down"
-		animated_sprite_2d.play("front_walk")
-	if Input.is_action_pressed("ui_up"):
-		input_vector.y -= 1
+		play_anim(1)
+		velocity.y = speed
+		velocity.x = 0
+	elif Input.is_action_pressed("ui_up"):
 		current_dir = "up"
-		animated_sprite_2d.play("back_walk")
+		play_anim(1)
+		velocity.y = -speed
+		velocity.x = 0
 	else:
 		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0
 		
-	input_vector = input_vector.normalized()
-	
-	velocity = input_vector * SPEED
-	
 	move_and_slide()
 	
 func play_anim(movement):
@@ -81,3 +79,14 @@ func play_anim(movement):
 		elif movement == 0:
 			anim.play("back_idle")
 			
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Portal"):
+		position.x = 104
+		position.y = -2990
+	if area.is_in_group("Portal2"):
+		position.x = -8
+		position.y = -1557
+		
+		
