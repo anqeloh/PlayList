@@ -10,12 +10,13 @@ func _process(delta):
 	speed_check()
 	
 func _input(event):
-	if Input.is_action_just_pressed("spaceBUTTON") and is_in_area:
-		WorldSignals.QTE.emit()
-	elif Input.is_action_just_pressed("spaceBUTTON"):
-		print("LOSE")
-		OS.alert("You Lose!")
-		get_tree().quit()
+	if self.visible == true:
+		if Input.is_action_just_pressed("spaceBUTTON") and is_in_area:
+			WorldSignals.QTE.emit()
+		elif Input.is_action_just_pressed("spaceBUTTON"):
+			print("LOSE")
+			OS.alert("You Lose!")
+			get_tree().quit()
 
 func _on_qt_eredarea_body_entered(body):
 	is_in_area = true
