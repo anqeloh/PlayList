@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=31 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
@@ -18,6 +18,7 @@
 [ext_resource type="Resource" uid="uid://dlijx8qdb4df1" path="res://Dialogues/statuesavepoint.dialogue" id="17_g2rub"]
 [ext_resource type="PackedScene" uid="uid://bkki0sq1u7xru" path="res://Scenes/abstract_item.tscn" id="17_p6xss"]
 [ext_resource type="PackedScene" uid="uid://drccvf1vx46d3" path="res://Scenes/battle.tscn" id="18_obthu"]
+[ext_resource type="PackedScene" uid="uid://ch4hfnvidejdk" path="res://Scenes/fog.tscn" id="19_glejr"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v2cxv"]
 radius = 7.0
@@ -299,6 +300,8 @@ shape = SubResource("CircleShape2D_oiv1n")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(104, -2967)
 shape = SubResource("CircleShape2D_vhqjo")
+
+[node name="Fog" parent="." instance=ExtResource("19_glejr")]
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
 [connection signal="pressed" from="Player/StatueSave/BottomSave/SaveButton" to="Player/StatueSave" method="_on_save_button_pressed"]

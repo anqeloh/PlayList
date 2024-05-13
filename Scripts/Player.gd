@@ -83,10 +83,23 @@ func play_anim(movement):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("Portal"):
+		await transition_in()
 		position.x = 104
 		position.y = -2990
+		await transition_out()
 	if area.is_in_group("Portal2"):
+		await transition_in()
 		position.x = -8
 		position.y = -1557
+		await transition_out()
 		
-		
+func transition_in():
+	LevelTransition.show()
+	WorldSignals.in_dialogue = true
+	await LevelTransition.fade_in()
+	
+func transition_out():
+	await LevelTransition.fade_out()
+	LevelTransition.hide()
+	WorldSignals.in_dialogue = false
+	
