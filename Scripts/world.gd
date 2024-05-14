@@ -3,6 +3,7 @@ extends Node2D
 @onready var player = $Player
 @onready var ui = $InvCanvas/UI
 @onready var battle = $BattleCanvas/Battle
+@onready var ctrl_level_tile_map = $CtrlLevelTileMap
 
 var FileData: FileSave
 var save_file_path = "user://save/"
@@ -17,6 +18,7 @@ func _ready() -> void:
 	ssave_or_lload()
 	await LevelTransition.fade_out()
 	LevelTransition.hide()
+	ctrl_level_tile_map.material.set_shader_parameter('light_intensity', 1)
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):

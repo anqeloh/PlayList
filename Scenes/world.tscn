@@ -23,7 +23,6 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0l8od"]
 shader = ExtResource("3_5dn1h")
-shader_parameter/light_position = null
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v2cxv"]
 radius = 7.0
