@@ -3,6 +3,7 @@
 [ext_resource type="Shader" path="res://Scripts/fog.gdshader" id="1_va5ic"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_t3ucq"]
+noise_type = 3
 frequency = 0.0075
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4l1l6"]
@@ -19,8 +20,7 @@ shader_parameter/speed = Vector2(0.02, 0.01)
 shader_parameter/noise_texture = SubResource("NoiseTexture2D_4l1l6")
 
 [node name="Fog" type="ParallaxBackground"]
-layer = 3
-scroll_ignore_camera_zoom = true
+layer = 2
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2(1152, 648)
