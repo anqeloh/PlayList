@@ -1,12 +1,9 @@
 shader_type canvas_item;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+uniform float light_intensity = 0.35;
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	float light_intensity = 0.35;
 	COLOR.rgb = texture(TEXTURE, UV).rgb * light_intensity;
 }
 

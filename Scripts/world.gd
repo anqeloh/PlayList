@@ -9,6 +9,7 @@ var FileData: FileSave
 var save_file_path = "user://save/"
 var save_file_name = "Player.tres"
 var paused = false
+var number_text = 0
 
 
 func _ready() -> void:
@@ -18,12 +19,12 @@ func _ready() -> void:
 	ssave_or_lload()
 	await LevelTransition.fade_out()
 	LevelTransition.hide()
-	ctrl_level_tile_map.material.set_shader_parameter('light_intensity', 1)
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
-	
+	daylight_cycle(0.0005)
 
 func pauseMenu():
 	if paused:
@@ -71,6 +72,11 @@ func reload_child_scene():
 	else:
 		OS.alert("Failed to load the child scene resource.")
 		return
+		
+func daylight_cycle(number):
+	number_text += number
+	ctrl_level_tile_map.material.set_shader_parameter('light_intensity', number_text)
+
 func change_stats():
 	FileData.playerData.health = battle._FileData.playerData.health
 	FileData.playerData.damage = battle._FileData.playerData.damage
