@@ -34,7 +34,6 @@ func _on_save_button_pressed():
 	await self.textbox_closed
 	await (get_tree().create_timer(0.15).timeout)
 	self.visible = false
-	OS.alert("09483v934hnh9t54t5454h8tfg54h78rujhfguyjhwefgwe")
 func ssave():
 	world.ssave()
 

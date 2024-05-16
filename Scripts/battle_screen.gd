@@ -371,6 +371,7 @@ func round_end_lost():
 	LevelTransition.show()
 	await LevelTransition.fade_in()
 	self.hide()
+	get_tree().reload_current_scene()
 	await LevelTransition.fade_out()
 	LevelTransition.hide()
 	WorldSignals.battle_end.emit()
