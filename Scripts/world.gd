@@ -9,7 +9,8 @@ var FileData: FileSave
 var save_file_path = "user://save/"
 var save_file_name = "Player.tres"
 var paused = false
-var number_text = 0
+var number_text = 1.0
+var flip_reverse = false
 
 
 func _ready() -> void:
@@ -74,8 +75,16 @@ func reload_child_scene():
 		return
 		
 func daylight_cycle(number):
-	number_text += number
-	ctrl_level_tile_map.material.set_shader_parameter('light_intensity', number_text)
+	if not flip_reverse:
+		number_text += number
+		ctrl_level_tile_map.material.set_shader_parameter('light_intensity', number_text)
+		if number_text >= 1.0:
+			flip_reverse = true
+	if flip_reverse:
+		number_text -= number
+		ctrl_level_tile_map.material.set_shader_parameter('light_intensity', number_text)
+		if number_text <= 0.35:
+			flip_reverse = false
 
 func change_stats():
 	FileData.playerData.health = battle._FileData.playerData.health

@@ -296,16 +296,28 @@ func enemy_health_checker():
 			enemy_turn()
 			
 func OPdamage():
-	current_enemy_health = max(0, current_enemy_health - round(pDamage * (1 + (pStrength * 3))))
-	set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
-	$AnimationPlayer.play("enemy_damaged")
-	await $AnimationPlayer.animation_finished
-	qt_eevent.hide()
-	#qt_eevent.paused = true
-	$TextBox.show()
-	display_text("You are overpowered!")
-	await self.textbox_closed
-	enemy_health_checker()
+	if WorldSignals.qte_pressed:
+		current_enemy_health = max(0, current_enemy_health - round(pDamage * (1 + (pStrength * 3))))
+		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		$AnimationPlayer.play("enemy_damaged")
+		await $AnimationPlayer.animation_finished
+		qt_eevent.hide()
+		#qt_eevent.paused = true
+		$TextBox.show()
+		display_text("Super Attacked.")
+		await self.textbox_closed
+		enemy_health_checker()
+		WorldSignals.qte_pressed = false
+	else:
+		current_player_health = max(0, current_player_health - round(pDamage * (1 + (pStrength * 3))))
+		set_health($PlayerPanel/PlayerData/ProgressBar, current_player_health, pMax_health)
+		$AnimationPlayer.play("shake")
+		await $AnimationPlayer.animation_finished
+		qt_eevent.hide()
+		$TextBox.show()
+		display_text("You have failed and lost completely.")
+		await self.textbox_closed
+		round_end_lost()
 func pointer_on_focus():
 	if $AttackPanel/Actions/Attack1.is_hovered():
 		display_text("Attack 1: Attacks the enemy.")
@@ -350,6 +362,15 @@ func round_end():
 	await LevelTransition.fade_in()
 	self.hide()
 	_FileData.ssave()
+	await LevelTransition.fade_out()
+	LevelTransition.hide()
+	WorldSignals.battle_end.emit()
+	
+func round_end_lost():
+	await (get_tree().create_timer(0.25).timeout)
+	LevelTransition.show()
+	await LevelTransition.fade_in()
+	self.hide()
 	await LevelTransition.fade_out()
 	LevelTransition.hide()
 	WorldSignals.battle_end.emit()

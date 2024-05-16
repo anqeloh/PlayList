@@ -12,3 +12,4 @@ signal QTE
 var player_in_chat_zone = false
 var in_dialogue = false
 var use_load = false
+var qte_pressed = false

@@ -13,10 +13,11 @@ func _input(event):
 	if self.visible == true:
 		if Input.is_action_just_pressed("spaceBUTTON") and is_in_area:
 			WorldSignals.QTE.emit()
+			WorldSignals.qte_pressed = true
 		elif Input.is_action_just_pressed("spaceBUTTON"):
-			print("LOSE")
-			OS.alert("You Lose!")
-			get_tree().quit()
+			WorldSignals.QTE.emit()
+			WorldSignals.qte_pressed = false
+			
 
 func _on_qt_eredarea_body_entered(body):
 	is_in_area = true
