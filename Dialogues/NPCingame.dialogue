@@ -8,8 +8,8 @@ npc: There are invaders in our world at the moment.
 	npc: If you have the time,\nI'd like to ask for you to do something for our sake.
 	- I'll gladly help! Tell me what you need.
 	# continue conversation
-		npc: Perfect!\nFirst,\nI'll need you to defeat all the enemies to gain experience, coins, and items.
-		npc: Once you defeat them all,\nyou need to go fight the boss and restore peace to our world.
+		npc: Perfect!\nFirst,\nI'll need you to defeat all the enemies to gain experience.
+		npc: Once you defeat all of them, you will restore peace to our world.
 		npc: Good luck!
 		- Thanks! => END
 		set WorldSignals.dialogue_finished.emit()
@@ -49,8 +49,8 @@ Bob: Would you like to continue our conversation?
 	Bob: If you have the time,\nI'd like to ask for you to do something for our sake.
 	- I'll gladly help! Tell me what you need.
 	# continue conversation
-		Bob: Perfect!\nFirst, I'll need you to defeat all the enemies to gain experience, coins, and items.
-		Bob: Once you defeat them all, you need to go fight the boss and restore peace to our world.
+		Bob: Perfect!\nFirst, I'll need you to defeat all the enemies to gain experience.
+		Bob: Once you defeat them all, you will restore peace to our world.
 		Bob: You got this!
 		- Thanks! => END
 		set WorldSignals.dialogue_finished.emit()
