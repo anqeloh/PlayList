@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
-@onready var animated_sprite_2d = $AnimatedSprite2D
 
 const SPEED = 100
 var current_dir = "none"
-
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 var npc_in_range = false
 var sza_npc_in_range = false
@@ -45,11 +44,9 @@ func player_movement(delta):
 		play_anim(0)
 		velocity.x = 0
 		velocity.y = 0
-		
 	input_vector = input_vector.normalized()
 	
 	velocity = input_vector * SPEED
-	
 	move_and_slide()
 	
 func play_anim(movement):
@@ -81,3 +78,27 @@ func play_anim(movement):
 		elif movement == 0:
 			anim.play("back_idle")
 			
+
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group("Portal"):
+		await transition_in()
+		position.x = 104
+		position.y = -2990
+		await transition_out()
+	if area.is_in_group("Portal2"):
+		await transition_in()
+		position.x = -8
+		position.y = -1557
+		await transition_out()
+		
+func transition_in():
+	LevelTransition.show()
+	WorldSignals.in_dialogue = true
+	await LevelTransition.fade_in()
+	
+func transition_out():
+	await LevelTransition.fade_out()
+	LevelTransition.hide()
+	WorldSignals.in_dialogue = false
+	
