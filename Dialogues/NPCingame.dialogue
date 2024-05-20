@@ -1,15 +1,13 @@
 ~ start
 # start dialogue with main world npc
 npc: Hello, I see you have made it!
-npc: You know..
-npc: There are intruders disrupting this forest at the moment.
 - Hello!
 # continue conversation
 	npc: If you have the time,\nI'd like to ask for you to do something for our sake.
 	- I'll gladly help! Tell me what you need.
 	# continue conversation
-		npc: Perfect!\nFirst,\nI'll need you to defeat all the enemies to gain experience.
-		npc: Once you defeat all of them, you will restore peace to our world.
+		npc: Perfect!\nFirst, I'll need you to battle different artists to defeat them.
+		npc: It's to show them that you are worthy in becoming famous!
 		npc: Good luck!
 		- Thanks! => END
 		set WorldSignals.dialogue_finished.emit()
@@ -50,8 +48,8 @@ Bob: Would you like to continue our conversation?
 	Bob: If you have the time,\nI'd like to ask for you to do something for our sake.
 	- I'll gladly help! Tell me what you need.
 	# continue conversation
-		Bob: Perfect!\nFirst, I'll need you to defeat all the enemies to gain experience.
-		Bob: Once you defeat them all, you will restore peace to our world.
+		Bob: Perfect!\nFirst, I'll need you to battle different artists to defeat them.
+		Bob: It's to show them that you are worthy in becoming famous!
 		Bob: You got this!
 		- Thanks! => END
 		set WorldSignals.dialogue_finished.emit()
