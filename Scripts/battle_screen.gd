@@ -4,12 +4,14 @@ signal textbox_closed
 
 @onready var experience_bar = $ExperienceBar
 @onready var enemy_sprite = $EnemyContainer2/Enemy
+@onready var player_sprite = $PlayerContainer/PlayerSprite
 @onready var world = $"../.."
 @onready var qt_eevent = $QTEevent
 
 var _FileData = FileSave.lload()
 var enemies = [
-	preload("res://Resource/godot_png2.tres")
+	preload("res://Resource/godot_png2.tres"),
+	preload("res://Resource/godot_png.tres")
 	]
 
 
@@ -54,6 +56,8 @@ func start():
 	display_text("What will you do?")
 	$ActionsPanel/Actions1.show()
 	$ActionsPanel/Actions2.show()
+	enemy_sprite.play("Idle")
+	player_sprite.play("Idle")
 	WorldSignals.QTE.connect(OPdamage)
 	rng = RandomNumberGenerator.new()
 func up_stats():
@@ -100,8 +104,9 @@ func enemy_turn():
 		
 	else:
 		current_player_health = max(0, current_player_health - round(enemy.damage * (1-(pDefense * 0.02))))
-		enemy_sprite.play()
+		enemy_sprite.play("Attack")
 		await (get_tree().create_timer(0.8).timeout)
+		player_sprite.play("Damaged")
 		enemy_sprite.stop()
 		_FileData.playerData.change_health(-(enemy.damage))
 		pHealth = _FileData.playerData.health
@@ -198,19 +203,24 @@ func _on_attack_1_pressed():
 	var randomValue = rng.randi_range(1,5)
 	rng.randomize()
 	if not randomValue == 1:
-		current_enemy_health = max(0, current_enemy_health - round(pDamage * (1 + (pStrength * 0.05))))
-		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		player_sprite.play("Attack1")
+		await player_sprite.animation_finished
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
-		
+		current_enemy_health = max(0, current_enemy_health - round(pDamage * (1 + (pStrength * 0.05))))
+		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		player_sprite.play("Idle")
 		display_text("You dealt %d damage!" % round(pDamage * (1 + (pStrength * 0.05))))
 		await self.textbox_closed
 		enemy_health_checker()
 	else:
-		current_enemy_health = max(0, current_enemy_health - (2 * (round(pDamage * (1+(pStrength * 0.05))))))
-		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		player_sprite.play("Attack1")
+		await player_sprite.animation_finished
 		$AnimationPlayer.play("enemy_damaged")
 		await $AnimationPlayer.animation_finished
+		current_enemy_health = max(0, current_enemy_health - (2 * (round(pDamage * (1+(pStrength * 0.05))))))
+		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		player_sprite.play("Idle")
 		display_text("Critical hit! You dealt %d damage!" % (2 * round(pDamage * ((pStrength * 0.05) + 1))))
 		await self.textbox_closed
 		enemy_health_checker()

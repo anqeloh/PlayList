@@ -25,7 +25,7 @@ func _ready() -> void:
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
-	daylight_cycle(0.0005)
+	daylight_cycle(0.0001)
 
 func pauseMenu():
 	if paused:
@@ -85,6 +85,7 @@ func daylight_cycle(number):
 		ctrl_level_tile_map.material.set_shader_parameter('light_intensity', number_text)
 		if number_text <= 0.35:
 			flip_reverse = false
+			
 
 func change_stats():
 	FileData.playerData.health = battle._FileData.playerData.health
