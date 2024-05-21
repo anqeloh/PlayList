@@ -22,6 +22,7 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 ItemData="*res://Autoload/database.gd"
 LevelTransition="*res://Scenes/level_transition.tscn"
 global="*res://Scripts/global.gd"
+FileSaver="*res://Scripts/FileSaver.gd"
 
 [dialogue_manager]
 

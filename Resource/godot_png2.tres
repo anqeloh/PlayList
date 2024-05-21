@@ -5,7 +5,8 @@
 
 [resource]
 script = ExtResource("1_4rl17")
-name = "ENEMY"
+name = "ENEMY HIGHLY"
 texture = ExtResource("2_5eq4f")
 health = 20
 damage = 3
+exp_gained = 120

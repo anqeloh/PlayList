@@ -8,4 +8,5 @@ script = ExtResource("1_7rcif")
 name = "Punch Omega"
 texture = ExtResource("2_7s4bx")
 health = 25
-damage = 4
+damage = 5
+exp_gained = 240

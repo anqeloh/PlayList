@@ -5,7 +5,7 @@ extends Node2D
 @onready var battle = $BattleCanvas/Battle
 @onready var ctrl_level_tile_map = $CtrlLevelTileMap
 
-var FileData: FileSave
+var FileData = FileSaver.lload()
 var save_file_path = "user://save/"
 var save_file_name = "Player.tres"
 var paused = false
@@ -17,12 +17,13 @@ func _ready() -> void:
 	WorldSignals.battle_start.connect(battle_begin)
 	WorldSignals.position_load.connect(lload)
 	WorldSignals.battle_end.connect(battle_ends)
-	ssave_or_lload()
+	await lload()
 	await LevelTransition.fade_out()
 	LevelTransition.hide()
 	
 
 func _process(delta):
+	FileData.world_position = player.position
 	if Input.is_action_just_pressed("pause"):
 		pauseMenu()
 	daylight_cycle(0.0001)
@@ -47,7 +48,6 @@ func battle_ends():
 	reload_child_scene()
 	
 
-	
 func ssave_or_lload():
 	if WorldSignals.use_load:
 		FileData = FileSave.lload()
@@ -62,7 +62,6 @@ func ssave_or_lload():
 func reload_child_scene():
 	var child_scene_path = "res://Scenes/battle.tscn"
 	var child_scene_resource = load(child_scene_path)
-	change_stats()
 	if child_scene_resource:
 		var old_child_scene = battle
 		var new_child_scene = child_scene_resource.instantiate()
@@ -87,24 +86,14 @@ func daylight_cycle(number):
 			flip_reverse = false
 			
 
-func change_stats():
-	FileData.playerData.health = battle._FileData.playerData.health
-	FileData.playerData.damage = battle._FileData.playerData.damage
-	FileData.playerData.level = battle._FileData.playerData.level
-	FileData.playerData.max_health = battle._FileData.playerData.max_health
-	FileData.playerData.experience = battle._FileData.playerData.experience
-	FileData.playerData.experience_rq = battle._FileData.playerData.experience_rq
-
 func lload():
-	FileData = FileSave.lload()
-	player.position = FileData.global_position
-	
+	FileSaver.lload()
+	player.position = FileData.world_position
+	print("position loaded")
 func ssave():
-	FileData.global_position = player.position
-	FileData.ssave()
-	
+	FileSaver.ssave()
 	print("saved:")
-	print(FileData.global_position)
+	print(FileData.world_position)
 	print(FileData.playerData.health)
 	
 

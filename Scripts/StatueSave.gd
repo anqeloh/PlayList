@@ -11,6 +11,7 @@ var fileData
 
 func _ready() -> void:
 	WorldSignals.save.connect(open_save)
+	fileData = world.FileData
 
 func open_save():
 	await (get_tree().create_timer(0.15).timeout)
@@ -28,22 +29,25 @@ func _input(event):
 
 
 func _on_save_button_pressed():
+	fileData.playerData.change_health(fileData.playerData.max_health - fileData.playerData.health)
 	await ssave()
+	up_stats()
 	save_button.hide()
 	display_text("Your game has been saved.")
 	await self.textbox_closed
 	await (get_tree().create_timer(0.15).timeout)
 	self.visible = false
+	
 func ssave():
-	world.ssave()
+	fileData.ssave()
 
 func up_stats():
-	fileData = FileSave.lload()
 	var pH = fileData.playerData.health
+	var pHH = fileData.playerData.max_health
 	var pA = fileData.playerData.damage
 	var pL = fileData.playerData.level
 	player_info_label.text = "Stats:
-	HTH: %d
+	HTH: %d / %d
 	ATK: %d
-	LVL: %d" % [pH, pA, pL]
+	LVL: %d" % [pH, pHH, pA, pL]
 	

@@ -3,20 +3,22 @@ extends Node2D
 @onready var bar = $QTEbar
 @onready var arrow = $QTEarrow
 var is_in_area = false
-var SPEED = 20
+var SPEED = 200
+var times_pressed := 1
 #352.0px and 44 units = length of bar
 func _process(delta):
-	arrow.position.x += SPEED
+	arrow.position.x += SPEED * delta
 	speed_check()
 	
 func _input(event):
 	if self.visible == true:
 		if Input.is_action_just_pressed("spaceBUTTON") and is_in_area:
-			WorldSignals.QTE.emit()
-			WorldSignals.qte_pressed = true
+			SPEED *= 1.5
+			times_pressed += 1
 		elif Input.is_action_just_pressed("spaceBUTTON"):
-			WorldSignals.QTE.emit()
-			WorldSignals.qte_pressed = false
+			SPEED = 200
+			WorldSignals.QTE.emit(times_pressed)
+			times_pressed = 1
 			
 
 func _on_qt_eredarea_body_entered(body):

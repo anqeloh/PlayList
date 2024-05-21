@@ -2,8 +2,7 @@ extends Resource
 class_name FileSave
 
 @export var playerData = PlayerData.new()
-
-@export var global_position:= Vector2.ZERO
+@export var world_position:= Vector2.ZERO
 
 const SAVE_FILE_PATH = "user://save/"
 const SAVE_FILE_NAME = "Player.tres"

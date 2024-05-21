@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://wxphnnm2j2tx"]
+[gd_scene load_steps=42 format=3 uid="uid://wxphnnm2j2tx"]
 
 [ext_resource type="Script" path="res://Scripts/world.gd" id="1_ac8an"]
 [ext_resource type="PackedScene" uid="uid://cfyx71wr2boo0" path="res://Scenes/pause_menu.tscn" id="2_jf3sv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scripts/in_dialogue.gd" id="6_m74ok"]
 [ext_resource type="PackedScene" uid="uid://c27mg23q4c8qa" path="res://Scenes/chat_area.tscn" id="8_35d7q"]
 [ext_resource type="Resource" uid="uid://cdur4wbb5axos" path="res://Dialogues/enemyfiller.dialogue" id="10_fg38q"]
+[ext_resource type="Texture2D" uid="uid://b0q2wcax0eud6" path="res://Assets/ChaewonIdleSprite-Sheet.png" id="11_sj0fy"]
 [ext_resource type="Script" path="res://Scripts/InventoryScripts/testUI.gd" id="12_ale1l"]
 [ext_resource type="Script" path="res://Scripts/InventoryScripts/INVENTORY_yes.gd" id="13_mcibm"]
 [ext_resource type="PackedScene" uid="uid://xgu3sp3xy8e0" path="res://Scenes/slot.tscn" id="14_titl8"]
@@ -70,6 +71,63 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_76bss"]
 size = Vector2(28, 18)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y03x1"]
+atlas = ExtResource("11_sj0fy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jiyp"]
+atlas = ExtResource("11_sj0fy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yg3cp"]
+atlas = ExtResource("11_sj0fy")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4wt8"]
+atlas = ExtResource("11_sj0fy")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_efx1l"]
+atlas = ExtResource("11_sj0fy")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e4e3"]
+atlas = ExtResource("11_sj0fy")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0drh1"]
+atlas = ExtResource("11_sj0fy")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i5v2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y03x1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jiyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yg3cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4wt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_efx1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e4e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0drh1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_oiv1n"]
 radius = 11.0
 
@@ -117,7 +175,7 @@ script = ExtResource("5_wv5fh")
 layout_mode = 0
 offset_left = -144.0
 offset_top = -71.0
-offset_right = -64.0
+offset_right = -51.0
 offset_bottom = 36.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8y246")
 
@@ -182,6 +240,26 @@ script = ExtResource("6_m74ok")
 dialogue_insert = ExtResource("10_fg38q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/ChatArea"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_76bss")
+
+[node name="NPC2" parent="." instance=ExtResource("5_dnk7x")]
+position = Vector2(-16, -1120)
+collision_layer = 4
+collision_mask = 2
+
+[node name="AnimatedSprite2D" parent="NPC2" index="0"]
+sprite_frames = SubResource("SpriteFrames_i5v2m")
+autoplay = "idle"
+frame_progress = 0.0506343
+
+[node name="ChatArea" type="Area2D" parent="NPC2"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("6_m74ok")
+dialogue_insert = ExtResource("10_fg38q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2/ChatArea"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_76bss")
 
@@ -314,3 +392,7 @@ follow_viewport_scale = 3.0
 [connection signal="pressed" from="Player/StatueSave/BottomSave/SaveButton" to="Player/StatueSave" method="_on_save_button_pressed"]
 [connection signal="body_entered" from="NPC/ChatArea" to="NPC/ChatArea" method="_area_entered"]
 [connection signal="body_exited" from="NPC/ChatArea" to="NPC/ChatArea" method="_on_body_exited"]
+[connection signal="body_entered" from="NPC2/ChatArea" to="NPC2/ChatArea" method="_area_entered"]
+[connection signal="body_exited" from="NPC2/ChatArea" to="NPC2/ChatArea" method="_on_body_exited"]
+
+[editable path="NPC2"]

@@ -12,6 +12,8 @@ func _on_story_pressed():
 	if not ( ResourceLoader.exists( save_file_path + save_file_name ) ):
 		LevelTransition.show()
 		await LevelTransition.fade_in()
+		await FileSaver.ssave()
+		#await FileSaver.lload()
 		get_tree().change_scene_to_file("res://Scenes/world.tscn")
 		
 	else: 
@@ -30,7 +32,6 @@ func _on_exit_pressed():
 
 func _on_load_pressed():
 	if ( ResourceLoader.exists( save_file_path + save_file_name ) ):
-		WorldSignals.use_load = true
 		LevelTransition.show()
 		await LevelTransition.fade_in()
 		get_tree().change_scene_to_file("res://Scenes/world.tscn")
