@@ -87,9 +87,15 @@ func enemy_turn():
 	await self.textbox_closed
 	if is_defending:
 		$AnimationPlayer.play("defend")
+		enemy_sprite.play("Attack")
+		await (get_tree().create_timer(0.2).timeout)
+		player_sprite.play("defend")
 		await $AnimationPlayer.animation_finished
 		current_enemy_health = max(0, current_enemy_health - (pDamage * 2))
 		set_health($EnemyContainer/ProgressBar, current_enemy_health, enemy.health)
+		await (get_tree().create_timer(1.3).timeout)
+		enemy_sprite.play("Idle")
+		player_sprite.play("Idle")
 		display_text("No damage was taken, Enemy has taken recoil!")
 		await self.textbox_closed
 		await enemy_health_checker()
@@ -180,6 +186,9 @@ func _on_heal_pressed():
 			_FileData.playerData.change_health((enemy.damage * 2))
 			pHealth = _FileData.playerData.health
 		print(pHealth)
+		player_sprite.play("Heal")
+		await (get_tree().create_timer(0.8).timeout)
+		player_sprite.play("Idle")
 		display_text("You Have Healed")
 		await self.textbox_closed
 		enemy_turn()
