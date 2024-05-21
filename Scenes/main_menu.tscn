@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bfvj0rf4psaxu"]
+[gd_scene load_steps=4 format=3 uid="uid://bfvj0rf4psaxu"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_6u4qe"]
 [ext_resource type="Texture2D" uid="uid://c01dwbce7n2om" path="res://Assets/GameTitle.png" id="2_5snve"]
+[ext_resource type="PackedScene" uid="uid://b4ktrv8m1xk8w" path="res://parallax.tscn" id="3_est75"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -52,6 +53,8 @@ text = "Options"
 [node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
+
+[node name="Parallax" parent="." instance=ExtResource("3_est75")]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Story" to="." method="_on_story_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Load" to="." method="_on_load_pressed"]

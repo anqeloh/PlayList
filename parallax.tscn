@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://b4ktrv8m1xk8w"]
+
+[ext_resource type="Texture2D" uid="uid://chlf3iwwwxdou" path="res://Assets/ParalaxBGSky.png" id="1_j2pxk"]
+[ext_resource type="Texture2D" uid="uid://bk1lt5k78bw64" path="res://Assets/ParalaxBGClouds.png" id="2_67new"]
+[ext_resource type="Texture2D" uid="uid://bkrv1ibvjtyke" path="res://Assets/ParalaxBGHills.png" id="4_4whu0"]
+[ext_resource type="Texture2D" uid="uid://1d08tik8k1hq" path="res://Assets/ParalaxBGSlopes.png" id="5_qw4gb"]
+[ext_resource type="Texture2D" uid="uid://dio5lpw7gqcb0" path="res://Assets/ParalaxBGTerrain.png" id="6_33srr"]
+[ext_resource type="Texture2D" uid="uid://bfis7nrwcnfgf" path="res://Assets/ParalaxBGTracks.png" id="7_h2xmf"]
+[ext_resource type="Texture2D" uid="uid://bfwlrngndms4t" path="res://Assets/ParalaxBGGrass.png" id="8_xgapg"]
+
+[node name="Parallax" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(5.715, 5.715)
+transform = Transform2D(5.715, 0, 0, 5.715, 0, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, -16.7979)
+scale = Vector2(1.43, 1.43)
+texture = ExtResource("1_j2pxk")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 12.805)
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(144, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture = ExtResource("2_67new")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(144, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture = ExtResource("4_4whu0")
+centered = false
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(144, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+texture = ExtResource("5_qw4gb")
+centered = false
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(144, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer6"]
+texture = ExtResource("6_33srr")
+centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(144, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+texture = ExtResource("7_h2xmf")
+centered = false
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(144, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer8"]
+texture = ExtResource("8_xgapg")
+centered = false

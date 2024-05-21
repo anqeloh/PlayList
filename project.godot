@@ -29,7 +29,7 @@ general/balloon_path="res://Dialogues/balloon.tscn"
 
 [display]
 
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
@@ -97,7 +97,7 @@ spaceBUTTON={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://Dialogues/main.dialogue", "res://Dialogues/test.dialogue", "res://Dialogues/test2.dialogue", "res://Dialogues/FileOverrideWarning.dialogue", "res://Dialogues/lvl1snpc.dialogue", "res://Dialogues/NPCingame.dialogue", "res://Dialogues/eastereggdialogue.dialogue", "res://Dialogues/enemy1.dialogue", "res://Dialogues/test3.dialogue", "res://Dialogues/shopkeeper.dialogue", "res://Dialogues/lvl2snpc.dialogue", "res://Dialogues/lvl3snpc.dialogue", "res://Dialogues/shopkeeper2.dialogue", "res://Dialogues/statuesavepoint.dialogue", "res://Dialogues/unabletopassthispoint.dialogue", "res://Dialogues/test4.dialogue", "res://Dialogues/enemyfiller.dialogue", "res://Dialogues/SZA.dialogue", "res://Dialogues/Ice Spice.dialogue", "res://Dialogues/Kim Chaewon.dialogue")
+locale/translations_pot_files=PackedStringArray("res://Dialogues/main.dialogue", "res://Dialogues/test.dialogue", "res://Dialogues/test2.dialogue", "res://Dialogues/FileOverrideWarning.dialogue", "res://Dialogues/lvl1snpc.dialogue", "res://Dialogues/NPCingame.dialogue", "res://Dialogues/eastereggdialogue.dialogue", "res://Dialogues/test3.dialogue", "res://Dialogues/shopkeeper.dialogue", "res://Dialogues/lvl2snpc.dialogue", "res://Dialogues/lvl3snpc.dialogue", "res://Dialogues/shopkeeper2.dialogue", "res://Dialogues/statuesavepoint.dialogue", "res://Dialogues/unabletopassthispoint.dialogue", "res://Dialogues/test4.dialogue", "res://Dialogues/enemyfiller.dialogue", "res://Dialogues/SZA.dialogue", "res://Dialogues/Ice Spice.dialogue", "res://Dialogues/Kim Chaewon.dialogue", "res://Assets/enemy1.dialogue")
 
 [layer_names]
 
