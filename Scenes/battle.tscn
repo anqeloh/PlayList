@@ -339,10 +339,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1210.0
-offset_top = 183.0
-offset_right = 1639.0
-offset_bottom = 344.001
+offset_left = 634.0
+offset_top = -141.0
+offset_right = 1063.0
+offset_bottom = 20.001
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -592,7 +592,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_11p6t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
-text = "ATTack1"
+text = "SAXOPHONE"
 
 [node name="Attack2" type="Button" parent="AttackPanel/Actions"]
 layout_mode = 2
@@ -606,7 +606,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_11p6t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
-text = "ATTACK2"
+text = "QUACK"
 
 [node name="Actions2" type="HBoxContainer" parent="AttackPanel"]
 layout_mode = 1
@@ -634,7 +634,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_11p6t")
 theme_override_styles/hover = SubResource("StyleBoxFlat_e6ava")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_e6ava")
-text = "ATTACK3"
+text = "SPECIAL"
 
 [node name="Attack4" type="Button" parent="AttackPanel/Actions2"]
 layout_mode = 2
@@ -648,7 +648,7 @@ theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_ag1jj")
 theme_override_styles/hover = SubResource("StyleBoxFlat_x32x4")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7yvod")
-text = "ATTACK4"
+text = "POWER UP"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
