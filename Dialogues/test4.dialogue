@@ -1,0 +1,9 @@
+~ start
+
+Test number 4
+Test: This is a test
+- go next => start
+- end => END
+set WorldSignals.dialogue_finished.emit()
+
+=> END

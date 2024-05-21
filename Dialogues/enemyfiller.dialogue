@@ -1,0 +1,14 @@
+~ start
+
+Enemy: Hey you! Stop [[singing|playing]] that retched music!
+- No! I will not!
+	Enemy: Grr, stop that this instant! Fight me!\nIf I win, you will forever not [[sing|play]] that music ever again!
+	- Deal! And if I win, you have to stop complaining!
+	set WorldSignals.battle_start.emit()
+	set WorldSignals.dialogue_finished.emit()
+- ...
+	Enemy: I know you hear me! Stop this!
+	- Goodbye!
+	set WorldSignals.dialogue_finished.emit()
+
+=> END

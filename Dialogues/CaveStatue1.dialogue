@@ -1,0 +1,17 @@
+~ start
+
+Statue: Welcome to this cave!
+- Quack
+	Statue: Would you like to save?
+	- Quack, yes.
+		Statue: Okay.\nSaving...
+		set WorldSignals.dialogue_finished.emit()
+		set WorldSignals.save.emit()
+	- Quack, no.
+		Save.
+		- Quack, fine.
+			Statue: Okay.\nSaving...
+			set WorldSignals.dialogue_finished.emit()
+			set WorldSignals.save.emit()
+
+=> END

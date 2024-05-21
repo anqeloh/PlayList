@@ -1,5 +1,6 @@
 ~ start
-I am looking at this thing.
-Confusing.
-Other than that, nothing.
+This is a TEST.
+test #2
+Other then that, nothing.
+set WorldSignals.dialogue_finished.emit()
 => END

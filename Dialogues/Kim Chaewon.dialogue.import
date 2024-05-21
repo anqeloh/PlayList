@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bujly7cgykmwp"
+path="res://.godot/imported/Kim Chaewon.dialogue-1925bd61211a083e16f3a624bfb11263.tres"
+
+[deps]
+
+source_file="res://Dialogues/Kim Chaewon.dialogue"
+dest_files=["res://.godot/imported/Kim Chaewon.dialogue-1925bd61211a083e16f3a624bfb11263.tres"]
+
+[params]
+
+defaults=true

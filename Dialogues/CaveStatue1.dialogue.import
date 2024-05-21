@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dhes6td208t3g"
+path="res://.godot/imported/CaveStatue1.dialogue-a97746b6bed1da03725d72cebfda7a01.tres"
+
+[deps]
+
+source_file="res://Dialogues/CaveStatue1.dialogue"
+dest_files=["res://.godot/imported/CaveStatue1.dialogue-a97746b6bed1da03725d72cebfda7a01.tres"]
+
+[params]
+
+defaults=true

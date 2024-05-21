@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://be0uqwqhsq3u5"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerData.gd" id="1_mh1g8"]
+
+[resource]
+script = ExtResource("1_mh1g8")
+health = 25
+damage = 5
+level = 1
+max_health = 25
+experience = 0
+experience_rq = 0

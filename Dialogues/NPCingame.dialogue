@@ -1,0 +1,66 @@
+~ start
+# start dialogue with main world npc
+npc: Hello, I see you have made it!
+- Hello!
+# continue conversation
+	npc: If you have the time,\nI'd like to ask for you to do something for our sake.
+	- I'll gladly help! Tell me what you need.
+	# continue conversation
+		npc: Perfect!\nFirst, I'll need you to battle different artists to defeat them.
+		npc: It's to show them that you are worthy in becoming famous!
+		npc: Good luck!
+		- Thanks! => END
+		set WorldSignals.dialogue_finished.emit()
+	- I'm busy. I will not help you.
+	# ending conversation
+		npc: Well..
+		npc: If you do, please help.
+		npc: I'll be here, I won't go anywhere,\nJust here.. => END
+		set WorldSignals.dialogue_finished.emit()
+		# finish conversation
+- Who.. are you?
+# transition to (who are you) conversation
+	npc: Me? How do you not know me?
+	npc: I am the person everyone looks for when they arrive to this forest!
+	npc: I am Bob.
+	Bob: Need any more information??
+	- Yes! Tell me more!
+	# continue (who are you) conversation
+		Bob: Alrighty!!
+		Bob: In this game...\nNevermind..
+		Bob: I can't tell you any further. => END
+	- No.. no more. => different
+	# go to "different" dialogue
+- Bye.. => END
+set WorldSignals.dialogue_finished.emit()
+# finish dialogue
+
+
+=> END
+
+~ different
+# start second string
+Bob: Umm.. anyways, since you know me now
+Bob: Would you like to continue our conversation?
+- Yes
+# continue conversation
+	Bob: Perfect!
+	Bob: If you have the time,\nI'd like to ask for you to do something for our sake.
+	- I'll gladly help! Tell me what you need.
+	# continue conversation
+		Bob: Perfect!\nFirst, I'll need you to battle different artists to defeat them.
+		Bob: It's to show them that you are worthy in becoming famous!
+		Bob: You got this!
+		- Thanks! => END
+		set WorldSignals.dialogue_finished.emit()
+	- I'm busy. I will not help you.
+	# ending conversation
+		Bob: Well..
+		Bob: If you do, please help.
+		Bob: I'll be here, I won't go anywhere, Just here.. => END
+		# finish conversation
+- No, I'm leaving. => END
+set WorldSignals.dialogue_finished.emit()
+# finish dialogue
+
+=> END
