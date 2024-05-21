@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://cslelgpge0riy"]
+[gd_resource type="SpriteFrames" load_steps=23 format=3 uid="uid://cvl161l3y1312"]
 
 [ext_resource type="Texture2D" uid="uid://bqunrj6vkv6im" path="res://Assets/ChaewonAttack.png" id="1_4gd7f"]
 [ext_resource type="Texture2D" uid="uid://dy5wiiflssh2g" path="res://Assets/ChaewonIdle-Sheet.png" id="2_45kar"]

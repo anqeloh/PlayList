@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6ojoqkgi303j"]
+[gd_scene load_steps=6 format=3 uid="uid://cnjtvs0q06drw"]
 
 [ext_resource type="Script" path="res://Scripts/QTEevent.gd" id="1_mdkb3"]
 [ext_resource type="Texture2D" uid="uid://byxjfsloigbqj" path="res://Assets/sprites/QTEAssests/background.png" id="2_ixi7a"]
