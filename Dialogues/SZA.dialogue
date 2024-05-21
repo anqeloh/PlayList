@@ -1,6 +1,8 @@
 ~ start
 # SZA Enemy Dialogue
 # Add filler dialogue to this
-SZA: 
+SZA: Hello Toned Deaf Duck!
+- Quack!
+	SZA: ___
 
 => END
