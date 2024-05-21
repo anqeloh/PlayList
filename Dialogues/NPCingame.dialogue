@@ -1,13 +1,15 @@
 ~ start
 # start dialogue with main world npc
-npc: Hello, I see you have made it!
+npc: Hello, I see you have made it in one piece!
+npc: You know..
+npc: There are invaders in our world at the moment.
 - Hello!
 # continue conversation
 	npc: If you have the time,\nI'd like to ask for you to do something for our sake.
 	- I'll gladly help! Tell me what you need.
 	# continue conversation
-		npc: Perfect!\nFirst, I'll need you to battle different artists to defeat them.
-		npc: It's to show them that you are worthy in becoming famous!
+		npc: Perfect!\nFirst, you need to battle different artists and win to receive experience.
+		npc: You'll be able to show how you deserve to become famous!
 		npc: Good luck!
 		- Thanks! => END
 		set WorldSignals.dialogue_finished.emit()
@@ -21,14 +23,13 @@ npc: Hello, I see you have made it!
 - Who.. are you?
 # transition to (who are you) conversation
 	npc: Me? How do you not know me?
-	npc: I am the person everyone looks for when they arrive to this forest!
+	npc: I am the person everyone looks for when they are stuck!
 	npc: I am Bob.
 	Bob: Need any more information??
 	- Yes! Tell me more!
 	# continue (who are you) conversation
 		Bob: Alrighty!!
-		Bob: In this game...\nNevermind..
-		Bob: I can't tell you any further. => END
+		Bob: In this game, I am the ___
 	- No.. no more. => different
 	# go to "different" dialogue
 - Bye.. => END
@@ -48,8 +49,8 @@ Bob: Would you like to continue our conversation?
 	Bob: If you have the time,\nI'd like to ask for you to do something for our sake.
 	- I'll gladly help! Tell me what you need.
 	# continue conversation
-		Bob: Perfect!\nFirst, I'll need you to battle different artists to defeat them.
-		Bob: It's to show them that you are worthy in becoming famous!
+		Bob: Perfect!\nFirst, you need to battle different artists and win to receive experience.
+		Bob: You'll be able to show how you deserve to become famous!
 		Bob: You got this!
 		- Thanks! => END
 		set WorldSignals.dialogue_finished.emit()
