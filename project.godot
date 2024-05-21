@@ -18,10 +18,11 @@ config/icon="res://Assets/icon.svg"
 [autoload]
 
 WorldSignals="*res://Scripts/Gsignals.gd"
+State="*res://Scripts/state.gd"
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+global="*res://Scripts/global.gd"
 ItemData="*res://Autoload/database.gd"
 LevelTransition="*res://Scenes/level_transition.tscn"
-global="*res://Scripts/global.gd"
 
 [dialogue_manager]
 
@@ -29,6 +30,7 @@ general/balloon_path="res://Dialogues/balloon.tscn"
 
 [display]
 
+window/size/resizable=false
 window/stretch/mode="viewport"
 
 [editor_plugins]
